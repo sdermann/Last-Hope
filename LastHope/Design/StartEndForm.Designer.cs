@@ -55,10 +55,11 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(143, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(465, 120);
+            this.label1.Size = new System.Drawing.Size(491, 120);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Приватна кліка психологічної\r\nдопомоги бажає Вам вдалого\r\nробочого дня!";
+            this.label1.Text = "Приватна клініка психологічної\r\nдопомоги бажає Вам вдалого\r\nробочого дня!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
