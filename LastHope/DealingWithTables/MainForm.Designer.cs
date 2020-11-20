@@ -91,11 +91,13 @@
             this.dataGridView1.DataSource = this.психологиBindingSource;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(21, 110);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(763, 169);
+            this.dataGridView1.Size = new System.Drawing.Size(781, 169);
             this.dataGridView1.TabIndex = 2;
             // 
             // iDПсихологаDataGridViewTextBoxColumn
@@ -104,6 +106,7 @@
             this.iDПсихологаDataGridViewTextBoxColumn.HeaderText = "ID_Психолога";
             this.iDПсихологаDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iDПсихологаDataGridViewTextBoxColumn.Name = "iDПсихологаDataGridViewTextBoxColumn";
+            this.iDПсихологаDataGridViewTextBoxColumn.ReadOnly = true;
             this.iDПсихологаDataGridViewTextBoxColumn.Width = 125;
             // 
             // прізвищеDataGridViewTextBoxColumn
@@ -112,6 +115,7 @@
             this.прізвищеDataGridViewTextBoxColumn.HeaderText = "Прізвище";
             this.прізвищеDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.прізвищеDataGridViewTextBoxColumn.Name = "прізвищеDataGridViewTextBoxColumn";
+            this.прізвищеDataGridViewTextBoxColumn.ReadOnly = true;
             this.прізвищеDataGridViewTextBoxColumn.Width = 125;
             // 
             // імяDataGridViewTextBoxColumn
@@ -120,6 +124,7 @@
             this.імяDataGridViewTextBoxColumn.HeaderText = "Ім_я";
             this.імяDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.імяDataGridViewTextBoxColumn.Name = "імяDataGridViewTextBoxColumn";
+            this.імяDataGridViewTextBoxColumn.ReadOnly = true;
             this.імяDataGridViewTextBoxColumn.Width = 125;
             // 
             // побатьковіDataGridViewTextBoxColumn
@@ -128,6 +133,7 @@
             this.побатьковіDataGridViewTextBoxColumn.HeaderText = "По_батькові";
             this.побатьковіDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.побатьковіDataGridViewTextBoxColumn.Name = "побатьковіDataGridViewTextBoxColumn";
+            this.побатьковіDataGridViewTextBoxColumn.ReadOnly = true;
             this.побатьковіDataGridViewTextBoxColumn.Width = 125;
             // 
             // датанародженняDataGridViewTextBoxColumn
@@ -136,6 +142,7 @@
             this.датанародженняDataGridViewTextBoxColumn.HeaderText = "Дата_народження";
             this.датанародженняDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.датанародженняDataGridViewTextBoxColumn.Name = "датанародженняDataGridViewTextBoxColumn";
+            this.датанародженняDataGridViewTextBoxColumn.ReadOnly = true;
             this.датанародженняDataGridViewTextBoxColumn.Width = 125;
             // 
             // статьDataGridViewTextBoxColumn
@@ -144,6 +151,7 @@
             this.статьDataGridViewTextBoxColumn.HeaderText = "Стать";
             this.статьDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.статьDataGridViewTextBoxColumn.Name = "статьDataGridViewTextBoxColumn";
+            this.статьDataGridViewTextBoxColumn.ReadOnly = true;
             this.статьDataGridViewTextBoxColumn.Width = 125;
             // 
             // телефонDataGridViewTextBoxColumn
@@ -152,6 +160,7 @@
             this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
             this.телефонDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
+            this.телефонDataGridViewTextBoxColumn.ReadOnly = true;
             this.телефонDataGridViewTextBoxColumn.Width = 125;
             // 
             // поштаDataGridViewTextBoxColumn
@@ -160,6 +169,7 @@
             this.поштаDataGridViewTextBoxColumn.HeaderText = "Пошта";
             this.поштаDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.поштаDataGridViewTextBoxColumn.Name = "поштаDataGridViewTextBoxColumn";
+            this.поштаDataGridViewTextBoxColumn.ReadOnly = true;
             this.поштаDataGridViewTextBoxColumn.Width = 125;
             // 
             // рокикваліфікаціїDataGridViewTextBoxColumn
@@ -168,6 +178,7 @@
             this.рокикваліфікаціїDataGridViewTextBoxColumn.HeaderText = "Роки_кваліфікації";
             this.рокикваліфікаціїDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.рокикваліфікаціїDataGridViewTextBoxColumn.Name = "рокикваліфікаціїDataGridViewTextBoxColumn";
+            this.рокикваліфікаціїDataGridViewTextBoxColumn.ReadOnly = true;
             this.рокикваліфікаціїDataGridViewTextBoxColumn.Width = 125;
             // 
             // лікарськаступіньDataGridViewTextBoxColumn
@@ -176,6 +187,7 @@
             this.лікарськаступіньDataGridViewTextBoxColumn.HeaderText = "Лікарська_ступінь";
             this.лікарськаступіньDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.лікарськаступіньDataGridViewTextBoxColumn.Name = "лікарськаступіньDataGridViewTextBoxColumn";
+            this.лікарськаступіньDataGridViewTextBoxColumn.ReadOnly = true;
             this.лікарськаступіньDataGridViewTextBoxColumn.Width = 125;
             // 
             // психологиBindingSource
@@ -214,7 +226,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
@@ -231,6 +243,7 @@
             this.dataBaseToolStripMenuItem.Name = "dataBaseToolStripMenuItem";
             this.dataBaseToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
             this.dataBaseToolStripMenuItem.Text = "DataBase";
+         
             // 
             // психологиToolStripMenuItem
             // 
@@ -289,7 +302,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -299,7 +312,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -308,7 +321,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -317,13 +330,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -338,7 +351,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -346,7 +359,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -355,13 +368,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // MainForm
             // 

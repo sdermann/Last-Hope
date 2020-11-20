@@ -46,5 +46,7 @@ namespace LastHope
             dataGridView1.DataSource = психологиBindingSource;
             label1.Text = "Психологи";
         }
+
+       
     }
 }

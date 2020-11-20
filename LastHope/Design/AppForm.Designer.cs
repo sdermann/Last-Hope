@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             this.SidePanel = new System.Windows.Forms.Panel();
+            this.SQLButton = new System.Windows.Forms.Button();
+            this.NewClientButton = new System.Windows.Forms.Button();
             this.StatisticsPanel = new System.Windows.Forms.Panel();
+            this.AverageButton = new System.Windows.Forms.Button();
+            this.AttendanceButton = new System.Windows.Forms.Button();
+            this.FrequencyButton = new System.Windows.Forms.Button();
             this.RiskButton = new System.Windows.Forms.Button();
             this.StatisticsName = new System.Windows.Forms.Button();
             this.ReportsPanel = new System.Windows.Forms.Panel();
+            this.TreatmentButton = new System.Windows.Forms.Button();
             this.AmbulanceButton = new System.Windows.Forms.Button();
             this.ReportsButton = new System.Windows.Forms.Button();
             this.MainButton = new System.Windows.Forms.Button();
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.FrequencyButton = new System.Windows.Forms.Button();
-            this.NewClientButton = new System.Windows.Forms.Button();
-            this.SQLButton = new System.Windows.Forms.Button();
-            this.ExitButton = new System.Windows.Forms.Button();
-            this.TreatmentButton = new System.Windows.Forms.Button();
-            this.AverageButton = new System.Windows.Forms.Button();
-            this.AttendanceButton = new System.Windows.Forms.Button();
             this.ChildFormPanel = new System.Windows.Forms.Panel();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.SidePanel.SuspendLayout();
             this.StatisticsPanel.SuspendLayout();
             this.ReportsPanel.SuspendLayout();
@@ -75,6 +75,40 @@
             this.SidePanel.Size = new System.Drawing.Size(298, 703);
             this.SidePanel.TabIndex = 0;
             // 
+            // SQLButton
+            // 
+            this.SQLButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            this.SQLButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SQLButton.FlatAppearance.BorderSize = 0;
+            this.SQLButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SQLButton.Location = new System.Drawing.Point(0, 690);
+            this.SQLButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.SQLButton.Name = "SQLButton";
+            this.SQLButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.SQLButton.Size = new System.Drawing.Size(277, 60);
+            this.SQLButton.TabIndex = 6;
+            this.SQLButton.Text = "SQL";
+            this.SQLButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SQLButton.UseVisualStyleBackColor = false;
+            this.SQLButton.Click += new System.EventHandler(this.SQLButton_Click);
+            // 
+            // NewClientButton
+            // 
+            this.NewClientButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            this.NewClientButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.NewClientButton.FlatAppearance.BorderSize = 0;
+            this.NewClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NewClientButton.Location = new System.Drawing.Point(0, 630);
+            this.NewClientButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.NewClientButton.Name = "NewClientButton";
+            this.NewClientButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.NewClientButton.Size = new System.Drawing.Size(277, 60);
+            this.NewClientButton.TabIndex = 5;
+            this.NewClientButton.Text = "Новий клієнт";
+            this.NewClientButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NewClientButton.UseVisualStyleBackColor = false;
+            this.NewClientButton.Click += new System.EventHandler(this.NewClientButton_Click);
+            // 
             // StatisticsPanel
             // 
             this.StatisticsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
@@ -87,6 +121,54 @@
             this.StatisticsPanel.Name = "StatisticsPanel";
             this.StatisticsPanel.Size = new System.Drawing.Size(277, 208);
             this.StatisticsPanel.TabIndex = 4;
+            // 
+            // AverageButton
+            // 
+            this.AverageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.AverageButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AverageButton.FlatAppearance.BorderSize = 0;
+            this.AverageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AverageButton.Location = new System.Drawing.Point(0, 150);
+            this.AverageButton.Name = "AverageButton";
+            this.AverageButton.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.AverageButton.Size = new System.Drawing.Size(277, 50);
+            this.AverageButton.TabIndex = 5;
+            this.AverageButton.Text = "Середня довжина сесій";
+            this.AverageButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AverageButton.UseVisualStyleBackColor = false;
+            this.AverageButton.Click += new System.EventHandler(this.AverageButton_Click);
+            // 
+            // AttendanceButton
+            // 
+            this.AttendanceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.AttendanceButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AttendanceButton.FlatAppearance.BorderSize = 0;
+            this.AttendanceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AttendanceButton.Location = new System.Drawing.Point(0, 100);
+            this.AttendanceButton.Name = "AttendanceButton";
+            this.AttendanceButton.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.AttendanceButton.Size = new System.Drawing.Size(277, 50);
+            this.AttendanceButton.TabIndex = 4;
+            this.AttendanceButton.Text = "Відвідування клієнта";
+            this.AttendanceButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AttendanceButton.UseVisualStyleBackColor = false;
+            this.AttendanceButton.Click += new System.EventHandler(this.AttendanceButton_Click);
+            // 
+            // FrequencyButton
+            // 
+            this.FrequencyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.FrequencyButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FrequencyButton.FlatAppearance.BorderSize = 0;
+            this.FrequencyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FrequencyButton.Location = new System.Drawing.Point(0, 50);
+            this.FrequencyButton.Name = "FrequencyButton";
+            this.FrequencyButton.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.FrequencyButton.Size = new System.Drawing.Size(277, 50);
+            this.FrequencyButton.TabIndex = 3;
+            this.FrequencyButton.Text = "Частота роботи психолога";
+            this.FrequencyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FrequencyButton.UseVisualStyleBackColor = false;
+            this.FrequencyButton.Click += new System.EventHandler(this.FrequencyButton_Click);
             // 
             // RiskButton
             // 
@@ -131,6 +213,22 @@
             this.ReportsPanel.Name = "ReportsPanel";
             this.ReportsPanel.Size = new System.Drawing.Size(277, 109);
             this.ReportsPanel.TabIndex = 1;
+            // 
+            // TreatmentButton
+            // 
+            this.TreatmentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.TreatmentButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TreatmentButton.FlatAppearance.BorderSize = 0;
+            this.TreatmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TreatmentButton.Location = new System.Drawing.Point(0, 50);
+            this.TreatmentButton.Name = "TreatmentButton";
+            this.TreatmentButton.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
+            this.TreatmentButton.Size = new System.Drawing.Size(277, 50);
+            this.TreatmentButton.TabIndex = 2;
+            this.TreatmentButton.Text = "Ефективність лікування";
+            this.TreatmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TreatmentButton.UseVisualStyleBackColor = false;
+            this.TreatmentButton.Click += new System.EventHandler(this.TreatmentButton_Click);
             // 
             // AmbulanceButton
             // 
@@ -214,55 +312,13 @@
             this.label1.Text = "Приватна клініка\r\n\"Last Hope\"";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // FrequencyButton
+            // ChildFormPanel
             // 
-            this.FrequencyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
-            this.FrequencyButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.FrequencyButton.FlatAppearance.BorderSize = 0;
-            this.FrequencyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FrequencyButton.Location = new System.Drawing.Point(0, 50);
-            this.FrequencyButton.Name = "FrequencyButton";
-            this.FrequencyButton.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.FrequencyButton.Size = new System.Drawing.Size(277, 50);
-            this.FrequencyButton.TabIndex = 3;
-            this.FrequencyButton.Text = "Частота роботи психолога";
-            this.FrequencyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FrequencyButton.UseVisualStyleBackColor = false;
-            this.FrequencyButton.Click += new System.EventHandler(this.FrequencyButton_Click);
-            // 
-            // NewClientButton
-            // 
-            this.NewClientButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            this.NewClientButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.NewClientButton.FlatAppearance.BorderSize = 0;
-            this.NewClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NewClientButton.Location = new System.Drawing.Point(0, 630);
-            this.NewClientButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.NewClientButton.Name = "NewClientButton";
-            this.NewClientButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.NewClientButton.Size = new System.Drawing.Size(277, 60);
-            this.NewClientButton.TabIndex = 5;
-            this.NewClientButton.Text = "Новий клієнт";
-            this.NewClientButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NewClientButton.UseVisualStyleBackColor = false;
-            this.NewClientButton.Click += new System.EventHandler(this.NewClientButton_Click);
-            // 
-            // SQLButton
-            // 
-            this.SQLButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            this.SQLButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SQLButton.FlatAppearance.BorderSize = 0;
-            this.SQLButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SQLButton.Location = new System.Drawing.Point(0, 690);
-            this.SQLButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.SQLButton.Name = "SQLButton";
-            this.SQLButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.SQLButton.Size = new System.Drawing.Size(277, 60);
-            this.SQLButton.TabIndex = 6;
-            this.SQLButton.Text = "SQL";
-            this.SQLButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SQLButton.UseVisualStyleBackColor = false;
-            this.SQLButton.Click += new System.EventHandler(this.SQLButton_Click);
+            this.ChildFormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChildFormPanel.Location = new System.Drawing.Point(298, 0);
+            this.ChildFormPanel.Name = "ChildFormPanel";
+            this.ChildFormPanel.Size = new System.Drawing.Size(684, 703);
+            this.ChildFormPanel.TabIndex = 1;
             // 
             // ExitButton
             // 
@@ -280,62 +336,6 @@
             this.ExitButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ExitButton.UseVisualStyleBackColor = false;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
-            // TreatmentButton
-            // 
-            this.TreatmentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
-            this.TreatmentButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TreatmentButton.FlatAppearance.BorderSize = 0;
-            this.TreatmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TreatmentButton.Location = new System.Drawing.Point(0, 50);
-            this.TreatmentButton.Name = "TreatmentButton";
-            this.TreatmentButton.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.TreatmentButton.Size = new System.Drawing.Size(277, 50);
-            this.TreatmentButton.TabIndex = 2;
-            this.TreatmentButton.Text = "Ефективність лікування";
-            this.TreatmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TreatmentButton.UseVisualStyleBackColor = false;
-            this.TreatmentButton.Click += new System.EventHandler(this.TreatmentButton_Click);
-            // 
-            // AverageButton
-            // 
-            this.AverageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
-            this.AverageButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AverageButton.FlatAppearance.BorderSize = 0;
-            this.AverageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AverageButton.Location = new System.Drawing.Point(0, 150);
-            this.AverageButton.Name = "AverageButton";
-            this.AverageButton.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.AverageButton.Size = new System.Drawing.Size(277, 50);
-            this.AverageButton.TabIndex = 5;
-            this.AverageButton.Text = "Середня довжина сесій";
-            this.AverageButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AverageButton.UseVisualStyleBackColor = false;
-            this.AverageButton.Click += new System.EventHandler(this.AverageButton_Click);
-            // 
-            // AttendanceButton
-            // 
-            this.AttendanceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
-            this.AttendanceButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AttendanceButton.FlatAppearance.BorderSize = 0;
-            this.AttendanceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AttendanceButton.Location = new System.Drawing.Point(0, 100);
-            this.AttendanceButton.Name = "AttendanceButton";
-            this.AttendanceButton.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.AttendanceButton.Size = new System.Drawing.Size(277, 50);
-            this.AttendanceButton.TabIndex = 4;
-            this.AttendanceButton.Text = "Відвідування клієнта";
-            this.AttendanceButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AttendanceButton.UseVisualStyleBackColor = false;
-            this.AttendanceButton.Click += new System.EventHandler(this.AttendanceButton_Click);
-            // 
-            // ChildFormPanel
-            // 
-            this.ChildFormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChildFormPanel.Location = new System.Drawing.Point(298, 0);
-            this.ChildFormPanel.Name = "ChildFormPanel";
-            this.ChildFormPanel.Size = new System.Drawing.Size(684, 703);
-            this.ChildFormPanel.TabIndex = 1;
             // 
             // AppForm
             // 
@@ -375,7 +375,6 @@
         private System.Windows.Forms.Panel LogoPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button SQLButton;
         private System.Windows.Forms.Button NewClientButton;
         private System.Windows.Forms.Button FrequencyButton;
@@ -383,6 +382,7 @@
         private System.Windows.Forms.Button AverageButton;
         private System.Windows.Forms.Button AttendanceButton;
         private System.Windows.Forms.Panel ChildFormPanel;
+        private System.Windows.Forms.Button ExitButton;
     }
 }
 
