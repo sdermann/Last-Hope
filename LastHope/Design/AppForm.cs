@@ -135,7 +135,7 @@ namespace LastHope
         private void ExitButton_Click(object sender, EventArgs e)
         {
             OpenChildForm(new StartEndForm());
-            var res = MessageBox.Show("Do you want to exit?", "", MessageBoxButtons.YesNo);
+            var res = MessageBox.Show("Чи насправді Ви хочете покинути додаток?", "", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
                 this.Close();

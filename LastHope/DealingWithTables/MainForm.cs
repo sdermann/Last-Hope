@@ -17,11 +17,14 @@ namespace LastHope
         public MainForm()
         {
             InitializeComponent();
+      
             //HidePanels
             SortPanel.Hide();
             FiltPanel.Hide();
             SearchPanel.Hide();
+            ResetButt.Hide();
            
+
         }
         public void populateDGV()
         {
@@ -198,7 +201,7 @@ namespace LastHope
                     //Search.
                     SearchLabel.Text = "За прізвищем:";
                     SearchPanel.Show();
-
+                    ResetButt.Show();
                     break;
                 case "Клієнти:":
                     //Sort.
@@ -217,7 +220,7 @@ namespace LastHope
                     //Search.
                     SearchLabel.Text = "За прізвищем:";
                     SearchPanel.Show();
-
+                    ResetButt.Show();
                     break;
                 case "Хвороби:":
                     //Sort.
@@ -236,6 +239,7 @@ namespace LastHope
                     //Search.
                     SearchLabel.Text = "За назвою:";
                     SearchPanel.Show();
+                    ResetButt.Show();
                     break;
             }
         }
@@ -406,19 +410,18 @@ namespace LastHope
             }
         }
 
+        //TODO: new Item
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
 
         }
-
+        
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            //var activeRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
-            //int ID = int.Parse(activeRow.Cells[0].Value.ToString());
-            //DeleteForm deleteForm = new DeleteForm(психологиTableAdapter,ID);
-           // deleteForm.FormClosing += AddPatinetForm_FormClosing;
-           // deleteForm.ShowDialog();
+            
         }
+
+        //TODO:Edit
 
         private void EditStrip_Click(object sender, EventArgs e)
         {
@@ -429,6 +432,50 @@ namespace LastHope
         private void ResetButt_Click_1(object sender, EventArgs e)
         {
             populateDGV();
+        }
+
+        private void DeleteButt_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                string LabelText = TableLabel.Text;
+            string tableName = "";
+            string IdNum = "";
+            switch (LabelText)
+            {
+                case "Психологи:":
+                    tableName = "Психологи";
+                    IdNum = "ID_Психолога";
+                    break;
+                case "Клієнти:":
+                    tableName = "Клієнти";
+                    IdNum = "Id_Клієнта";
+                    break;
+                case "Хвороби:":
+                    tableName = "Хвороби";
+                    IdNum = "Id_Хвороби";
+                    break;
+            }
+                var res = MessageBox.Show("Чи насправді Ви хочете видалити данний елемент?", "", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    var activeRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+                    string deleteQuery = "DELETE FROM " + tableName + " WHERE " + IdNum + " ='" + int.Parse(activeRow.Cells[0].Value.ToString()) + "'    ";
+                    executeMyQuery(deleteQuery);
+                    populateDGV();
+                }
+                else
+                {
+                    //
+                }
+              
+            }
+
+        }
+
+        private void AddButt_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
