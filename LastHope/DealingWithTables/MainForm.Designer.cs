@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.mydbDataSet = new LastHope.mydbDataSet();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -78,16 +78,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SortPanel = new System.Windows.Forms.Panel();
+            this.SortData = new System.Windows.Forms.DomainUpDown();
             this.SortButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.FiltPanel = new System.Windows.Forms.Panel();
-            this.FiltButton = new System.Windows.Forms.Button();
+            this.FiltData = new System.Windows.Forms.DomainUpDown();
             this.FiltLabel = new System.Windows.Forms.Label();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.TextSearchBox = new System.Windows.Forms.TextBox();
             this.SearchLabel = new System.Windows.Forms.Label();
-            this.SortData = new System.Windows.Forms.DomainUpDown();
-            this.FiltData = new System.Windows.Forms.DomainUpDown();
+            this.FiltButton = new System.Windows.Forms.Button();
+            this.ResetButt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -269,12 +270,13 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Додати елемент";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.ForeColor = System.Drawing.Color.SeaShell;
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Всього елементів";
             // 
@@ -284,8 +286,9 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem.Text = "Видалити елемент";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -293,7 +296,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "До першого";
             // 
             // bindingNavigatorMovePreviousItem
@@ -302,13 +305,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "До попереднього";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -323,7 +326,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -331,7 +334,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "До наступного";
             // 
             // bindingNavigatorMoveLastItem
@@ -340,13 +343,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "До останнього";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // EditStrip
             // 
@@ -354,8 +357,9 @@
             this.EditStrip.Image = ((System.Drawing.Image)(resources.GetObject("EditStrip.Image")));
             this.EditStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.EditStrip.Name = "EditStrip";
-            this.EditStrip.Size = new System.Drawing.Size(29, 28);
+            this.EditStrip.Size = new System.Drawing.Size(29, 24);
             this.EditStrip.Text = "Редагувати елемент";
+            this.EditStrip.Click += new System.EventHandler(this.EditStrip_Click);
             // 
             // dataGridView1
             // 
@@ -363,28 +367,29 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SeaShell;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.DataSource = this.bindingSource1;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.Location = new System.Drawing.Point(22, 290);
             this.dataGridView1.MultiSelect = false;
@@ -510,10 +515,23 @@
             this.SortPanel.Controls.Add(this.SortData);
             this.SortPanel.Controls.Add(this.SortButton);
             this.SortPanel.Controls.Add(this.label1);
-            this.SortPanel.Location = new System.Drawing.Point(22, 128);
+            this.SortPanel.Location = new System.Drawing.Point(22, 107);
             this.SortPanel.Name = "SortPanel";
-            this.SortPanel.Size = new System.Drawing.Size(204, 94);
+            this.SortPanel.Size = new System.Drawing.Size(204, 96);
             this.SortPanel.TabIndex = 13;
+            // 
+            // SortData
+            // 
+            this.SortData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SortData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            this.SortData.Font = new System.Drawing.Font("Corbel", 10.2F);
+            this.SortData.ForeColor = System.Drawing.Color.SeaShell;
+            this.SortData.Location = new System.Drawing.Point(0, 30);
+            this.SortData.Name = "SortData";
+            this.SortData.ReadOnly = true;
+            this.SortData.Size = new System.Drawing.Size(203, 28);
+            this.SortData.TabIndex = 39;
+            this.SortData.Text = "Дані";
             // 
             // SortButton
             // 
@@ -524,12 +542,13 @@
             this.SortButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SortButton.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SortButton.ForeColor = System.Drawing.Color.SeaShell;
-            this.SortButton.Location = new System.Drawing.Point(0, 61);
+            this.SortButton.Location = new System.Drawing.Point(0, 63);
             this.SortButton.Name = "SortButton";
             this.SortButton.Size = new System.Drawing.Size(202, 31);
             this.SortButton.TabIndex = 16;
             this.SortButton.Text = "Сортувати";
             this.SortButton.UseVisualStyleBackColor = false;
+            this.SortButton.Click += new System.EventHandler(this.SortButton_Click);
             // 
             // label1
             // 
@@ -552,26 +571,23 @@
             this.FiltPanel.Controls.Add(this.FiltButton);
             this.FiltPanel.Controls.Add(this.FiltLabel);
             this.FiltPanel.Controls.Add(this.label2);
-            this.FiltPanel.Location = new System.Drawing.Point(261, 128);
+            this.FiltPanel.Location = new System.Drawing.Point(261, 107);
             this.FiltPanel.Name = "FiltPanel";
-            this.FiltPanel.Size = new System.Drawing.Size(228, 94);
+            this.FiltPanel.Size = new System.Drawing.Size(228, 96);
             this.FiltPanel.TabIndex = 14;
             // 
-            // FiltButton
+            // FiltData
             // 
-            this.FiltButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
-            this.FiltButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FiltButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FiltButton.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
-            this.FiltButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FiltButton.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FiltButton.ForeColor = System.Drawing.Color.SeaShell;
-            this.FiltButton.Location = new System.Drawing.Point(0, 61);
-            this.FiltButton.Name = "FiltButton";
-            this.FiltButton.Size = new System.Drawing.Size(226, 31);
-            this.FiltButton.TabIndex = 15;
-            this.FiltButton.Text = "Фільтрувати";
-            this.FiltButton.UseVisualStyleBackColor = false;
+            this.FiltData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FiltData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            this.FiltData.Font = new System.Drawing.Font("Corbel", 10.2F);
+            this.FiltData.ForeColor = System.Drawing.Color.SeaShell;
+            this.FiltData.Location = new System.Drawing.Point(0, 31);
+            this.FiltData.Name = "FiltData";
+            this.FiltData.ReadOnly = true;
+            this.FiltData.Size = new System.Drawing.Size(227, 28);
+            this.FiltData.TabIndex = 40;
+            this.FiltData.Text = "Дані";
             // 
             // FiltLabel
             // 
@@ -594,10 +610,10 @@
             this.SearchPanel.Controls.Add(this.TextSearchBox);
             this.SearchPanel.Controls.Add(this.SearchLabel);
             this.SearchPanel.Controls.Add(this.label3);
-            this.SearchPanel.Location = new System.Drawing.Point(504, 128);
+            this.SearchPanel.Location = new System.Drawing.Point(504, 107);
             this.SearchPanel.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.SearchPanel.Name = "SearchPanel";
-            this.SearchPanel.Size = new System.Drawing.Size(220, 94);
+            this.SearchPanel.Size = new System.Drawing.Size(220, 96);
             this.SearchPanel.TabIndex = 15;
             // 
             // TextSearchBox
@@ -606,10 +622,11 @@
             this.TextSearchBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TextSearchBox.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TextSearchBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            this.TextSearchBox.Location = new System.Drawing.Point(0, 64);
+            this.TextSearchBox.Location = new System.Drawing.Point(0, 66);
             this.TextSearchBox.Name = "TextSearchBox";
             this.TextSearchBox.Size = new System.Drawing.Size(218, 28);
             this.TextSearchBox.TabIndex = 14;
+            this.TextSearchBox.TextChanged += new System.EventHandler(this.TextSearchBox_TextChanged);
             // 
             // SearchLabel
             // 
@@ -624,31 +641,38 @@
             this.SearchLabel.Text = "??";
             this.SearchLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // SortData
+            // FiltButton
             // 
-            this.SortData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SortData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
-            this.SortData.Font = new System.Drawing.Font("Corbel", 10.2F);
-            this.SortData.ForeColor = System.Drawing.Color.SeaShell;
-            this.SortData.Location = new System.Drawing.Point(0, 30);
-            this.SortData.Name = "SortData";
-            this.SortData.ReadOnly = true;
-            this.SortData.Size = new System.Drawing.Size(203, 28);
-            this.SortData.TabIndex = 39;
-            this.SortData.Text = "Дані";
+            this.FiltButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            this.FiltButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FiltButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.FiltButton.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.FiltButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FiltButton.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FiltButton.ForeColor = System.Drawing.Color.SeaShell;
+            this.FiltButton.Location = new System.Drawing.Point(0, 63);
+            this.FiltButton.Name = "FiltButton";
+            this.FiltButton.Size = new System.Drawing.Size(226, 31);
+            this.FiltButton.TabIndex = 15;
+            this.FiltButton.Text = "Фільтрувати";
+            this.FiltButton.UseVisualStyleBackColor = false;
+            this.FiltButton.Click += new System.EventHandler(this.FiltButton_Click);
             // 
-            // FiltData
+            // ResetButt
             // 
-            this.FiltData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FiltData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
-            this.FiltData.Font = new System.Drawing.Font("Corbel", 10.2F);
-            this.FiltData.ForeColor = System.Drawing.Color.SeaShell;
-            this.FiltData.Location = new System.Drawing.Point(0, 31);
-            this.FiltData.Name = "FiltData";
-            this.FiltData.ReadOnly = true;
-            this.FiltData.Size = new System.Drawing.Size(227, 28);
-            this.FiltData.TabIndex = 40;
-            this.FiltData.Text = "Дані";
+            this.ResetButt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            this.ResetButt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ResetButt.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.ResetButt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ResetButt.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ResetButt.ForeColor = System.Drawing.Color.SeaShell;
+            this.ResetButt.Location = new System.Drawing.Point(22, 209);
+            this.ResetButt.Name = "ResetButt";
+            this.ResetButt.Size = new System.Drawing.Size(204, 44);
+            this.ResetButt.TabIndex = 18;
+            this.ResetButt.Text = "Скидання параметрів";
+            this.ResetButt.UseVisualStyleBackColor = false;
+            this.ResetButt.Click += new System.EventHandler(this.ResetButt_Click_1);
             // 
             // MainForm
             // 
@@ -656,6 +680,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(684, 703);
+            this.Controls.Add(this.ResetButt);
             this.Controls.Add(this.SearchPanel);
             this.Controls.Add(this.FiltPanel);
             this.Controls.Add(this.SortPanel);
@@ -750,9 +775,10 @@
         private System.Windows.Forms.Label FiltLabel;
         private System.Windows.Forms.TextBox TextSearchBox;
         private System.Windows.Forms.Label SearchLabel;
-        private System.Windows.Forms.Button FiltButton;
         private System.Windows.Forms.Button SortButton;
         private System.Windows.Forms.DomainUpDown SortData;
         private System.Windows.Forms.DomainUpDown FiltData;
+        private System.Windows.Forms.Button FiltButton;
+        private System.Windows.Forms.Button ResetButt;
     }
 }

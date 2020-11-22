@@ -1,12 +1,12 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
+
 
 namespace LastHope
 {
@@ -21,7 +21,18 @@ namespace LastHope
             SortPanel.Hide();
             FiltPanel.Hide();
             SearchPanel.Hide();
+           
         }
+        public void populateDGV()
+        {
+            string tablen = TableLabel.Text.Substring(0, TableLabel.Text.Length - 1);
+            string selectQuery = "SELECT * FROM "+tablen+"";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, connection);
+            adapter.Fill(table);
+            dataGridView1.DataSource = table;
+        }
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -46,8 +57,50 @@ namespace LastHope
          
         }
 
+        //SQL
+        const string ConnectionString = @"server=127.0.0.1; userid=Sdermann;password = 896520;database=mydb";
+        MySqlConnection connection = new MySqlConnection(ConnectionString);
+        MySqlCommand command;
+        public void openConnection()
+        {
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+        }
+        public void closeConnection()
+        {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
+        }
+        public void executeMyQuery(string query)
+        {
+            try
+            {
+                openConnection();
+                command = new MySqlCommand(query, connection);
 
-       private void SelectFirstRow()
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Query Executed");
+                }
+                else
+                {
+                    MessageBox.Show("Query Not Executed");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                closeConnection();
+            }
+        }
+        private void SelectFirstRow()
         {
             if (dataGridView1.Rows.Count > 0)
             {
@@ -56,11 +109,11 @@ namespace LastHope
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
-
+        //SQL-end
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //TODO: add the rest
-            психологиTableAdapter.Update(mydbDataSet);
+            //психологиTableAdapter.Update(mydbDataSet);
         }
 
     
@@ -136,11 +189,11 @@ namespace LastHope
                     SortData.Text = "ID";
                     SortPanel.Show();
                     //Filt.
-                    List<string> filtData1 = new List<string> { "жіноча", "чоловіча", "трансгендер" };
+                    List<string> filtData1 = new List<string> { "жінка", "чоловік", "трансгендер" };
                     FiltLabel.Text = "Cтаттю";
                     FiltData.Items.Clear();
                     FiltData.Items.AddRange(filtData1);
-                    FiltData.Text = "жіноча";
+                    FiltData.Text = "жінка";
                     FiltPanel.Show();
                     //Search.
                     SearchLabel.Text = "За прізвищем:";
@@ -185,6 +238,197 @@ namespace LastHope
                     SearchPanel.Show();
                     break;
             }
+        }
+
+        int counter = 1;
+        //Sorting of tables
+        private void SortButton_Click(object sender, EventArgs e)
+        {
+            string LabelText = TableLabel.Text;
+            switch (LabelText)
+            {
+                case "Психологи:":
+                    
+                    if (SortData.Text == "ID" )
+                    {
+                        if(counter%2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["ID_Психолога"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["ID_Психолога"], ListSortDirection.Descending);
+                            counter++;
+                        } 
+                    }
+                    else
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата_народження"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата_народження"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+
+                    break;
+                case "Клієнти:":
+                    
+                    if (SortData.Text == "ID")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Клієнта"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Клієнта"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата_народження"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата_народження"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+
+                    break;
+                case "Хвороби:":
+                    
+                    if (SortData.Text == "ID")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Хвороби"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Хвороби"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Назва_хвороби"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Назва_хвороби"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    break;
+            }
+        }
+
+        //Filter for tables
+        private void FiltButton_Click(object sender, EventArgs e)
+        {
+            string LabelText = TableLabel.Text;
+            switch (LabelText)
+            {
+                case "Психологи:":
+                    string sex = FiltData.Text;
+                    string q = "SELECT * FROM Психологи WHERE Стать = '" + sex + "'  ";
+                    DataTable table = new DataTable();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(q, connection);
+                    adapter.Fill(table);
+                    dataGridView1.DataSource = table;
+                    break;
+                case "Клієнти:":
+                    string sex1 = FiltData.Text;
+                    string q1 = "SELECT * FROM Клієнти WHERE Стать = '" + sex1 + "'  ";
+                    DataTable table1 = new DataTable();
+                    MySqlDataAdapter adapter1 = new MySqlDataAdapter(q1, connection);
+                    adapter1.Fill(table1);
+                    dataGridView1.DataSource = table1;
+
+                    break;
+                case "Хвороби:":
+                    string hard = FiltData.Text;
+                    string q2 = "SELECT * FROM Хвороби WHERE Тяжкість_лікування = '" + hard + "'  ";
+                    DataTable table2 = new DataTable();
+                    MySqlDataAdapter adapter2 = new MySqlDataAdapter(q2, connection);
+                    adapter2.Fill(table2);
+                    dataGridView1.DataSource = table2;
+                    break;
+            }
+        }
+
+        private void TextSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            string LabelText = TableLabel.Text;
+            switch (LabelText)
+            {
+                case "Психологи:":
+                    string surnameP = TextSearchBox.Text;
+                    string q = "SELECT * FROM Психологи WHERE Прізвище  LIKE '%" + surnameP + "%'  ";
+                    DataTable table = new DataTable();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(q, connection);
+                    adapter.Fill(table);
+                    dataGridView1.DataSource = table;
+                    break;
+                case "Клієнти:":
+                    string surnameC = TextSearchBox.Text;
+                    string q1 = "SELECT * FROM Клієнти WHERE Прізвище  LIKE  '%" + surnameC + "%'  ";
+                    DataTable table1 = new DataTable();
+                    MySqlDataAdapter adapter1 = new MySqlDataAdapter(q1, connection);
+                    adapter1.Fill(table1);
+                    dataGridView1.DataSource = table1;
+
+                    break;
+                case "Хвороби:":
+                    string hard = TextSearchBox.Text;
+                    string q2 = "SELECT * FROM Хвороби WHERE Назва_хвороби  LIKE '%" + hard + "%' ";
+                    DataTable table2 = new DataTable();
+                    MySqlDataAdapter adapter2 = new MySqlDataAdapter(q2, connection);
+                    adapter2.Fill(table2);
+                    dataGridView1.DataSource = table2;
+                    break;
+            }
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            //var activeRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+            //int ID = int.Parse(activeRow.Cells[0].Value.ToString());
+            //DeleteForm deleteForm = new DeleteForm(психологиTableAdapter,ID);
+           // deleteForm.FormClosing += AddPatinetForm_FormClosing;
+           // deleteForm.ShowDialog();
+        }
+
+        private void EditStrip_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void ResetButt_Click_1(object sender, EventArgs e)
+        {
+            populateDGV();
         }
     }
 }
