@@ -9,10 +9,6 @@ namespace LastHope
     {
         const string ConnectionString = @"server=127.0.0.1; userid=Sdermann;password = 896520;database=mydb";
     
-        //Sdermann@127.0.0.1:3306
-
-        // @"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\Temp\Hostel\Hostel\Hostel.mdf;Integrated Security=True";
-
         public SQLForm()
         {
             InitializeComponent();
@@ -29,8 +25,14 @@ namespace LastHope
                 DataTable dt = new DataTable();
                 oda.Fill(dt);
                 dataGridView1.DataSource = dt;
-                this.dataGridView1.Rows[0].Selected = true;
-                this.dataGridView1.Columns[dataGridView1.Columns.Count-1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    dataGridView1.Rows[0].Selected = true;
+
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                }
+                
                 sqlconn.Close();
             }
             catch (Exception ex)

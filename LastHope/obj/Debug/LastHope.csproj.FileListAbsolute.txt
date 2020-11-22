@@ -50,7 +50,6 @@ D:\Настя\Last-Hope\LastHope\bin\Debug\K4os.Compression.LZ4.dll
 D:\Настя\Last-Hope\LastHope\bin\Debug\K4os.Hash.xxHash.dll
 D:\Настя\Last-Hope\LastHope\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\Настя\Last-Hope\LastHope\bin\Debug\MySql.Data.xml
-D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.csprojAssemblyReference.cache
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.exe.config
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.DealingWithTables.EditPsycho.resources
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.AmbulanceForm.resources
@@ -70,3 +69,4 @@ D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.csproj.CoreCompileInputs.cac
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.csproj.CopyComplete
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.exe
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.pdb
+D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.csprojAssemblyReference.cache
