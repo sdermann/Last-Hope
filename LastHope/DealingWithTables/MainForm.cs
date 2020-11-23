@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using LastHope.DealingWithTables;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,23 +14,23 @@ namespace LastHope
     public partial class MainForm : Form
     {
         //flag
-       // bool IsDirty = false;
+        bool IsDirty = false;
         public MainForm()
         {
             InitializeComponent();
-      
+
             //HidePanels
             SortPanel.Hide();
             FiltPanel.Hide();
             SearchPanel.Hide();
             ResetButt.Hide();
-           
+
 
         }
         public void populateDGV()
         {
             string tablen = TableLabel.Text.Substring(0, TableLabel.Text.Length - 1);
-            string selectQuery = "SELECT * FROM "+tablen+"";
+            string selectQuery = "SELECT * FROM " + tablen + "";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, connection);
             adapter.Fill(table);
@@ -57,7 +58,7 @@ namespace LastHope
             // TODO: This line of code loads data into the 'mydbDataSet.психологи' table. You can move, or remove it, as needed.
             //this.психологиTableAdapter.Fill(this.mydbDataSet.психологи);
             dataGridView1.AutoGenerateColumns = true;
-         
+
         }
 
         //SQL
@@ -119,7 +120,7 @@ namespace LastHope
             //психологиTableAdapter.Update(mydbDataSet);
         }
 
-    
+
 
         private void психологиToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -180,13 +181,13 @@ namespace LastHope
         private void TableLabel_TextChanged(object sender, EventArgs e)
         {
             //Filling panels.
-            string  LabelText = TableLabel.Text;
-          
+            string LabelText = TableLabel.Text;
+
             switch (LabelText)
             {
                 case "Психологи:":
                     //Sort.
-                    List<string> sortData1 = new List<string> { "ID","Віком"};
+                    List<string> sortData1 = new List<string> { "ID", "Віком" };
                     SortData.Items.Clear();
                     SortData.Items.AddRange(sortData1);
                     SortData.Text = "ID";
@@ -252,10 +253,10 @@ namespace LastHope
             switch (LabelText)
             {
                 case "Психологи:":
-                    
-                    if (SortData.Text == "ID" )
+
+                    if (SortData.Text == "ID")
                     {
-                        if(counter%2 == 1)
+                        if (counter % 2 == 1)
                         {
                             dataGridView1.Sort(dataGridView1.Columns["ID_Психолога"], ListSortDirection.Ascending);
                             counter++;
@@ -264,7 +265,7 @@ namespace LastHope
                         {
                             dataGridView1.Sort(dataGridView1.Columns["ID_Психолога"], ListSortDirection.Descending);
                             counter++;
-                        } 
+                        }
                     }
                     else
                     {
@@ -282,7 +283,7 @@ namespace LastHope
 
                     break;
                 case "Клієнти:":
-                    
+
                     if (SortData.Text == "ID")
                     {
                         if (counter % 2 == 1)
@@ -312,7 +313,7 @@ namespace LastHope
 
                     break;
                 case "Хвороби:":
-                    
+
                     if (SortData.Text == "ID")
                     {
                         if (counter % 2 == 1)
@@ -410,21 +411,43 @@ namespace LastHope
             }
         }
 
-        //TODO: new Item
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-        {
 
-        }
-        
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
-        {
-            
-        }
+
 
         //TODO:Edit
 
         private void EditStrip_Click(object sender, EventArgs e)
         {
+            var activeRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+            int id = int.Parse(activeRow.Cells[0].Value.ToString());
+            if (dataGridView1.Rows.Count > 0)
+            {
+                string LabelText = TableLabel.Text;
+
+                switch (LabelText)
+                {
+                    case "Психологи:":
+                        EditPsycho editPsychoForm = new EditPsycho(психологиTableAdapter, id);
+                       
+                        editPsychoForm.ShowDialog();
+                        populateDGV();
+                        IsDirty = true;
+                        break;
+                    case "Клієнти:":
+
+                        EditClient editClientForm = new EditClient(клієнтиTableAdapter, id);      
+                        editClientForm.ShowDialog();
+                        populateDGV();
+                        IsDirty = true;
+                        break;
+                    case "Хвороби:":
+                        EditDisease editDiseaseForm = new EditDisease(хворобиTableAdapter, id);
+                        editDiseaseForm.ShowDialog();
+                        populateDGV();
+                        IsDirty = true;
+                        break;
+                }
+            }
 
         }
 
@@ -439,23 +462,23 @@ namespace LastHope
             if (dataGridView1.Rows.Count > 0)
             {
                 string LabelText = TableLabel.Text;
-            string tableName = "";
-            string IdNum = "";
-            switch (LabelText)
-            {
-                case "Психологи:":
-                    tableName = "Психологи";
-                    IdNum = "ID_Психолога";
-                    break;
-                case "Клієнти:":
-                    tableName = "Клієнти";
-                    IdNum = "Id_Клієнта";
-                    break;
-                case "Хвороби:":
-                    tableName = "Хвороби";
-                    IdNum = "Id_Хвороби";
-                    break;
-            }
+                string tableName = "";
+                string IdNum = "";
+                switch (LabelText)
+                {
+                    case "Психологи:":
+                        tableName = "Психологи";
+                        IdNum = "ID_Психолога";
+                        break;
+                    case "Клієнти:":
+                        tableName = "Клієнти";
+                        IdNum = "Id_Клієнта";
+                        break;
+                    case "Хвороби:":
+                        tableName = "Хвороби";
+                        IdNum = "Id_Хвороби";
+                        break;
+                }
                 var res = MessageBox.Show("Чи насправді Ви хочете видалити данний елемент?", "", MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
                 {
@@ -463,19 +486,46 @@ namespace LastHope
                     string deleteQuery = "DELETE FROM " + tableName + " WHERE " + IdNum + " ='" + int.Parse(activeRow.Cells[0].Value.ToString()) + "'    ";
                     executeMyQuery(deleteQuery);
                     populateDGV();
+                    IsDirty = true;
+
                 }
                 else
                 {
                     //
                 }
-              
+
             }
 
         }
-
+        //TODO: new Item
         private void AddButt_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                string LabelText = TableLabel.Text;
 
+                switch (LabelText)
+                {
+                    case "Психологи:":
+                        EditPsycho editPsychoForm = new EditPsycho();
+                        editPsychoForm.ShowDialog();
+                        populateDGV();
+                        IsDirty = true;
+                        break;
+                    case "Клієнти:":
+                        EditClient editClientForm = new EditClient();
+                        editClientForm.ShowDialog();
+                        populateDGV();
+                        IsDirty = true;
+                        break;
+                    case "Хвороби:":
+                        EditDisease editDiseaseForm = new EditDisease();
+                        editDiseaseForm.ShowDialog();
+                        populateDGV();
+                        IsDirty = true;
+                        break;     
+                }
+            }
         }
     }
 }

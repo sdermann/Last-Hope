@@ -50,11 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DealingWithTables\DeleteForm.cs">
+    <Compile Include="DealingWithTables\EditClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DealingWithTables\DeleteForm.Designer.cs">
-      <DependentUpon>DeleteForm.cs</DependentUpon>
+    <Compile Include="DealingWithTables\EditClient.Designer.cs">
+      <DependentUpon>EditClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DealingWithTables\EditDisease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DealingWithTables\EditDisease.Designer.cs">
+      <DependentUpon>EditDisease.cs</DependentUpon>
     </Compile>
     <Compile Include="DealingWithTables\EditPsycho.cs">
       <SubType>Form</SubType>
@@ -135,8 +141,11 @@
     <Compile Include="Reports\TreatmentForm.Designer.cs">
       <DependentUpon>TreatmentForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DealingWithTables\DeleteForm.resx">
-      <DependentUpon>DeleteForm.cs</DependentUpon>
+    <EmbeddedResource Include="DealingWithTables\EditClient.resx">
+      <DependentUpon>EditClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DealingWithTables\EditDisease.resx">
+      <DependentUpon>EditDisease.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DealingWithTables\EditPsycho.resx">
       <DependentUpon>EditPsycho.cs</DependentUpon>

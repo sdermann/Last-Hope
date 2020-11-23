@@ -69,5 +69,6 @@ D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.csproj.CoreCompileInputs.cac
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.csproj.CopyComplete
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.exe
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.pdb
-D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.DealingWithTables.DeleteForm.resources
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.csprojAssemblyReference.cache
+D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.DealingWithTables.EditClient.resources
+D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.DealingWithTables.EditDisease.resources
