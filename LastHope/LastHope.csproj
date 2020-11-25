@@ -50,6 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoClient\Invite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoClient\Invite.Designer.cs">
+      <DependentUpon>Invite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoClient\NewSessionNewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoClient\NewSessionNewClient.Designer.cs">
+      <DependentUpon>NewSessionNewClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoClient\Step1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoClient\Step1.Designer.cs">
+      <DependentUpon>Step1.cs</DependentUpon>
+    </Compile>
     <Compile Include="DealingWithTables\EditClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,10 +127,10 @@
     <Compile Include="DealingWithTables\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewClientForm.cs">
+    <Compile Include="AutoClient\NewClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewClientForm.Designer.cs">
+    <Compile Include="AutoClient\NewClientForm.Designer.cs">
       <DependentUpon>NewClientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -141,6 +159,15 @@
     <Compile Include="Reports\TreatmentForm.Designer.cs">
       <DependentUpon>TreatmentForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AutoClient\Invite.resx">
+      <DependentUpon>Invite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AutoClient\NewSessionNewClient.resx">
+      <DependentUpon>NewSessionNewClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AutoClient\Step1.resx">
+      <DependentUpon>Step1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DealingWithTables\EditClient.resx">
       <DependentUpon>EditClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,7 +195,7 @@
     <EmbeddedResource Include="DealingWithTables\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewClientForm.resx">
+    <EmbeddedResource Include="AutoClient\NewClientForm.resx">
       <DependentUpon>NewClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

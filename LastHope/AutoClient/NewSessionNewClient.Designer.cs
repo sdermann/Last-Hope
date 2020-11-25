@@ -1,6 +1,6 @@
-﻿namespace LastHope
+﻿namespace LastHope.AutoClient
 {
-    partial class NewClientForm
+    partial class NewSessionNewClient
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // NewClientForm
+            // NewSessionNewClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(684, 703);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "NewClientForm";
-            this.Text = "NewClientForm";
+            this.Name = "NewSessionNewClient";
+            this.Text = "NewSessionNewClient";
             this.ResumeLayout(false);
 
         }

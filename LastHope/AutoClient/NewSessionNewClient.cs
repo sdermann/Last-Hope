@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LastHope
+namespace LastHope.AutoClient
 {
-    public partial class NewClientForm : Form
+    public partial class NewSessionNewClient : Form
     {
-        public NewClientForm()
+        public NewSessionNewClient()
         {
             InitializeComponent();
         }

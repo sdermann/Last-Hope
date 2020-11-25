@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LastHope.AutoClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -124,7 +125,8 @@ namespace LastHope
 
         private void NewClientButton_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new NewClientForm());
+            NewClientForm newClientForm = new NewClientForm(label2);
+            OpenChildForm(newClientForm);
         }
 
         private void SQLButton_Click(object sender, EventArgs e)
@@ -141,6 +143,11 @@ namespace LastHope
                 this.Close();
             }
             
+        }
+
+        private void label2_TextChanged(object sender, EventArgs e)
+        {
+            OpenChildForm(new NewSessionNewClient());
         }
     }
 }

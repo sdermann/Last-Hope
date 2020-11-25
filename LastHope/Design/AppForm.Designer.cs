@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             this.SidePanel = new System.Windows.Forms.Panel();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.SQLButton = new System.Windows.Forms.Button();
             this.NewClientButton = new System.Windows.Forms.Button();
             this.StatisticsPanel = new System.Windows.Forms.Panel();
@@ -47,12 +48,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ChildFormPanel = new System.Windows.Forms.Panel();
-            this.ExitButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SidePanel.SuspendLayout();
             this.StatisticsPanel.SuspendLayout();
             this.ReportsPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ChildFormPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // SidePanel
@@ -74,6 +76,23 @@
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(298, 703);
             this.SidePanel.TabIndex = 0;
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            this.ExitButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ExitButton.FlatAppearance.BorderSize = 0;
+            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitButton.Location = new System.Drawing.Point(0, 750);
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.ExitButton.Size = new System.Drawing.Size(277, 60);
+            this.ExitButton.TabIndex = 7;
+            this.ExitButton.Text = "Вихід";
+            this.ExitButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ExitButton.UseVisualStyleBackColor = false;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // SQLButton
             // 
@@ -314,28 +333,23 @@
             // 
             // ChildFormPanel
             // 
+            this.ChildFormPanel.Controls.Add(this.label2);
             this.ChildFormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChildFormPanel.Location = new System.Drawing.Point(298, 0);
             this.ChildFormPanel.Name = "ChildFormPanel";
             this.ChildFormPanel.Size = new System.Drawing.Size(684, 703);
             this.ChildFormPanel.TabIndex = 1;
             // 
-            // ExitButton
+            // label2
             // 
-            this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            this.ExitButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ExitButton.FlatAppearance.BorderSize = 0;
-            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitButton.Location = new System.Drawing.Point(0, 750);
-            this.ExitButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.ExitButton.Size = new System.Drawing.Size(277, 60);
-            this.ExitButton.TabIndex = 7;
-            this.ExitButton.Text = "Вихід";
-            this.ExitButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ExitButton.UseVisualStyleBackColor = false;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(303, 283);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 29);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "label2";
+            this.label2.Visible = false;
+            this.label2.TextChanged += new System.EventHandler(this.label2_TextChanged);
             // 
             // AppForm
             // 
@@ -358,6 +372,8 @@
             this.LogoPanel.ResumeLayout(false);
             this.LogoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ChildFormPanel.ResumeLayout(false);
+            this.ChildFormPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -383,6 +399,7 @@
         private System.Windows.Forms.Button AttendanceButton;
         private System.Windows.Forms.Panel ChildFormPanel;
         private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Label label2;
     }
 }
 

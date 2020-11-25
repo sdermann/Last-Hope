@@ -72,3 +72,6 @@ D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.pdb
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.csprojAssemblyReference.cache
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.DealingWithTables.EditClient.resources
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.DealingWithTables.EditDisease.resources
+D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.AutoClient.Step1.resources
+D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.AutoClient.Invite.resources
+D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.AutoClient.NewSessionNewClient.resources
