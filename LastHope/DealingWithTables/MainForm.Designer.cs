@@ -89,6 +89,7 @@
             this.SearchLabel = new System.Windows.Forms.Label();
             this.ResetButt = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.динаміки_лікуванняTableAdapter1 = new LastHope.mydbDataSetTableAdapters.динаміки_лікуванняTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -673,6 +674,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(642, 269);
             this.dataGridView1.TabIndex = 8;
             // 
+            // динаміки_лікуванняTableAdapter1
+            // 
+            this.динаміки_лікуванняTableAdapter1.ClearBeforeFill = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -779,5 +784,6 @@
         private System.Windows.Forms.ToolStripButton DeleteButt;
         private System.Windows.Forms.ToolStripButton EditStrip;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private mydbDataSetTableAdapters.динаміки_лікуванняTableAdapter динаміки_лікуванняTableAdapter1;
     }
 }

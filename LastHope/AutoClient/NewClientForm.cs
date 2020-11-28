@@ -99,7 +99,7 @@ namespace LastHope
             }
 
             // Last form
-            if (invite.flag == true)
+            if (invite != null && invite.flag == true)
             {
                 this.Close();
                 Label.Text = "kak dela";

@@ -147,7 +147,15 @@ namespace LastHope
 
         private void label2_TextChanged(object sender, EventArgs e)
         {
-            OpenChildForm(new NewSessionNewClient());
+            if(label2.Text == "kak dela")
+            {
+                OpenChildForm(new NewSessionNewClient(label2));
+            }
+            else
+            {
+                OpenChildForm(new StartEndForm());
+            }
+           
         }
     }
 }
