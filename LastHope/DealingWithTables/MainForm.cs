@@ -88,11 +88,11 @@ namespace LastHope
 
                 if (command.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("Query Executed");
+                    //MessageBox.Show("Query Executed");
                 }
                 else
                 {
-                    MessageBox.Show("Query Not Executed");
+                   // MessageBox.Show("Query Not Executed");
                 }
             }
             catch (Exception ex)

@@ -13,9 +13,11 @@ using System.Windows.Forms;
 
 namespace LastHope.AutoClient
 {
+    //TODO Client
     public partial class NewSessionNewClient : Form
     {
         Label label;
+        bool flagForDate = false;
         string date;
         string time;
         string SurnameP;
@@ -74,22 +76,21 @@ namespace LastHope.AutoClient
         public NewSessionNewClient()
         {
             InitializeComponent();
-          
             EndPanel.Hide();
         }
 
 
         private void NewSessionNewClient_Load(object sender, EventArgs e)
         {
-            this.клієнтиTableAdapter.Fill(this.mydbDataSet.клієнти);
+            //this.клієнтиTableAdapter.Fill(this.mydbDataSet.клієнти);
             DateTime.Today.AddDays(1);
-            radioButton1.Text = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd HH:mm:ss");
-            radioButton2.Text = DateTime.Today.AddDays(2).ToString("yyyy-MM-dd HH:mm:ss");
-            radioButton3.Text = DateTime.Today.AddDays(3).ToString("yyyy-MM-dd HH:mm:ss");
-            radioButton4.Text = DateTime.Today.AddDays(4).ToString("yyyy-MM-dd HH:mm:ss");
-            radioButton5.Text = DateTime.Today.AddDays(5).ToString("yyyy-MM-dd HH:mm:ss");
-            radioButton6.Text = DateTime.Today.AddDays(6).ToString("yyyy-MM-dd HH:mm:ss");
-            radioButton7.Text = DateTime.Today.AddDays(7).ToString("yyyy-MM-dd HH:mm:ss");
+            radioButton1.Text = DateTime.Today.AddDays(1).ToShortDateString();
+            radioButton2.Text = DateTime.Today.AddDays(2).ToShortDateString();
+            radioButton3.Text = DateTime.Today.AddDays(3).ToShortDateString();
+            radioButton4.Text = DateTime.Today.AddDays(4).ToShortDateString();
+            radioButton5.Text = DateTime.Today.AddDays(5).ToShortDateString();
+            radioButton6.Text = DateTime.Today.AddDays(6).ToShortDateString();
+            radioButton7.Text = DateTime.Today.AddDays(7).ToShortDateString();
             EndPanel.Hide();
         }
 
@@ -101,62 +102,64 @@ namespace LastHope.AutoClient
             {
                 if(timeUpDown.Text != "Обрати час:")
                 {
-                    //TODO Client
-                      EndPanel.Show();
-                    // Создать сессию 
-                    time = timeUpDown.Text;
-                    DateTime prob = DateTime.ParseExact(time, "HH:mm:ss", CultureInfo.InvariantCulture);
-                    DateTime prob2 = DateTime.ParseExact(time, "HH:mm:ss", CultureInfo.InvariantCulture).AddHours(1);
-                    string timeBeg = prob.ToString("HH:mm:ss");
-                    string timeEnd = prob2.ToString("HH:mm:ss");
-                    // Психологи которые могут в это время
-                    this.психологиTableAdapter = психологиTableAdapter1;
-                    психологиTableAdapter.GetData();
-                    string q = "SELECT Прізвище,Ім_я,По_батькові FROM  Психологи";
- //                   SELECT Прізвище, Ім_я, По_батькові FROM Психологи WHERE ID_Психолога NOT IN
- //(SELECT ID_Психолога2 FROM Сесії WHERE
- //"16:00:00" >= Початок_сесії  AND "19:00:00" <= Кінець_сесії  AND Дата = "2020-11-12"
- //OR "19:00:00" >= Початок_сесії  AND "19:00:00" <= Кінець_сесії  AND Дата = "2020-11-12"
- // OR "16:00:00" >= Початок_сесії  AND "16:00:00" <= Кінець_сесії    AND Дата = "2020-11-12"
- //GROUP BY ID_Психолога2);
-                    DataTable table = new DataTable();
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(q, connection);
-                    adapter.Fill(table);
-                    dataGridView1.DataSource = table;
-                    if (radioButton1.Checked == true)
+                    if (прізвищеTextBox.Text != "" && ім_яTextBox.Text != ""
+                        && по_батьковіTextBox.Text != "" && flagForDate != false
+                        && статьUpDown.Text != "" && телефонTextBox.Text != ""
+                        &&  поштаTextBox.Text != "")
                     {
-                        date = radioButton1.Text;
+                        string dateCl = дата_народженняDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                        string addQuery = "INSERT INTO  Клієнти (Прізвище,Ім_я,По_батькові,Дата_народження, Стать, Телефон, Пошта) VALUES('" + прізвищеTextBox.Text + "', '" + ім_яTextBox.Text + "', '" + по_батьковіTextBox.Text + "', '" + dateCl + "', '" + статьUpDown.Text + "', '" + телефонTextBox.Text + "', '" + поштаTextBox.Text + "')";
+                        executeMyQuery(addQuery);
+                        EndPanel.Show();
+                        // Создать сессию 
+                        time = timeUpDown.Text;
+                        DateTime prob = DateTime.ParseExact(time, "HH:mm:ss", CultureInfo.InvariantCulture);
+                        DateTime prob2 = DateTime.ParseExact(time, "HH:mm:ss", CultureInfo.InvariantCulture).AddHours(1);
+                        string timeBeg = prob.ToString("HH:mm:ss");
+                        string timeEnd = prob2.ToString("HH:mm:ss");
+
+                        if (radioButton1.Checked == true)
+                        {
+                            date = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd HH:mm:ss");
+                        }
+                        else if (radioButton2.Checked == true)
+                        {
+                            date = DateTime.Today.AddDays(2).ToString("yyyy-MM-dd HH:mm:ss");
+                        }
+                        else if (radioButton3.Checked == true)
+                        {
+                            date = DateTime.Today.AddDays(3).ToString("yyyy-MM-dd HH:mm:ss");
+                        }
+                        else if (radioButton4.Checked == true)
+                        {
+                            date = DateTime.Today.AddDays(4).ToString("yyyy-MM-dd HH:mm:ss");
+                        }
+                        else if (radioButton5.Checked == true)
+                        {
+                            date = DateTime.Today.AddDays(5).ToString("yyyy-MM-dd HH:mm:ss");
+                        }
+                        else if (radioButton6.Checked == true)
+                        {
+                            date = DateTime.Today.AddDays(6).ToString("yyyy-MM-dd HH:mm:ss");
+                        }
+                        else
+                        {
+                            date = DateTime.Today.AddDays(7).ToString("yyyy-MM-dd HH:mm:ss");
+                        }
+                        // Психологи которые могут в это время
+                        this.психологиTableAdapter = психологиTableAdapter1;
+                        психологиTableAdapter.GetData();
+                        string q = "SELECT Прізвище, Ім_я, По_батькові FROM Психологи WHERE ID_Психолога NOT IN(SELECT ID_Психолога2 FROM Сесії WHERE'" + timeBeg + "' >= Початок_сесії  AND '" + timeEnd + "' <= Кінець_сесії  AND Дата = '" + date + "'OR '" + timeEnd + "' >= Початок_сесії  AND '" + timeEnd + "' <= Кінець_сесії  AND Дата = '" + date + "'OR '" + timeBeg + "' >= Початок_сесії  AND '" + timeBeg + "' <= Кінець_сесії    AND Дата = '" + date + "'GROUP BY ID_Психолога2)";
+                        DataTable table = new DataTable();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(q, connection);
+                        adapter.Fill(table);
+                        dataGridView1.DataSource = table;
                     }
-                    else if (radioButton2.Checked == true)
+                    else
                     {
-                        date = radioButton2.Text;
+                        MessageBox.Show("Заповніть дані про себе коректно");
                     }
-                    else if (radioButton3.Checked == true)
-                    {
-                        date = radioButton3.Text;
-                    }
-                    else if (radioButton4.Checked == true)
-                    {
-                        date = radioButton4.Text;
-                    }
-                    else if (radioButton5.Checked == true)
-                    {
-                        date = radioButton5.Text;
-                    }
-                    else if (radioButton6.Checked == true)
-                    {
-                        date = radioButton6.Text;
-                    }
-                    else 
-                    {
-                        date = radioButton7.Text;
-                    }
-                     
-                    MessageBox.Show(date);
-                    string date2 = дата_народженняDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
-                    // '2014-03-16 00:00:00.000' 
-                    string addQuery = "INSERT INTO  Клієнти (Прізвище,Ім_я,По_батькові,Дата_народження, Стать, Телефон, Пошта) VALUES('" + прізвищеTextBox.Text + "', '" + ім_яTextBox.Text + "', '" + по_батьковіTextBox.Text + "', '" + date2 + "', '" + статьUpDown.Text + "', '" + телефонTextBox.Text + "', '" + поштаTextBox.Text + "')";
-                    executeMyQuery(addQuery);
+                    
                 }
                 else
                 {
@@ -168,20 +171,26 @@ namespace LastHope.AutoClient
                 MessageBox.Show("Оберіть день тижня");
             }
         }
-
         private void SaveButton_Click_1(object sender, EventArgs e)
         {
 
-
+            SurnameP = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            NameP = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             DateTime prob = DateTime.ParseExact(time, "HH:mm:ss", CultureInfo.InvariantCulture);
             DateTime prob2 = DateTime.ParseExact(time, "HH:mm:ss", CultureInfo.InvariantCulture).AddHours(1);
             string timeBeg = prob.ToString("HH:mm:ss");
             string timeEnd = prob2.ToString("HH:mm:ss");
-            //string addQuery = "INSERT INTO  Сесії (ID_Психолога2, ID_Клієнта2, Дата , Початок_сесії , Кінець_сесії , Результат) VALUES((SELECT ID_Психолога FROM Психологи WHERE Прізвище = '"+SurnameP+"' and Ім_я = '"+NameP+"' LIMIT 1),(SELECT Id_Клієнта from Клієнти ORDER BY Id_Клієнта DESC LIMIT 1), '" + date + "', '" + timeBeg + "', '" + timeEnd + "', 'Запланована')";
-            string addQuery = "INSERT INTO  Сесії (ID_Психолога2, ID_Клієнта2, Дата , Початок_сесії , Кінець_сесії , Результат) VALUES(12,2, '" + date + "', '" + timeBeg + "', '" + timeEnd + "', 'Запланована')";
-            executeMyQuery(addQuery);
+            string addQuery = "INSERT INTO  Сесії (ID_Психолога2, ID_Клієнта2, Дата , Початок_сесії , Кінець_сесії , Результат) VALUES((SELECT ID_Психолога FROM Психологи WHERE Прізвище = '"+SurnameP+"' and Ім_я = '"+NameP+"' LIMIT 1),(SELECT Id_Клієнта from Клієнти ORDER BY Id_Клієнта DESC LIMIT 1), '" + date + "', '" + timeBeg + "', '" + timeEnd + "', 'Запланована')";
+            executeMyQuery(addQuery);   
             this.Close();
+            MessageBox.Show("Дякуємо Вам, що обрали наших спеціалістів!");
+            label.Text = "end";
             
+        }
+
+        private void дата_народженняDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            flagForDate = true;
         }
     }
 }

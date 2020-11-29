@@ -49,7 +49,7 @@ namespace LastHope.DealingWithTables
                 }
                 else
                 {
-                    MessageBox.Show("Query Not Executed");
+                   // MessageBox.Show("Query Not Executed");
                 }
             }
             catch (Exception ex)

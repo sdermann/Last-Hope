@@ -198,6 +198,7 @@
             this.дата_народженняDateTimePicker.Name = "дата_народженняDateTimePicker";
             this.дата_народженняDateTimePicker.Size = new System.Drawing.Size(200, 29);
             this.дата_народженняDateTimePicker.TabIndex = 10;
+            this.дата_народженняDateTimePicker.ValueChanged += new System.EventHandler(this.дата_народженняDateTimePicker_ValueChanged);
             // 
             // телефонTextBox
             // 
@@ -419,9 +420,9 @@
             this.EndPanel.Controls.Add(this.dataGridView1);
             this.EndPanel.Controls.Add(this.label2);
             this.EndPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.EndPanel.Location = new System.Drawing.Point(0, 396);
+            this.EndPanel.Location = new System.Drawing.Point(0, 390);
             this.EndPanel.Name = "EndPanel";
-            this.EndPanel.Size = new System.Drawing.Size(684, 307);
+            this.EndPanel.Size = new System.Drawing.Size(684, 313);
             this.EndPanel.TabIndex = 28;
             // 
             // SaveButton
@@ -433,7 +434,7 @@
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButton.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SaveButton.ForeColor = System.Drawing.Color.SeaShell;
-            this.SaveButton.Location = new System.Drawing.Point(519, 197);
+            this.SaveButton.Location = new System.Drawing.Point(519, 203);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(132, 35);
             this.SaveButton.TabIndex = 29;
@@ -469,7 +470,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 54);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 57);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;

@@ -107,15 +107,66 @@ namespace LastHope
         private void OpenChildForm(Form ChildForm)
         {
             if (activeForm != null)
-                activeForm.Close();
-            activeForm = ChildForm;
-            ChildForm.TopLevel = false;
-            ChildForm.FormBorderStyle = FormBorderStyle.None;
-            ChildForm.Dock = DockStyle.Fill;
-            ChildFormPanel.Controls.Add(ChildForm);
-            ChildFormPanel.Tag = ChildForm;
-            ChildForm.BringToFront();
-            ChildForm.Show();
+            {
+                if (activeForm.GetType() == new NewSessionNewClient().GetType())
+                {
+                    if (label2.Text != "kak")
+                    {
+                        var res = MessageBox.Show("Чи насправді Ви хочете покинути реєстрацію на сесію?", "", MessageBoxButtons.YesNo);
+                        if (res == DialogResult.Yes)
+                        {
+                            label2.Text = "kak";
+                            activeForm.Close();
+                            activeForm = ChildForm;
+                            ChildForm.TopLevel = false;
+                            ChildForm.FormBorderStyle = FormBorderStyle.None;
+                            ChildForm.Dock = DockStyle.Fill;
+                            ChildFormPanel.Controls.Add(ChildForm);
+                            ChildFormPanel.Tag = ChildForm;
+                            ChildForm.BringToFront();
+                            ChildForm.Show();
+                        }
+                    }
+                    else
+                    {
+                        activeForm.Close();
+                        activeForm = ChildForm;
+                        ChildForm.TopLevel = false;
+                        ChildForm.FormBorderStyle = FormBorderStyle.None;
+                        ChildForm.Dock = DockStyle.Fill;
+                        ChildFormPanel.Controls.Add(ChildForm);
+                        ChildFormPanel.Tag = ChildForm;
+                        ChildForm.BringToFront();
+                        ChildForm.Show();
+                    }
+                   
+                }
+                else
+                {
+                    activeForm.Close();
+                    activeForm = ChildForm;
+                    ChildForm.TopLevel = false;
+                    ChildForm.FormBorderStyle = FormBorderStyle.None;
+                    ChildForm.Dock = DockStyle.Fill;
+                    ChildFormPanel.Controls.Add(ChildForm);
+                    ChildFormPanel.Tag = ChildForm;
+                    ChildForm.BringToFront();
+                    ChildForm.Show();
+                }
+              
+            }
+            else
+            {
+                activeForm = ChildForm;
+                ChildForm.TopLevel = false;
+                ChildForm.FormBorderStyle = FormBorderStyle.None;
+                ChildForm.Dock = DockStyle.Fill;
+                ChildFormPanel.Controls.Add(ChildForm);
+                ChildFormPanel.Tag = ChildForm;
+                ChildForm.BringToFront();
+                ChildForm.Show();
+            } 
+            
         }
 
         private void MainButton_Click(object sender, EventArgs e)
@@ -147,16 +198,26 @@ namespace LastHope
 
         private void label2_TextChanged(object sender, EventArgs e)
         {
-            if(label2.Text == "kak dela")
+            if(label2.Text == "kak dela" || label2.Text == "kak")
             {
                 OpenChildForm(new NewSessionNewClient(label2));
             }
             else
             {
-                OpenChildForm(new StartEndForm());
+                StartEndForm ChildForm = new StartEndForm();
+                activeForm.Close();
+                activeForm = ChildForm;
+                ChildForm.TopLevel = false;
+                ChildForm.FormBorderStyle = FormBorderStyle.None;
+                ChildForm.Dock = DockStyle.Fill;
+                ChildFormPanel.Controls.Add(ChildForm);
+                ChildFormPanel.Tag = ChildForm;
+                ChildForm.BringToFront();
+                ChildForm.Show();
             }
-           
+
         }
+   
     }
 }
 
