@@ -460,6 +460,53 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="new_viewTableAdapter" GeneratorDataComponentClassName="new_viewTableAdapter" Name="new_view" UserDataComponentName="new_viewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.new_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Прізвище`, `Ім_я`, `По_батькові`, `Дата_Народження`, `Стать`, `Телефон`, `Пошта`, `Дата_озвучування`, `Назва_хвороби`, `Тяжкість_лікування` FROM `mydb`.`new_view`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Прізвище" DataSetColumn="Прізвище" />
+              <Mapping SourceColumn="Ім_я" DataSetColumn="Ім_я" />
+              <Mapping SourceColumn="По_батькові" DataSetColumn="По_батькові" />
+              <Mapping SourceColumn="Дата_Народження" DataSetColumn="Дата_Народження" />
+              <Mapping SourceColumn="Стать" DataSetColumn="Стать" />
+              <Mapping SourceColumn="Телефон" DataSetColumn="Телефон" />
+              <Mapping SourceColumn="Пошта" DataSetColumn="Пошта" />
+              <Mapping SourceColumn="Дата_озвучування" DataSetColumn="Дата_озвучування" />
+              <Mapping SourceColumn="Назва_хвороби" DataSetColumn="Назва_хвороби" />
+              <Mapping SourceColumn="Тяжкість_лікування" DataSetColumn="Тяжкість_лікування" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="new_view2TableAdapter" GeneratorDataComponentClassName="new_view2TableAdapter" Name="new_view2" UserDataComponentName="new_view2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.new_view2" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Id_Клієнта`, `Прізвище`, `Дата_озвучування`, `Назва_хвороби`, `Тяжкість_лікування`, `Дата_сесії`, `Результат_сесії` FROM `mydb`.`new_view2`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id_Клієнта" DataSetColumn="Id_Клієнта" />
+              <Mapping SourceColumn="Прізвище" DataSetColumn="Прізвище" />
+              <Mapping SourceColumn="Дата_озвучування" DataSetColumn="Дата_озвучування" />
+              <Mapping SourceColumn="Назва_хвороби" DataSetColumn="Назва_хвороби" />
+              <Mapping SourceColumn="Тяжкість_лікування" DataSetColumn="Тяжкість_лікування" />
+              <Mapping SourceColumn="Дата_сесії" DataSetColumn="Дата_сесії" />
+              <Mapping SourceColumn="Результат_сесії" DataSetColumn="Результат_сесії" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -664,6 +711,107 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Тяжкість_лікування" msprop:Generator_ColumnVarNameInTable="columnТяжкість_лікування" msprop:Generator_ColumnPropNameInRow="Тяжкість_лікування" msprop:Generator_ColumnPropNameInTable="Тяжкість_лікуванняColumn" msprop:Generator_UserColumnName="Тяжкість_лікування">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="new_view" msprop:Generator_TableClassName="new_viewDataTable" msprop:Generator_TableVarName="tablenew_view" msprop:Generator_RowChangedName="new_viewRowChanged" msprop:Generator_TablePropName="new_view" msprop:Generator_RowDeletingName="new_viewRowDeleting" msprop:Generator_RowChangingName="new_viewRowChanging" msprop:Generator_RowEvHandlerName="new_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="new_viewRowDeleted" msprop:Generator_RowClassName="new_viewRow" msprop:Generator_UserTableName="new_view" msprop:Generator_RowEvArgName="new_viewRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Прізвище" msprop:Generator_ColumnVarNameInTable="columnПрізвище" msprop:Generator_ColumnPropNameInRow="Прізвище" msprop:Generator_ColumnPropNameInTable="ПрізвищеColumn" msprop:Generator_UserColumnName="Прізвище">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ім_я" msprop:Generator_ColumnVarNameInTable="columnІм_я" msprop:Generator_ColumnPropNameInRow="Ім_я" msprop:Generator_ColumnPropNameInTable="Ім_яColumn" msprop:Generator_UserColumnName="Ім_я">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="По_батькові" msprop:Generator_ColumnVarNameInTable="columnПо_батькові" msprop:Generator_ColumnPropNameInRow="По_батькові" msprop:Generator_ColumnPropNameInTable="По_батьковіColumn" msprop:Generator_UserColumnName="По_батькові">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Дата_Народження" msprop:Generator_ColumnVarNameInTable="columnДата_Народження" msprop:Generator_ColumnPropNameInRow="Дата_Народження" msprop:Generator_ColumnPropNameInTable="Дата_НародженняColumn" msprop:Generator_UserColumnName="Дата_Народження" type="xs:dateTime" />
+              <xs:element name="Стать" msprop:Generator_ColumnVarNameInTable="columnСтать" msprop:Generator_ColumnPropNameInRow="Стать" msprop:Generator_ColumnPropNameInTable="СтатьColumn" msprop:Generator_UserColumnName="Стать">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Телефон" msprop:Generator_ColumnVarNameInTable="columnТелефон" msprop:Generator_ColumnPropNameInRow="Телефон" msprop:Generator_ColumnPropNameInTable="ТелефонColumn" msprop:Generator_UserColumnName="Телефон">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Пошта" msprop:Generator_ColumnVarNameInTable="columnПошта" msprop:Generator_ColumnPropNameInRow="Пошта" msprop:Generator_ColumnPropNameInTable="ПоштаColumn" msprop:Generator_UserColumnName="Пошта">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Дата_озвучування" msprop:Generator_ColumnVarNameInTable="columnДата_озвучування" msprop:Generator_ColumnPropNameInRow="Дата_озвучування" msprop:Generator_ColumnPropNameInTable="Дата_озвучуванняColumn" msprop:Generator_UserColumnName="Дата_озвучування" type="xs:dateTime" />
+              <xs:element name="Назва_хвороби" msprop:Generator_ColumnVarNameInTable="columnНазва_хвороби" msprop:Generator_ColumnPropNameInRow="Назва_хвороби" msprop:Generator_ColumnPropNameInTable="Назва_хворобиColumn" msprop:Generator_UserColumnName="Назва_хвороби">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Тяжкість_лікування" msprop:Generator_ColumnVarNameInTable="columnТяжкість_лікування" msprop:Generator_ColumnPropNameInRow="Тяжкість_лікування" msprop:Generator_ColumnPropNameInTable="Тяжкість_лікуванняColumn" msprop:Generator_UserColumnName="Тяжкість_лікування">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="new_view2" msprop:Generator_TableClassName="new_view2DataTable" msprop:Generator_TableVarName="tablenew_view2" msprop:Generator_TablePropName="new_view2" msprop:Generator_RowDeletingName="new_view2RowDeleting" msprop:Generator_RowChangingName="new_view2RowChanging" msprop:Generator_RowEvHandlerName="new_view2RowChangeEventHandler" msprop:Generator_RowDeletedName="new_view2RowDeleted" msprop:Generator_UserTableName="new_view2" msprop:Generator_RowChangedName="new_view2RowChanged" msprop:Generator_RowEvArgName="new_view2RowChangeEvent" msprop:Generator_RowClassName="new_view2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id_Клієнта" msprop:Generator_ColumnVarNameInTable="columnId_Клієнта" msprop:Generator_ColumnPropNameInRow="Id_Клієнта" msprop:Generator_ColumnPropNameInTable="Id_КлієнтаColumn" msprop:Generator_UserColumnName="Id_Клієнта" type="xs:int" />
+              <xs:element name="Прізвище" msprop:Generator_ColumnVarNameInTable="columnПрізвище" msprop:Generator_ColumnPropNameInRow="Прізвище" msprop:Generator_ColumnPropNameInTable="ПрізвищеColumn" msprop:Generator_UserColumnName="Прізвище">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Дата_озвучування" msprop:Generator_ColumnVarNameInTable="columnДата_озвучування" msprop:Generator_ColumnPropNameInRow="Дата_озвучування" msprop:Generator_ColumnPropNameInTable="Дата_озвучуванняColumn" msprop:Generator_UserColumnName="Дата_озвучування" type="xs:dateTime" />
+              <xs:element name="Назва_хвороби" msprop:Generator_ColumnVarNameInTable="columnНазва_хвороби" msprop:Generator_ColumnPropNameInRow="Назва_хвороби" msprop:Generator_ColumnPropNameInTable="Назва_хворобиColumn" msprop:Generator_UserColumnName="Назва_хвороби">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Тяжкість_лікування" msprop:Generator_ColumnVarNameInTable="columnТяжкість_лікування" msprop:Generator_ColumnPropNameInRow="Тяжкість_лікування" msprop:Generator_ColumnPropNameInTable="Тяжкість_лікуванняColumn" msprop:Generator_UserColumnName="Тяжкість_лікування">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Дата_сесії" msprop:Generator_ColumnVarNameInTable="columnДата_сесії" msprop:Generator_ColumnPropNameInRow="Дата_сесії" msprop:Generator_ColumnPropNameInTable="Дата_сесіїColumn" msprop:Generator_UserColumnName="Дата_сесії" type="xs:dateTime" />
+              <xs:element name="Результат_сесії" msprop:Generator_ColumnVarNameInTable="columnРезультат_сесії" msprop:Generator_ColumnPropNameInRow="Результат_сесії" msprop:Generator_ColumnPropNameInTable="Результат_сесіїColumn" msprop:Generator_UserColumnName="Результат_сесії">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="45" />
