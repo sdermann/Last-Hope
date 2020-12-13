@@ -91,7 +91,7 @@ namespace LastHope
             {
                 var activeRow = dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex];
 
-                string q1 = "Select AVG(timediff(Кінець_сесії,Початок_сесії)) From сесії where ID_Клієнта2 = (SELECT Id_Клієнта From  Клієнти WHERE Прізвище = '" + activeRow.Cells[0].Value.ToString() + "') AND Результат != 'Запланована'";
+                string q1 = "Select SEC_TO_TIME(AVG(TIME_TO_SEC(timediff(Кінець_сесії,Початок_сесії )))) From сесії where ID_Клієнта2 = (SELECT Id_Клієнта From  Клієнти WHERE Прізвище = '" + activeRow.Cells[0].Value.ToString() + "') AND Результат != 'Запланована'";
                 DataTable table2 = new DataTable();
                 MySqlDataAdapter adapter2 = new MySqlDataAdapter(q1, connection);
                 adapter2.Fill(table2);
@@ -105,8 +105,8 @@ namespace LastHope
                     string minutes = dataGridView1.Rows[0].Cells[0].Value.ToString();
                     if (hours != "" && hours != "")
                     {
-                        hours = hours.Substring(0,1);
-                        minutes = minutes.Substring(1, 2);
+                        hours = hours.Substring(0,2);
+                        minutes = minutes.Substring(3, 2);
                         
                         AvgLabel.Text = "У середньому клієнт витрачає на сесії: "+hours+ " год. та "+ minutes + " хв.";
                     }

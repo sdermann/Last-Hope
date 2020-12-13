@@ -124,9 +124,11 @@ namespace LastHope
 
         private void психологиToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
             bindingNavigator1.BindingSource = психологиBindingSource;
             dataGridView1.DataSource = психологиBindingSource;
             TableLabel.Text = "Психологи:";
+            populateDGV();
             SelectFirstRow();
         }
 
@@ -135,6 +137,7 @@ namespace LastHope
             bindingNavigator1.BindingSource = розкладипсихологаBindingSource;
             dataGridView1.DataSource = розкладипсихологаBindingSource;
             TableLabel.Text = "Розклади психологів:";
+            //populateDGV();
             SelectFirstRow();
         }
 
@@ -143,6 +146,7 @@ namespace LastHope
             bindingNavigator1.BindingSource = клієнтиBindingSource;
             dataGridView1.DataSource = клієнтиBindingSource;
             TableLabel.Text = "Клієнти:";
+            populateDGV();
             SelectFirstRow();
         }
 
@@ -151,6 +155,7 @@ namespace LastHope
             bindingNavigator1.BindingSource = сесіїBindingSource;
             dataGridView1.DataSource = сесіїBindingSource;
             TableLabel.Text = "Сесії:";
+            populateDGV();
             SelectFirstRow();
         }
 
@@ -159,6 +164,7 @@ namespace LastHope
             bindingNavigator1.BindingSource = поставленідіагнозиBindingSource;
             dataGridView1.DataSource = поставленідіагнозиBindingSource;
             TableLabel.Text = "Поставлені діагнози:";
+           // populateDGV();
             SelectFirstRow();
         }
 
@@ -167,6 +173,7 @@ namespace LastHope
             bindingNavigator1.BindingSource = динамікилікуванняBindingSource;
             dataGridView1.DataSource = динамікилікуванняBindingSource;
             TableLabel.Text = "Динаміки лікування:";
+            //populateDGV();
             SelectFirstRow();
         }
 
@@ -175,6 +182,7 @@ namespace LastHope
             bindingNavigator1.BindingSource = хворобиBindingSource;
             dataGridView1.DataSource = хворобиBindingSource;
             TableLabel.Text = "Хвороби:";
+            //populateDGV();
             SelectFirstRow();
         }
 
@@ -187,7 +195,7 @@ namespace LastHope
             {
                 case "Психологи:":
                     //Sort.
-                    List<string> sortData1 = new List<string> { "ID", "Віком" };
+                    List<string> sortData1 = new List<string> { "ID", "Прізвищем","Ім'ям", "По-батькові", "Віком", "Статтю", "Телефоном", "Поштою", "Роками кваліфікації", "Лікарським ступенем"};
                     SortData.Items.Clear();
                     SortData.Items.AddRange(sortData1);
                     SortData.Text = "ID";
@@ -206,7 +214,7 @@ namespace LastHope
                     break;
                 case "Клієнти:":
                     //Sort.
-                    List<string> sortData2 = new List<string> { "ID", "Віком" };
+                    List<string> sortData2 = new List<string> { "ID", "Прізвищем", "Ім'ям", "По-батькові", "Віком", "Статтю", "Телефоном", "Поштою" };
                     SortData.Items.Clear();
                     SortData.Items.AddRange(sortData2);
                     SortData.Text = "ID";

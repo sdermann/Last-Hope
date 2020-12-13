@@ -105,7 +105,7 @@ namespace LastHope
         JOIN `mydb`.`сесії` ON ((`mydb`.`сесії`.`ID_Клієнта2` = `mydb`.`клієнти`.`Id_Клієнта`)))
     WHERE
         (`mydb`.`сесії`.`Результат` != 'Запланована')
-    GROUP BY `mydb`.`клієнти`.`Id_Клієнта`", connection);
+    Order BY `mydb`.`клієнти`.`Id_Клієнта`", connection);
             DataTable dt = new DataTable();
             temp.Fill(dt);
             viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", dt));
