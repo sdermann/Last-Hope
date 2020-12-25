@@ -186,6 +186,7 @@ namespace LastHope
             SelectFirstRow();
         }
 
+        //TODO : Clients Labels
         private void TableLabel_TextChanged(object sender, EventArgs e)
         {
             //Filling panels.
@@ -233,7 +234,7 @@ namespace LastHope
                     break;
                 case "Хвороби:":
                     //Sort.
-                    List<string> sortData3 = new List<string> { "ID", "Назвою" };
+                    List<string> sortData3 = new List<string> { "ID", "Назвою","Описом","Тяжкістю"};
                     SortData.Items.Clear();
                     SortData.Items.AddRange(sortData3);
                     SortData.Text = "ID";
@@ -244,6 +245,124 @@ namespace LastHope
                     FiltLabel.Text = "Тяжкістю";
                     FiltData.Items.AddRange(filtData3);
                     FiltData.Text = "Низька";
+                    FiltPanel.Show();
+                    //Search.
+                    SearchLabel.Text = "За назвою:";
+                    SearchPanel.Show();
+                    ResetButt.Show();
+                    break;
+
+
+                case "Розклади психологів:":
+                    //Sort.
+                    List<string> sortData4 = new List<string> { "ID", "Психологом", "Датою","Початком роботи","Кінцем роботи" };
+                    SortData.Items.Clear();
+                    SortData.Items.AddRange(sortData4);
+                    SortData.Text = "ID";
+                    SortPanel.Show();
+                    //Filt.
+                    string tablen = TableLabel.Text.Substring(0, TableLabel.Text.Length - 1);
+                    string selectQuery = "SELECT Прізвище FROM психологи WHERE ID_Психолога IN (SELECT ID_Психолога2 FROM розклади_психолога)";
+                    DataTable table = new DataTable();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, connection);
+                    adapter.Fill(table);
+                    dataGridView2.DataSource = table;
+                    List<string> filtData4 = new List<string> { };
+                    for(int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                    {
+                        filtData4.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                    }
+                    FiltData.Items.Clear();
+                    FiltLabel.Text = "Психологом";
+                    FiltData.Items.AddRange(filtData4);
+                    FiltData.Text = "Оберіть психолога";
+                    FiltPanel.Show();
+                    //Search.
+                    SearchLabel.Text = "За датою:";
+                    SearchPanel.Show();
+                    ResetButt.Show();
+                    break;
+                case "Сесії:":
+                    //Sort.
+                    List<string> sortData5 = new List<string> { "ID", "Психологом","Клієнтом", "Датою", "Початком роботи", "Кінцем роботи", "Результатом" };
+                    SortData.Items.Clear();
+                    SortData.Items.AddRange(sortData5);
+                    SortData.Text = "ID";
+                    SortPanel.Show();
+                    //Filt.
+                    string tablen2 = TableLabel.Text.Substring(0, TableLabel.Text.Length - 1);
+                    string selectQuery2 = "SELECT Прізвище FROM психологи WHERE ID_Психолога IN (SELECT ID_Психолога2 FROM Сесії)";
+                    DataTable table2 = new DataTable();
+                    MySqlDataAdapter adapter2 = new MySqlDataAdapter(selectQuery2, connection);
+                    adapter2.Fill(table2);
+                    dataGridView2.DataSource = table2;
+                    List<string> filtData5 = new List<string> { };
+                    for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                    {
+                        filtData5.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                    }
+                    FiltData.Items.Clear();
+                    FiltLabel.Text = "Психологом";
+                    FiltData.Items.AddRange(filtData5);
+                    FiltData.Text = "Оберіть психолога";
+                    FiltPanel.Show();
+                    //Search.
+                    SearchLabel.Text = "За датою:";
+                    SearchPanel.Show();
+                    ResetButt.Show();
+                    break;
+                case "Поставлені діагнози:":
+                    //Sort.
+                    List<string> sortData6 = new List<string> { "ID", "Хворобою", "Клієнтом", "Датою","Затвердженням"};
+                    SortData.Items.Clear();
+                    SortData.Items.AddRange(sortData6);
+                    SortData.Text = "ID";
+                    SortPanel.Show();
+                    //Filt.
+                    string tablen3 = TableLabel.Text.Substring(0, TableLabel.Text.Length - 1);
+                    string selectQuery3 = "SELECT Прізвище FROM клієнти WHERE Id_Клієнта IN (SELECT Id_Клієнта2 FROM поставлені_діагнози)";
+                    DataTable table3 = new DataTable();
+                    MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+                    adapter3.Fill(table3);
+                    dataGridView2.DataSource = table3;
+                    List<string> filtData6 = new List<string> { };
+                    for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                    {
+                        filtData6.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                    }
+                    FiltData.Items.Clear();
+                    FiltLabel.Text = "Клієнтом";
+                    FiltData.Items.AddRange(filtData6);
+                    FiltData.Text = "Оберіть клієнта";
+                    FiltPanel.Show();
+                    //Search.
+                    SearchLabel.Text = "За назвою:";
+                    SearchPanel.Show();
+                    ResetButt.Show();
+                    break;
+                case "Динаміки лікування:":
+                    //Sort.
+                    List<string> sortData7 = new List<string> { "ID", "Діагнозом","Динамікою","Реакцією"};
+                    SortData.Items.Clear();
+                    SortData.Items.AddRange(sortData7);
+                    SortData.Text = "ID";
+                    SortPanel.Show();
+                    //Filt.
+                    string tablen4 = TableLabel.Text.Substring(0, TableLabel.Text.Length - 1);
+                    string selectQuery4 = "SELECT Прізвище FROM клієнти WHERE Id_Клієнта IN (SELECT Id_Клієнта2 FROM поставлені_діагнози)";
+                    DataTable table4 = new DataTable();
+                    MySqlDataAdapter adapter4 = new MySqlDataAdapter(selectQuery4, connection);
+                    adapter4.Fill(table4);
+                    dataGridView2.DataSource = table4;
+                    List<string> filtData7 = new List<string> { };
+                    for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                    {
+                        filtData7.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                    }
+                    FiltData.Items.Clear();
+                    FiltLabel.Text = "Клієнтом";
+                    FiltData.Items.AddRange(filtData7);
+                    FiltData.Text = "Оберіть клієнта";
                     FiltPanel.Show();
                     //Search.
                     SearchLabel.Text = "За назвою:";
