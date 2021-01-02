@@ -136,8 +136,7 @@ namespace LastHope
         private void розкладиПсихологівToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            //bindingNavigator1.BindingSource = розкладипсихологаBindingSource;
-            //dataGridView1.DataSource = розкладипсихологаBindingSource;
+           
             TableLabel.Text = "Розклади психологів:";    string selectQuery3 = "select Id_Розкладу_психолога,психологи.Прізвище,  Дата, `Початок_ роботи`, Кінець_роботи From розклади_психолога  left join психологи on ID_Психолога2 = психологи.ID_Психолога; ";
             DataTable table3 = new DataTable();
             MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
@@ -596,7 +595,19 @@ namespace LastHope
                     case "Сесії:":
                         EditSession editSessionForm = new EditSession(сесіїTableAdapter, id);
                         editSessionForm.ShowDialog();
-                        populateDGV();
+                        //populateDGV();
+                        IsDirty = true;
+                        break;
+                    case "Поставлені діагнози:":
+                        EditDiagnoses editDiagnoseForm = new EditDiagnoses(поставлені_діагнозиTableAdapter, id);
+                        editDiagnoseForm.ShowDialog();
+                        //populateDGV();
+                        IsDirty = true;
+                        break;
+                    case "Динаміки лікування:":
+                        EditTreatment editTreatmentForm = new EditTreatment(динаміки_лікуванняTableAdapter, id);
+                        editTreatmentForm.ShowDialog();
+                        //populateDGV();
                         IsDirty = true;
                         break;
 
@@ -640,6 +651,16 @@ namespace LastHope
                         tableName = "розклади_психолога";
                         IdNum = "Id_Розкладу_психолога";
                         break;
+                    case "Поставлені діагнози:":
+                        tableName = "поставлені_діагнози";
+                        IdNum = "Id_Поставленого_діагнозу";
+                        break;
+                    case "Динаміки лікування:":
+                        tableName = "динаміки_лікування";
+                        IdNum = "Id_Динаміки_лікування";
+                        break;
+
+
                 }
                 var res = MessageBox.Show("Чи насправді Ви хочете видалити данний елемент?", "", MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
@@ -723,7 +744,7 @@ namespace LastHope
                         
                         string deleteQuery = "DELETE FROM " + tableName + " WHERE " + IdNum + " ='" + int.Parse(activeRow.Cells[0].Value.ToString()) + "'    ";
                         executeMyQuery(deleteQuery);
-                        populateDGV();
+                        //populateDGV();
                         IsDirty = true;
                     }
                   
@@ -768,7 +789,19 @@ namespace LastHope
                     case "Сесії:":
                         EditSession editSessionForm = new EditSession();
                         editSessionForm.ShowDialog();
-                        populateDGV();
+                        // populateDGV();
+                        IsDirty = true;
+                        break;
+                    case "Поставлені діагнози:":
+                        EditDiagnoses editDiagnoseForm = new EditDiagnoses();
+                        editDiagnoseForm.ShowDialog();
+                        //populateDGV();
+                        IsDirty = true;
+                        break;
+                    case "Динаміки лікування:":
+                        EditTreatment editTreatmentForm = new EditTreatment();
+                        editTreatmentForm.ShowDialog();
+                        //populateDGV();
                         IsDirty = true;
                         break;
                 }

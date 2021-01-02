@@ -23,8 +23,7 @@ namespace LastHope.DealingWithTables
         string date;
 
         int idOfPs;
-        int idOfCL;
-
+ 
         string time1;
         string time2;
         DateTime prob1;

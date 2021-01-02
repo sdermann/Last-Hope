@@ -99,3 +99,5 @@ D:\Настя\Last-Hope\LastHope\bin\Debug\Microsoft.MSXML.dll
 D:\Настя\Last-Hope\LastHope\obj\Debug\RdlCompile.cache
 D:\Настя\Last-Hope\LastHope\obj\Debug\RdlCompile.compiled
 D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.DealingWithTables.EditSession.resources
+D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.DealingWithTables.EditDiagnoses.resources
+D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.DealingWithTables.EditTreatment.resources

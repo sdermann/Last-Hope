@@ -98,6 +98,12 @@
     <Compile Include="DealingWithTables\EditClient.Designer.cs">
       <DependentUpon>EditClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="DealingWithTables\EditDiagnoses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DealingWithTables\EditDiagnoses.Designer.cs">
+      <DependentUpon>EditDiagnoses.cs</DependentUpon>
+    </Compile>
     <Compile Include="DealingWithTables\EditDisease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,12 @@
     </Compile>
     <Compile Include="DealingWithTables\EditSession.Designer.cs">
       <DependentUpon>EditSession.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DealingWithTables\EditTreatment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DealingWithTables\EditTreatment.Designer.cs">
+      <DependentUpon>EditTreatment.cs</DependentUpon>
     </Compile>
     <Compile Include="mydbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -202,6 +214,9 @@
     <EmbeddedResource Include="DealingWithTables\EditClient.resx">
       <DependentUpon>EditClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DealingWithTables\EditDiagnoses.resx">
+      <DependentUpon>EditDiagnoses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DealingWithTables\EditDisease.resx">
       <DependentUpon>EditDisease.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DealingWithTables\EditSession.resx">
       <DependentUpon>EditSession.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DealingWithTables\EditTreatment.resx">
+      <DependentUpon>EditTreatment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />

@@ -29,7 +29,7 @@ namespace LastHope
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new NewSessionNewClient());
             Application.Run(new AppForm());
-            //Application.Run(new EditSession());
+            //Application.Run(new EditTreatment());
         }
     }
 }
