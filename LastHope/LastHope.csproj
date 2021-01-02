@@ -110,6 +110,12 @@
     <Compile Include="DealingWithTables\EditPsycho.Designer.cs">
       <DependentUpon>EditPsycho.cs</DependentUpon>
     </Compile>
+    <Compile Include="DealingWithTables\EditSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DealingWithTables\EditSession.Designer.cs">
+      <DependentUpon>EditSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="mydbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DealingWithTables\EditPsycho.resx">
       <DependentUpon>EditPsycho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DealingWithTables\EditSession.resx">
+      <DependentUpon>EditSession.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />

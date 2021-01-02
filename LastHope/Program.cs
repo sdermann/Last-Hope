@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LastHope.AutoClient;
+using LastHope.DealingWithTables;
 using MySql.Data.MySqlClient; 
 
 namespace LastHope
@@ -28,6 +29,7 @@ namespace LastHope
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new NewSessionNewClient());
             Application.Run(new AppForm());
+            //Application.Run(new EditSession());
         }
     }
 }

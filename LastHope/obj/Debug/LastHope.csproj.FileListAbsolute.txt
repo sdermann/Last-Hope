@@ -98,3 +98,4 @@ D:\Настя\Last-Hope\LastHope\bin\Debug\Microsoft.VisualStudio.TextManager.In
 D:\Настя\Last-Hope\LastHope\bin\Debug\Microsoft.MSXML.dll
 D:\Настя\Last-Hope\LastHope\obj\Debug\RdlCompile.cache
 D:\Настя\Last-Hope\LastHope\obj\Debug\RdlCompile.compiled
+D:\Настя\Last-Hope\LastHope\obj\Debug\LastHope.DealingWithTables.EditSession.resources

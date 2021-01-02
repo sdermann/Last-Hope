@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Globalization;
 using System.Windows.Forms;
 
 
@@ -120,7 +121,7 @@ namespace LastHope
             //психологиTableAdapter.Update(mydbDataSet);
         }
 
-
+        //
 
         private void психологиToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -131,15 +132,23 @@ namespace LastHope
             populateDGV();
             SelectFirstRow();
         }
-
+        //
         private void розкладиПсихологівToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bindingNavigator1.BindingSource = розкладипсихологаBindingSource;
-            dataGridView1.DataSource = розкладипсихологаBindingSource;
-            TableLabel.Text = "Розклади психологів:";
+
+            //bindingNavigator1.BindingSource = розкладипсихологаBindingSource;
+            //dataGridView1.DataSource = розкладипсихологаBindingSource;
+            TableLabel.Text = "Розклади психологів:";    string selectQuery3 = "select Id_Розкладу_психолога,психологи.Прізвище,  Дата, `Початок_ роботи`, Кінець_роботи From розклади_психолога  left join психологи on ID_Психолога2 = психологи.ID_Психолога; ";
+            DataTable table3 = new DataTable();
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+            adapter3.Fill(table3);
+            dataGridView1.DataSource = table3;
+      
+           
             //populateDGV();
             SelectFirstRow();
         }
+        //
 
         private void клієнтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -149,30 +158,41 @@ namespace LastHope
             populateDGV();
             SelectFirstRow();
         }
-
+        //
         private void сесіїToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bindingNavigator1.BindingSource = сесіїBindingSource;
-            dataGridView1.DataSource = сесіїBindingSource;
             TableLabel.Text = "Сесії:";
-            populateDGV();
+            string selectQuery3 = "select Id_Сесії, психологи.Прізвище AS 'Психолог', клієнти.Прізвище AS 'Клієнт' , Дата, Початок_сесії, Кінець_сесії, Результат From сесії left join психологи on ID_Психолога2 = психологи.ID_Психолога left join клієнти on ID_Клієнта2 = клієнти.ID_Клієнта; ";
+            DataTable table3 = new DataTable();
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+            adapter3.Fill(table3);
+            dataGridView1.DataSource = table3;
+            //populateDGV();
             SelectFirstRow();
         }
 
         private void поставленіДіагнозиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bindingNavigator1.BindingSource = поставленідіагнозиBindingSource;
-            dataGridView1.DataSource = поставленідіагнозиBindingSource;
+            
             TableLabel.Text = "Поставлені діагнози:";
-           // populateDGV();
+            // populateDGV();
+            string selectQuery3 = "select Id_Поставленого_діагнозу, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Дата_озвучування, Затвердження_нарадою from поставлені_діагнози left join клієнти  on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби; ";
+            DataTable table3 = new DataTable();
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+            adapter3.Fill(table3);
+            dataGridView1.DataSource = table3;
             SelectFirstRow();
         }
 
         private void динамікиЛікуванняToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bindingNavigator1.BindingSource = динамікилікуванняBindingSource;
-            dataGridView1.DataSource = динамікилікуванняBindingSource;
             TableLabel.Text = "Динаміки лікування:";
+            string selectQuery3 = "   select Id_Динаміки_лікування, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Динаміка, Реакція_клієнта, Дата_Фіксації from  динаміки_лікування left join поставлені_діагнози on Id_Поставленого_діагнозу2 = поставлені_діагнози.Id_Поставленого_діагнозу left join клієнти on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби; ";
+            DataTable table3 = new DataTable();
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+            adapter3.Fill(table3);
+            dataGridView1.DataSource = table3;
+         
             //populateDGV();
             SelectFirstRow();
         }
@@ -573,6 +593,13 @@ namespace LastHope
                         populateDGV();
                         IsDirty = true;
                         break;
+                    case "Сесії:":
+                        EditSession editSessionForm = new EditSession(сесіїTableAdapter, id);
+                        editSessionForm.ShowDialog();
+                        populateDGV();
+                        IsDirty = true;
+                        break;
+
                 }
             }
 
@@ -605,15 +632,102 @@ namespace LastHope
                         tableName = "Хвороби";
                         IdNum = "Id_Хвороби";
                         break;
+                    case "Сесії:":
+                        tableName = "Сесії";
+                        IdNum = "Id_Сесії";
+                        break;
+                    case "Розклади психологів:":
+                        tableName = "розклади_психолога";
+                        IdNum = "Id_Розкладу_психолога";
+                        break;
                 }
                 var res = MessageBox.Show("Чи насправді Ви хочете видалити данний елемент?", "", MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
                 {
-                    var activeRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
-                    string deleteQuery = "DELETE FROM " + tableName + " WHERE " + IdNum + " ='" + int.Parse(activeRow.Cells[0].Value.ToString()) + "'    ";
-                    executeMyQuery(deleteQuery);
-                    populateDGV();
-                    IsDirty = true;
+
+                    if (tableName == "Сесії")
+                    {
+                        //Розклад
+                        //психолог
+                        var activeRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+                        string selectQuery = "SELECT ID_Психолога FROM психологи where Прізвище = '"+ activeRow.Cells[1].Value.ToString()+"'";
+                        DataTable table = new DataTable();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, connection);
+                        adapter.Fill(table);
+                        dataGridView2.DataSource = table;
+                        //find schedule
+                        dataGridView2.Rows[0].Selected = true;
+                        var activeRow1 = dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex];
+
+                        //Get ps Id.
+                        int ps = int.Parse(activeRow1.Cells[0].Value.ToString());
+                        DateTime dateX = (DateTime)activeRow.Cells[3].Value;
+
+                        string date = dateX.ToString("yyyy-MM-dd HH:mm:ss");
+                        string selectQuery1 = "SELECT * FROM розклади_психолога where ID_Психолога2 = '"+ ps +"'and Дата = '"+ date + "' LIMIT 1";
+                        DataTable table1 = new DataTable();
+                        MySqlDataAdapter adapter1 = new MySqlDataAdapter(selectQuery1, connection);
+                        adapter1.Fill(table1);
+                        dataGridView2.DataSource = table1;
+                        dataGridView2.Rows[0].Selected = true;
+                        //delete session shorten schedule.
+
+                        string time1 = activeRow.Cells[4].Value.ToString();
+                        string time2 = activeRow.Cells[5].Value.ToString();
+                        DateTime prob1 = DateTime.ParseExact(time1, "HH:mm:ss", CultureInfo.InvariantCulture);
+                        DateTime prob2 = DateTime.ParseExact(time2, "HH:mm:ss", CultureInfo.InvariantCulture);
+                        string timeBeg = prob1.ToString("HH:mm:ss");
+                        string timeEnd = prob2.ToString("HH:mm:ss");
+
+                      
+                         //Shorten
+                        string selectQuery2 = @"UPDATE розклади_психолога
+                        SET     `Початок_ роботи` = CASE
+                        WHEN `Початок_ роботи` = '"+ timeBeg + "' THEN '"+ timeEnd + "'  ELSE `Початок_ роботи` END WHERE   ID_Психолога2 = '"+ ps+"'; UPDATE розклади_психолога SET Кінець_роботи = CASE WHEN Кінець_роботи = '"+ timeEnd + "'  THEN '"+ timeBeg + "' ELSE Кінець_роботи END WHERE   ID_Психолога2 = '"+ ps+"';";
+                        executeMyQuery(selectQuery2);
+
+
+                        //bag
+                        dataGridView2.Rows[0].Selected = true;
+                        activeRow1 = dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex];
+                        if (activeRow1.Cells[3].Value.ToString() == activeRow1.Cells[4].Value.ToString())
+                        {
+                          
+                            string deleteQuery3 = "DELETE FROM розклади_психолога   WHERE ID_Психолога2 = '"+ ps+"'";
+                            executeMyQuery(deleteQuery3);
+                            populateDGV();
+                            IsDirty = true;
+                        }
+
+                       
+                        string deleteQuery4 = "DELETE FROM сесії   WHERE ID_Психолога2 = '" + ps + "' AND Дата = '" + date +"'";
+                        executeMyQuery(deleteQuery4);
+                        populateDGV();
+                        IsDirty = true;
+
+                    }
+                    else if(tableName == "розклади_психолога")
+                    {
+                        var activeRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+                        DateTime dateX = (DateTime)activeRow.Cells[2].Value;
+                        string date = dateX.ToString("yyyy-MM-dd HH:mm:ss");
+                        string deleteQuery = "DELETE FROM " + tableName + " WHERE " + IdNum + " ='" + int.Parse(activeRow.Cells[0].Value.ToString()) + "' ;" +
+                            "Delete from сесії where ID_Психолога2 = (Select ID_Психолога from психологи where Прізвище = '" + (activeRow.Cells[1].Value.ToString()) + "') AND Дата = '"+date +"' ";
+                        executeMyQuery(deleteQuery);
+                        //populateDGV();
+                        IsDirty = true;
+                    }
+                    else
+                    {
+                        var activeRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+                        
+                        string deleteQuery = "DELETE FROM " + tableName + " WHERE " + IdNum + " ='" + int.Parse(activeRow.Cells[0].Value.ToString()) + "'    ";
+                        executeMyQuery(deleteQuery);
+                        populateDGV();
+                        IsDirty = true;
+                    }
+                  
+                  
 
                 }
                 else
@@ -650,7 +764,13 @@ namespace LastHope
                         editDiseaseForm.ShowDialog();
                         populateDGV();
                         IsDirty = true;
-                        break;     
+                        break;
+                    case "Сесії:":
+                        EditSession editSessionForm = new EditSession();
+                        editSessionForm.ShowDialog();
+                        populateDGV();
+                        IsDirty = true;
+                        break;
                 }
             }
         }
