@@ -44,11 +44,15 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.AvgLabel = new System.Windows.Forms.Label();
+            this.FiltPanel = new System.Windows.Forms.Panel();
+            this.FiltData = new System.Windows.Forms.DomainUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PSpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.FiltPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TableLabel
@@ -236,12 +240,57 @@
             this.AvgLabel.Text = "?";
             this.AvgLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // FiltPanel
+            // 
+            this.FiltPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
+            this.FiltPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FiltPanel.Controls.Add(this.FiltData);
+            this.FiltPanel.Controls.Add(this.label5);
+            this.FiltPanel.Location = new System.Drawing.Point(266, 112);
+            this.FiltPanel.Name = "FiltPanel";
+            this.FiltPanel.Size = new System.Drawing.Size(228, 96);
+            this.FiltPanel.TabIndex = 29;
+            // 
+            // FiltData
+            // 
+            this.FiltData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FiltData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            this.FiltData.Font = new System.Drawing.Font("Corbel", 10.2F);
+            this.FiltData.ForeColor = System.Drawing.Color.SeaShell;
+            this.FiltData.Items.Add("До 18");
+            this.FiltData.Items.Add("Від 18 до 35");
+            this.FiltData.Items.Add("Від 35 до 65");
+            this.FiltData.Items.Add("Після 65");
+            this.FiltData.Location = new System.Drawing.Point(0, 49);
+            this.FiltData.Name = "FiltData";
+            this.FiltData.ReadOnly = true;
+            this.FiltData.Size = new System.Drawing.Size(227, 28);
+            this.FiltData.TabIndex = 40;
+            this.FiltData.Text = "До 18";
+            this.FiltData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FiltData.SelectedItemChanged += new System.EventHandler(this.FiltData_SelectedItemChanged);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Corbel", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(171, 35);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Оберіть вік:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // AverageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(684, 703);
+            this.Controls.Add(this.FiltPanel);
             this.Controls.Add(this.AvgLabel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.PSpanel);
@@ -259,6 +308,8 @@
             this.PSpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.FiltPanel.ResumeLayout(false);
+            this.FiltPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +328,8 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label AvgLabel;
+        private System.Windows.Forms.Panel FiltPanel;
+        private System.Windows.Forms.DomainUpDown FiltData;
+        private System.Windows.Forms.Label label5;
     }
 }

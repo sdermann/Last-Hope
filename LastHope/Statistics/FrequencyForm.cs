@@ -86,12 +86,39 @@ namespace LastHope
 
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         {
-
+            DateTime dateTime ;
+            DateTime otherDateTime ;
+            string date;
             if (dataGridView2.Rows.Count != 0)
             {
                 var activeRow = dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex];
 
-                string q1 = "SELECT  Дата, COUNT(*) AS Кол_во FROM сесії where ID_Психолога2 = (SELECT ID_Психолога From  Психологи WHERE Прізвище = '" + activeRow.Cells[0].Value.ToString() + "') AND Результат != 'Запланована'GROUP BY Дата";
+                if (FiltData.Text == "Весь час")
+                {
+                    dateTime = DateTime.Now;
+                    otherDateTime = dateTime.AddDays(-8000);
+                    date = otherDateTime.ToString("yyyy-MM-dd");
+                }
+                else if (FiltData.Text == "Неділя")
+                {
+                    dateTime = DateTime.Now;
+                    otherDateTime = dateTime.AddDays(-7);
+                    date = otherDateTime.ToString("yyyy-MM-dd");
+                }
+                else if (FiltData.Text == "Місяць")
+                {
+                    dateTime = DateTime.Now;
+                    otherDateTime = dateTime.AddDays(-30);
+                    date = otherDateTime.ToString("yyyy-MM-dd");
+                }
+                else
+                {
+                    dateTime = DateTime.Now;
+                    otherDateTime = dateTime.AddDays(-365);
+                    date = otherDateTime.ToString("yyyy-MM-dd");
+                }
+
+                string q1 = "SELECT  Дата, COUNT(*) AS Кол_во FROM сесії where ID_Психолога2 = (SELECT ID_Психолога From  Психологи WHERE Прізвище = '" + activeRow.Cells[0].Value.ToString() + "') AND Результат  != 'Запланована' AND Дата >= '"+date+"'GROUP BY Дата";
                 DataTable table2 = new DataTable();
                 MySqlDataAdapter adapter2 = new MySqlDataAdapter(q1, connection);
                 adapter2.Fill(table2);
