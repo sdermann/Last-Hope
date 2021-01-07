@@ -261,7 +261,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(684, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(684, 31);
             this.bindingNavigator1.TabIndex = 5;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -269,7 +269,7 @@
             // 
             this.bindingNavigatorCountItem.ForeColor = System.Drawing.Color.SeaShell;
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 28);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Всього елементів";
             // 
@@ -279,7 +279,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "До першого";
             // 
             // bindingNavigatorMovePreviousItem
@@ -288,19 +288,18 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "До попереднього";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -309,7 +308,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -317,7 +316,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "До наступного";
             // 
             // bindingNavigatorMoveLastItem
@@ -326,7 +325,7 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "До останнього";
             // 
             // AddButt
@@ -335,7 +334,7 @@
             this.AddButt.Image = ((System.Drawing.Image)(resources.GetObject("AddButt.Image")));
             this.AddButt.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AddButt.Name = "AddButt";
-            this.AddButt.Size = new System.Drawing.Size(29, 24);
+            this.AddButt.Size = new System.Drawing.Size(29, 28);
             this.AddButt.Text = "Додати елемент";
             this.AddButt.Click += new System.EventHandler(this.AddButt_Click);
             // 
@@ -345,14 +344,14 @@
             this.DeleteButt.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButt.Image")));
             this.DeleteButt.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteButt.Name = "DeleteButt";
-            this.DeleteButt.Size = new System.Drawing.Size(29, 24);
+            this.DeleteButt.Size = new System.Drawing.Size(29, 28);
             this.DeleteButt.Text = "Видалити елемент";
             this.DeleteButt.Click += new System.EventHandler(this.DeleteButt_Click);
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // EditStrip
             // 
@@ -360,7 +359,7 @@
             this.EditStrip.Image = ((System.Drawing.Image)(resources.GetObject("EditStrip.Image")));
             this.EditStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.EditStrip.Name = "EditStrip";
-            this.EditStrip.Size = new System.Drawing.Size(29, 24);
+            this.EditStrip.Size = new System.Drawing.Size(29, 28);
             this.EditStrip.Text = "Редагувати елемент";
             this.EditStrip.Click += new System.EventHandler(this.EditStrip_Click);
             // 
@@ -683,11 +682,11 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(424, 242);
+            this.dataGridView2.Location = new System.Drawing.Point(294, 222);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(240, 42);
+            this.dataGridView2.Size = new System.Drawing.Size(378, 40);
             this.dataGridView2.TabIndex = 19;
             this.dataGridView2.Visible = false;
             // 

@@ -100,7 +100,7 @@ namespace LastHope.DealingWithTables
             dataGridView1.DataSource = table;
 
 
-            string selectQuery1 = "SELECT Прізвище FROM клієнти";
+            string selectQuery1 = "SELECT Прізвище FROM клієнти where Id_Клієнта in ( Select Id_Клієнта2 From поставлені_діагнози)";
             DataTable table1 = new DataTable();
             MySqlDataAdapter adapter1 = new MySqlDataAdapter(selectQuery1, connection);
             adapter1.Fill(table1);
@@ -192,8 +192,8 @@ namespace LastHope.DealingWithTables
                 timeBeg = prob1.ToString("HH:mm:ss");
                 timeEnd = prob2.ToString("HH:mm:ss");
                 date = датаDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
-                // '2014-03-16 00:00:00.000'   
-                string addQuery =  "INSERT INTO  Сесії (ID_Психолога2, ID_Клієнта2, Дата , Початок_сесії , Кінець_сесії , Результат) VALUES((SELECT ID_Психолога FROM Психологи WHERE Прізвище = '"+PsychoUpDown.Text+"' LIMIT 1),(SELECT Id_Клієнта from клієнти where Прізвище = '" + clientUpDown.Text+ "' LIMIT 1), '" + date + "', '" + timeBeg + "', '" + timeEnd + "', '"+ResultUpDown.Text+"')";
+                //'2014-03-16 00:00:00.000'
+                string addQuery = "INSERT INTO  Сесії (ID_Психолога2, ID_Клієнта2, Дата , Початок_сесії , Кінець_сесії , Результат) VALUES((SELECT ID_Психолога FROM Психологи WHERE Прізвище = '" + PsychoUpDown.Text + "' LIMIT 1),(SELECT Id_Клієнта from клієнти where Прізвище = '" + clientUpDown.Text + "' LIMIT 1), '" + date + "', '" + timeBeg + "', '" + timeEnd + "', '" + ResultUpDown.Text + "')";
                 executeMyQuery(addQuery);
                 UpdateSchedule();
                 this.Close();
@@ -201,13 +201,23 @@ namespace LastHope.DealingWithTables
         }
         private void UpdateSchedule()
         {
-                  // schedule 
-                  string selectQuery = "SELECT * FROM розклади_психолога where ID_Психолога2 = (Select ID_Психолога from психологи where Прізвище = '"+PsychoUpDown.Text+ "' LIMIT 1) and Дата = '"+date+"'";
+            // schedule 
+            time1 = begSessionUpDown.Text;
+            time2 = EndSessionUpDown.Text;
+            prob1 = DateTime.ParseExact(time1, "HH:mm:ss", CultureInfo.InvariantCulture);
+            prob2 = DateTime.ParseExact(time2, "HH:mm:ss", CultureInfo.InvariantCulture);
+            timeBeg = prob1.ToString("HH:mm:ss");
+            timeEnd = prob2.ToString("HH:mm:ss");
+            date = датаDateTimePicker.Value.ToString("yyyy-MM-dd");
+            string selectQuery = "SELECT * FROM розклади_психолога where ID_Психолога2 = (Select ID_Психолога from психологи where Прізвище = '"+PsychoUpDown.Text+ "' LIMIT 1)and Дата = '" + date + "' ";
                   DataTable table = new DataTable();
                   MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, connection);
                   adapter.Fill(table);
                   dataGridView4.DataSource = table;
-            if(dataGridView4.Rows.Count == 1)
+            //and Дата = '" + date + "
+            MessageBox.Show(dataGridView4.Rows.Count.ToString());
+
+            if (dataGridView4.Rows.Count > 0)
             {
                 dataGridView4.Rows[0].Selected = true;
                 var activeRow = dataGridView4.Rows[dataGridView4.CurrentCell.RowIndex];
@@ -216,19 +226,21 @@ namespace LastHope.DealingWithTables
                 //Longer
                 string selectQuery1 = @" UPDATE розклади_психолога
                 SET     `Початок_ роботи` = CASE
-                                       WHEN `Початок_ роботи` >= '" + timeEnd + "' OR `Початок_ роботи` > '" + timeBeg + "' AND `Початок_ роботи` < '" + timeEnd + "'THEN '" + timeBeg + "'ELSE `Початок_ роботи`END WHERE   ID_Психолога2 = 4; UPDATE розклади_психолога SET Кінець_роботи = CASE WHEN Кінець_роботи <= '" + timeBeg + "' OR Кінець_роботи > '" + timeBeg + "'  AND Кінець_роботи< '" + timeEnd + "'THEN '" + timeEnd + "'ELSE Кінець_роботи END WHERE   ID_Психолога2 = 4;";
+                                       WHEN `Початок_ роботи` >= '" + timeEnd + "' OR `Початок_ роботи` > '" + timeBeg + "' AND `Початок_ роботи` < '" + timeEnd + "'THEN '" + timeBeg + "'ELSE `Початок_ роботи`END WHERE   ID_Психолога2 = '" + activeRow.Cells[1].Value + "';";
+                string selectQuery2 = @"UPDATE розклади_психолога SET Кінець_роботи = CASE WHEN Кінець_роботи <= '" + timeBeg + "' OR Кінець_роботи > '" + timeBeg + "'  AND Кінець_роботи< '" + timeEnd + "'THEN '" + timeEnd + "'ELSE Кінець_роботи END WHERE   ID_Психолога2 = '"+ activeRow.Cells[1].Value + "';";
                 executeMyQuery(selectQuery1);
+                executeMyQuery(selectQuery2);
                 this.Close();
             }
             else
             {
                 MessageBox.Show(idOfPs.ToString());
-                string addQuery = "INSERT INTO Розклади_психолога(ID_Психолога2, Дата,`Початок_ роботи`, Кінець_роботи) VALUES('"+idOfPs+"', '"+date+"', '"+ timeBeg + "', '"+ timeEnd + "')";
+                string addQuery = "INSERT INTO Розклади_психолога(ID_Психолога2, Дата,`Початок_ роботи`, Кінець_роботи) VALUES('" + idOfPs + "', '" + date + "', '" + timeBeg + "', '" + timeEnd + "')";
                 executeMyQuery(addQuery);
                 this.Close();
-                              
+
             }
-            
+
         }
     }
 }

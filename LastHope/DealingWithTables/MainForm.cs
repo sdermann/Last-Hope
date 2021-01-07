@@ -671,26 +671,34 @@ namespace LastHope
                         //Розклад
                         //психолог
                         var activeRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
-                        string selectQuery = "SELECT ID_Психолога FROM психологи where Прізвище = '"+ activeRow.Cells[1].Value.ToString()+"'";
-                        DataTable table = new DataTable();
-                        MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, connection);
-                        adapter.Fill(table);
-                        dataGridView2.DataSource = table;
+                       
+                        string selectQuery66 = "SELECT ID_Психолога FROM психологи where Прізвище = '"+ activeRow.Cells[1].Value.ToString() + "' LIMIT 1";
+                        DataTable table66 = new DataTable();
+                       
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery66, connection);
+                        adapter.Fill(table66);
+                        dataGridView2.DataSource = table66;
                         //find schedule
-                        dataGridView2.Rows[0].Selected = true;
-                        var activeRow1 = dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex];
-
                         //Get ps Id.
-                        int ps = int.Parse(activeRow1.Cells[0].Value.ToString());
-                        DateTime dateX = (DateTime)activeRow.Cells[3].Value;
+                       
+                      
+                            int ps;
+                            DateTime dateX = (DateTime)activeRow.Cells[3].Value;
+                            string date = dateX.ToString("yyyy-MM-dd");
+                           // dataGridView2.Rows[0].Selected = true;
+                           
 
-                        string date = dateX.ToString("yyyy-MM-dd HH:mm:ss");
-                        string selectQuery1 = "SELECT * FROM розклади_психолога where ID_Психолога2 = '"+ ps +"'and Дата = '"+ date + "' LIMIT 1";
+                        ps = int.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString());
+
+
+
+                        string selectQuery1 = "SELECT * FROM розклади_психолога where ID_Психолога2 = '" + ps + "'and Дата = '" + date + "' LIMIT 1";
                         DataTable table1 = new DataTable();
                         MySqlDataAdapter adapter1 = new MySqlDataAdapter(selectQuery1, connection);
                         adapter1.Fill(table1);
                         dataGridView2.DataSource = table1;
-                        dataGridView2.Rows[0].Selected = true;
+                        int sessionId = int.Parse(activeRow.Cells[0].Value.ToString());
+                       
                         //delete session shorten schedule.
 
                         string time1 = activeRow.Cells[4].Value.ToString();
@@ -700,28 +708,55 @@ namespace LastHope
                         string timeBeg = prob1.ToString("HH:mm:ss");
                         string timeEnd = prob2.ToString("HH:mm:ss");
 
-                      
-                         //Shorten
+
+                        //Shorten
                         string selectQuery2 = @"UPDATE розклади_психолога
-                        SET     `Початок_ роботи` = CASE
-                        WHEN `Початок_ роботи` = '"+ timeBeg + "' THEN '"+ timeEnd + "'  ELSE `Початок_ роботи` END WHERE   ID_Психолога2 = '"+ ps+"'; UPDATE розклади_психолога SET Кінець_роботи = CASE WHEN Кінець_роботи = '"+ timeEnd + "'  THEN '"+ timeBeg + "' ELSE Кінець_роботи END WHERE   ID_Психолога2 = '"+ ps+"';";
+                        SET     `Початок_ роботи` = Case 
+                        WHEN `Початок_ роботи` = '" + timeBeg + "'  THEN '" + timeEnd + "'  ELSE `Початок_ роботи`  END WHERE   ID_Психолога2 = '" + ps + "'; ";
+                        string selectQuery3 = @"UPDATE розклади_психолога 
+SET Кінець_роботи = CASE
+WHEN Кінець_роботи = '" + timeEnd + "'  THEN '" + timeBeg + "' ELSE Кінець_роботи END WHERE   ID_Психолога2 = '" + ps + "'; ";
                         executeMyQuery(selectQuery2);
-
-
-                        //bag
-                        dataGridView2.Rows[0].Selected = true;
-                        activeRow1 = dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex];
-                        if (activeRow1.Cells[3].Value.ToString() == activeRow1.Cells[4].Value.ToString())
+                        string selectQuery4 = "SELECT * FROM розклади_психолога where ID_Психолога2 = '" + ps + "'and Дата = '" + date + "' LIMIT 1";
+                        DataTable table2 = new DataTable();
+                        MySqlDataAdapter adapter2 = new MySqlDataAdapter(selectQuery4, connection);
+                        adapter2.Fill(table2);
+                        dataGridView2.DataSource = table2;
+                        if (dataGridView2.Rows[0].Cells[3].Value.ToString() == dataGridView2.Rows[0].Cells[4].Value.ToString())
                         {
-                          
-                            string deleteQuery3 = "DELETE FROM розклади_психолога   WHERE ID_Психолога2 = '"+ ps+"'";
+
+                            string deleteQuery3 = "DELETE FROM розклади_психолога   WHERE ID_Психолога2 = '" + ps + "'";
                             executeMyQuery(deleteQuery3);
                             populateDGV();
                             IsDirty = true;
                         }
+                        else
+                        {
+                            executeMyQuery(selectQuery3);
+                            string selectQuery5 = "SELECT * FROM розклади_психолога where ID_Психолога2 = '" + ps + "'and Дата = '" + date + "' LIMIT 1";
+                            DataTable table3 = new DataTable();
+                            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery5, connection);
+                            adapter3.Fill(table3);
+                            dataGridView2.DataSource = table3;
+                            if (dataGridView2.Rows[0].Cells[3].Value.ToString() == dataGridView2.Rows[0].Cells[4].Value.ToString())
+                            {
 
-                       
-                        string deleteQuery4 = "DELETE FROM сесії   WHERE ID_Психолога2 = '" + ps + "' AND Дата = '" + date +"'";
+                                string deleteQuery3 = "DELETE FROM розклади_психолога   WHERE ID_Психолога2 = '" + ps + "'";
+                                executeMyQuery(deleteQuery3);
+                                populateDGV();
+                                IsDirty = true;
+                            }
+
+                        }
+                        
+
+
+                        //bag
+
+
+
+
+                        string deleteQuery4 = "DELETE FROM сесії   WHERE Id_Сесії = '" + sessionId + "'";
                         executeMyQuery(deleteQuery4);
                         populateDGV();
                         IsDirty = true;

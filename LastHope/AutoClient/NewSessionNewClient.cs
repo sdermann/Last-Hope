@@ -82,7 +82,7 @@ namespace LastHope.AutoClient
 
         private void NewSessionNewClient_Load(object sender, EventArgs e)
         {
-            //this.клієнтиTableAdapter.Fill(this.mydbDataSet.клієнти);
+            
             DateTime.Today.AddDays(1);
             radioButton1.Text = DateTime.Today.AddDays(1).ToShortDateString();
             radioButton2.Text = DateTime.Today.AddDays(2).ToShortDateString();
