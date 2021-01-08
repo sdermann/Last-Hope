@@ -228,6 +228,8 @@ namespace LastHope
                     Agepanel.Hide();
                     FindDateTimePicker.Hide();
                     TextSearchBox.Show();
+                    FiltLabel.Show();
+                    Heeeey.Hide();
                     //Sort.
                     List<string> sortData1 = new List<string> { "ID", "Прізвищем","Ім'ям", "По-батькові", "Віком", "Статтю", "Телефоном", "Поштою", "Роками кваліфікації", "Лікарським ступенем"};
                     SortData.Items.Clear();
@@ -250,6 +252,8 @@ namespace LastHope
                     Agepanel.Show();
                     FindDateTimePicker.Hide();
                     TextSearchBox.Show();
+                    FiltLabel.Show();
+                    Heeeey.Hide();
                     //Sort.
                     List<string> sortData2 = new List<string> { "ID", "Прізвищем", "Ім'ям", "По-батькові", "Віком", "Статтю", "Телефоном", "Поштою" };
                     SortData.Items.Clear();
@@ -257,7 +261,7 @@ namespace LastHope
                     SortData.Text = "ID";
                     SortPanel.Show();
                     //Filt.
-                    List<string> filtData2 = new List<string> { "жіноча", "чоловіча", "трансгендер" };
+                    List<string> filtData2 = new List<string> { "жінка", "чоловік", "трансгендер" };
                     FiltLabel.Text = "Cтаттю";
                     FiltData.Items.Clear();
                     FiltData.Items.AddRange(filtData2);
@@ -269,6 +273,8 @@ namespace LastHope
                     ResetButt.Show();
                     break;
                 case "Хвороби:":
+                    FiltLabel.Show();
+                    Heeeey.Hide();
                     Agepanel.Hide();
                     FindDateTimePicker.Hide();
                     TextSearchBox.Show();
@@ -293,6 +299,8 @@ namespace LastHope
 
 
                 case "Розклади психологів:":
+                    FiltLabel.Show();
+                    Heeeey.Hide();
                     Agepanel.Hide();
                     FindDateTimePicker.Show();
                     TextSearchBox.Hide();
@@ -325,6 +333,8 @@ namespace LastHope
                     ResetButt.Show();
                     break;
                 case "Сесії:":
+                    FiltLabel.Hide();
+                    Heeeey.Show();
                     Agepanel.Hide();
                     FindDateTimePicker.Show();
                     TextSearchBox.Hide();
@@ -335,22 +345,42 @@ namespace LastHope
                     SortData.Text = "ID";
                     SortPanel.Show();
                     //Filt.
-                    string tablen2 = TableLabel.Text.Substring(0, TableLabel.Text.Length - 1);
-                    string selectQuery2 = "SELECT Прізвище FROM психологи WHERE ID_Психолога IN (SELECT ID_Психолога2 FROM Сесії)";
-                    DataTable table2 = new DataTable();
-                    MySqlDataAdapter adapter2 = new MySqlDataAdapter(selectQuery2, connection);
-                    adapter2.Fill(table2);
-                    dataGridView2.DataSource = table2;
-                    List<string> filtData5 = new List<string> { };
-                    for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                    if(Heeeey.Text == "Психологом")
                     {
-                        filtData5.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                        string selectQuery2 = "SELECT Прізвище FROM психологи WHERE ID_Психолога IN (SELECT ID_Психолога2 FROM Сесії)";
+                        DataTable table2 = new DataTable();
+                        MySqlDataAdapter adapter2 = new MySqlDataAdapter(selectQuery2, connection);
+                        adapter2.Fill(table2);
+                        dataGridView2.DataSource = table2;
+                        List<string> filtData5 = new List<string> { };
+                        for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                        {
+                            filtData5.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                        }
+                        FiltData.Items.Clear();
+                        FiltLabel.Text = "Психологом";
+                        FiltData.Items.AddRange(filtData5);
+                        FiltData.Text = "Оберіть психолога";
+                        FiltPanel.Show();
                     }
-                    FiltData.Items.Clear();
-                    FiltLabel.Text = "Психологом";
-                    FiltData.Items.AddRange(filtData5);
-                    FiltData.Text = "Оберіть психолога";
-                    FiltPanel.Show();
+                    else
+                    {
+                        string selectQuery2 = "SELECT Прізвище FROM клієнти WHERE Id_Клієнта IN (SELECT Id_Клієнта FROM Сесії)";
+                        DataTable table2 = new DataTable();
+                        MySqlDataAdapter adapter2 = new MySqlDataAdapter(selectQuery2, connection);
+                        adapter2.Fill(table2);
+                        dataGridView2.DataSource = table2;
+                        List<string> filtData5 = new List<string> { };
+                        for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                        {
+                            filtData5.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                        }
+                        FiltData.Items.Clear();
+                        FiltLabel.Text = "Психологом";
+                        FiltData.Items.AddRange(filtData5);
+                        FiltPanel.Show();
+                    }
+                    
                     //Search.
                     SearchLabel.Text = "За датою:";
                     SearchPanel.Show();
@@ -361,6 +391,8 @@ namespace LastHope
                     Agepanel.Hide();
                     FindDateTimePicker.Hide();
                     TextSearchBox.Show();
+                    FiltLabel.Show();
+                    Heeeey.Hide();
                     List<string> sortData6 = new List<string> { "ID", "Хворобою", "Клієнтом", "Датою","Затвердженням"};
                     SortData.Items.Clear();
                     SortData.Items.AddRange(sortData6);
@@ -389,6 +421,8 @@ namespace LastHope
                     ResetButt.Show();
                     break;
                 case "Динаміки лікування:":
+                    FiltLabel.Show();
+                    Heeeey.Hide();
                     Agepanel.Hide();
                     FindDateTimePicker.Hide();
                     TextSearchBox.Show();
@@ -1040,9 +1074,6 @@ namespace LastHope
             }
         }
 
-
-        
-
         //Filter for tables
         private void FiltButton_Click(object sender, EventArgs e)
         {
@@ -1064,7 +1095,6 @@ namespace LastHope
                     MySqlDataAdapter adapter1 = new MySqlDataAdapter(q1, connection);
                     adapter1.Fill(table1);
                     dataGridView1.DataSource = table1;
-
                     break;
                 case "Хвороби:":
                     string hard = FiltData.Text;
@@ -1074,6 +1104,55 @@ namespace LastHope
                     adapter2.Fill(table2);
                     dataGridView1.DataSource = table2;
                     break;
+                case "Розклади психологів:":
+                    string psy = FiltData.Text;
+                    string selectQuery3 = "select Id_Розкладу_психолога,психологи.Прізвище,  Дата, `Початок_ роботи`, Кінець_роботи From розклади_психолога  left join психологи on ID_Психолога2 = психологи.ID_Психолога where психологи.Прізвище = '"+psy+"' ; ";
+                    DataTable table3 = new DataTable();
+                    MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+                    adapter3.Fill(table3);
+                    dataGridView1.DataSource = table3;
+                    SelectFirstRow();
+                    break;
+                case "Сесії:":
+                    string cret = FiltData.Text;
+                    if (Heeeey.Text == "Психологом")
+                    {
+                        string selectQuery4 = "select Id_Сесії, психологи.Прізвище AS 'Психолог', клієнти.Прізвище AS 'Клієнт' , Дата, Початок_сесії, Кінець_сесії, Результат From сесії left join психологи on ID_Психолога2 = психологи.ID_Психолога left join клієнти on ID_Клієнта2 = клієнти.ID_Клієнта where психологи.Прізвище = '" + cret + "'; ";
+                        DataTable table4 = new DataTable();
+                        MySqlDataAdapter adapter4 = new MySqlDataAdapter(selectQuery4, connection);
+                        adapter4.Fill(table4);
+                        dataGridView1.DataSource = table4;
+                        SelectFirstRow();
+                    }
+                    else
+                    {
+                        string selectQuery5 = "select Id_Сесії, психологи.Прізвище AS 'Психолог', клієнти.Прізвище AS 'Клієнт' , Дата, Початок_сесії, Кінець_сесії, Результат From сесії left join психологи on ID_Психолога2 = психологи.ID_Психолога left join клієнти on ID_Клієнта2 = клієнти.ID_Клієнта where клієнти.Прізвище = '" + cret+"'; ";
+                        DataTable table5 = new DataTable();
+                        MySqlDataAdapter adapter5 = new MySqlDataAdapter(selectQuery5, connection);
+                        adapter5.Fill(table5);
+                        dataGridView1.DataSource = table5;
+                        SelectFirstRow();
+                    }
+                        break;
+                case "Поставлені діагнози:":
+                    string cl = FiltData.Text;
+                    string selectQuery6 = "select Id_Поставленого_діагнозу, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Дата_озвучування, Затвердження_нарадою from поставлені_діагнози left join клієнти  on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби where клієнти.Прізвище = '"+cl+"' ; ";
+                    DataTable table6 = new DataTable();
+                    MySqlDataAdapter adapter6 = new MySqlDataAdapter(selectQuery6, connection);
+                    adapter6.Fill(table6);
+                    dataGridView1.DataSource = table6;
+                    SelectFirstRow();
+                    break;
+                case "Динаміки лікування:":
+                   string cl1 = FiltData.Text;
+                    string selectQuery7 = "   select Id_Динаміки_лікування, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Динаміка, Реакція_клієнта, Дата_Фіксації from  динаміки_лікування left join поставлені_діагнози on Id_Поставленого_діагнозу2 = поставлені_діагнози.Id_Поставленого_діагнозу left join клієнти on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби where  клієнти.Прізвище = '" + cl1 + "'; ";
+                    DataTable table7 = new DataTable();
+                    MySqlDataAdapter adapter7 = new MySqlDataAdapter(selectQuery7, connection);
+                    adapter7.Fill(table7);
+                    dataGridView1.DataSource = table7;
+                    SelectFirstRow();
+                    break;
+                
             }
         }
 
@@ -1097,7 +1176,6 @@ namespace LastHope
                     MySqlDataAdapter adapter1 = new MySqlDataAdapter(q1, connection);
                     adapter1.Fill(table1);
                     dataGridView1.DataSource = table1;
-
                     break;
                 case "Хвороби:":
                     string hard = TextSearchBox.Text;
@@ -1106,6 +1184,24 @@ namespace LastHope
                     MySqlDataAdapter adapter2 = new MySqlDataAdapter(q2, connection);
                     adapter2.Fill(table2);
                     dataGridView1.DataSource = table2;
+                    break;
+                case "Поставлені діагнози:":
+                    string deas = TextSearchBox.Text;
+                    string selectQuery6 = "select Id_Поставленого_діагнозу, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Дата_озвучування, Затвердження_нарадою from поставлені_діагнози left join клієнти  on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби WHERE хвороби.Назва_хвороби  LIKE '%" + deas + "%'";
+                    DataTable table6 = new DataTable();
+                    MySqlDataAdapter adapter6 = new MySqlDataAdapter(selectQuery6, connection);
+                    adapter6.Fill(table6);
+                    dataGridView1.DataSource = table6;
+                    SelectFirstRow();
+                    break;
+                case "Динаміки лікування:":
+                    string deas2 = TextSearchBox.Text;
+                    string selectQuery7 = "   select Id_Динаміки_лікування, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Динаміка, Реакція_клієнта, Дата_Фіксації from  динаміки_лікування left join поставлені_діагнози on Id_Поставленого_діагнозу2 = поставлені_діагнози.Id_Поставленого_діагнозу left join клієнти on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби WHERE хвороби.Назва_хвороби  LIKE '%" + deas2 + "%'; ";
+                    DataTable table7 = new DataTable();
+                    MySqlDataAdapter adapter7 = new MySqlDataAdapter(selectQuery7, connection);
+                    adapter7.Fill(table7);
+                    dataGridView1.DataSource = table7;
+                    SelectFirstRow();
                     break;
             }
         }
@@ -1407,6 +1503,91 @@ WHEN Кінець_роботи = '" + timeEnd + "'  THEN '" + timeBeg + "' ELSE 
             else
             {
                 populateDGV();
+            }
+        }
+
+        private void Heeeey_SelectedItemChanged(object sender, EventArgs e)
+        {
+            
+            if (Heeeey.Text == "Психологом")
+            {
+                FiltData.Items.Clear();
+                string selectQuery2 = "SELECT Прізвище FROM психологи WHERE ID_Психолога IN (SELECT ID_Психолога2 FROM Сесії)";
+                DataTable table2 = new DataTable();
+                MySqlDataAdapter adapter2 = new MySqlDataAdapter(selectQuery2, connection);
+                adapter2.Fill(table2);
+                dataGridView2.DataSource = table2;
+                List<string> filtData5 = new List<string> { };
+                for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                {
+                    filtData5.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                }
+                FiltData.Items.Clear();
+                FiltLabel.Text = "Психологом";
+                FiltData.Items.AddRange(filtData5);
+                FiltData.Text = "Оберіть психолога";
+                FiltPanel.Show();
+            }
+            else
+            {
+                FiltData.Items.Clear();
+                string selectQuery2 = "SELECT Прізвище FROM клієнти WHERE Id_Клієнта IN (SELECT Id_Клієнта FROM Сесії)";
+                DataTable table2 = new DataTable();
+                MySqlDataAdapter adapter2 = new MySqlDataAdapter(selectQuery2, connection);
+                adapter2.Fill(table2);
+                dataGridView2.DataSource = table2;
+                List<string> filtData5 = new List<string> { };
+                for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                {
+                    filtData5.Add(dataGridView2.Rows[i].Cells[0].Value.ToString());
+                }
+                FiltData.Items.Clear();
+                FiltLabel.Text = "Психологом";
+                FiltData.Text = "Оберіть клієнта";
+                FiltData.Items.AddRange(filtData5);
+                FiltPanel.Show();
+            }
+        }
+
+        private void TextSearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void FindDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (FindDateTimePicker.Value > DateTime.Now || FindDateTimePicker.Value < DateTime.Now.AddYears(-25) )
+            {
+                FindDateTimePicker.Value = DateTime.Now;
+                
+            }
+            else
+            {
+                string LabelText = TableLabel.Text;
+                switch (LabelText)
+                {
+                    case "Розклади психологів:":
+                        string date = FindDateTimePicker.Value.ToString("yyyy-MM-dd");
+                        string selectQuery3 = "select Id_Розкладу_психолога,психологи.Прізвище,  Дата, `Початок_ роботи`, Кінець_роботи From розклади_психолога  left join психологи on ID_Психолога2 = психологи.ID_Психолога where Дата = '" + date + "' ; ";
+                        DataTable table3 = new DataTable();
+                        MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+                        adapter3.Fill(table3);
+                        dataGridView1.DataSource = table3;
+                        SelectFirstRow();
+                        break;
+                    case "Сесії:":
+                        string date2 = FindDateTimePicker.Value.ToString("yyyy-MM-dd");
+                        string selectQuery12 = "select Id_Сесії, психологи.Прізвище AS 'Психолог', клієнти.Прізвище AS 'Клієнт' , Дата, Початок_сесії, Кінець_сесії, Результат From сесії left join психологи on ID_Психолога2 = психологи.ID_Психолога left join клієнти on ID_Клієнта2 = клієнти.ID_Клієнта where Дата = '" + date2 + "' ; ";
+                        DataTable table12 = new DataTable();
+                        MySqlDataAdapter adapter12 = new MySqlDataAdapter(selectQuery12, connection);
+                        adapter12.Fill(table12);
+                        dataGridView1.DataSource = table12;
+                        SelectFirstRow();
+                        break;
+                }
             }
         }
     }
