@@ -21,6 +21,7 @@ namespace LastHope.DealingWithTables
         сесіїTableAdapter сесіїTableAdapter;
         int id = -999;
         string date;
+        bool flagForDate = false;
 
         int idOfPs;
  
@@ -73,7 +74,7 @@ namespace LastHope.DealingWithTables
                 }
                 else
                 {
-                    // MessageBox.Show("Query Not Executed");
+                    MessageBox.Show("Query Not Executed");
                 }
             }
             catch (Exception ex)
@@ -127,7 +128,10 @@ namespace LastHope.DealingWithTables
             ResultUpDown.Items.AddRange(Result);
             if (id != -999)
             {
-               
+                PsychoUpDown.Hide();
+                clientUpDown.Hide();
+                датаDateTimePicker.Hide();
+                flagForDate = true;
                 сесіїTableAdapter.GetData();
                 string q = "select Id_Сесії, психологи.Прізвище AS 'Психолог', клієнти.Прізвище AS 'Клієнт' , Дата, Початок_сесії, Кінець_сесії, Результат From сесії left join психологи on ID_Психолога2 = психологи.ID_Психолога left join клієнти on ID_Клієнта2 = клієнти.ID_Клієнта WHERE Id_Сесії = '" + id + "'";
                 DataTable table2 = new DataTable();
@@ -135,16 +139,30 @@ namespace LastHope.DealingWithTables
                 adapter2.Fill(table2);
                 dataGridView3.DataSource = table2;
                 id_СесіїTextBox.Text = dataGridView3.Rows[0].Cells[0].Value.ToString();
+
+
                 PsychoUpDown.Text = dataGridView3.Rows[0].Cells[1].Value.ToString();
                 clientUpDown.Text = dataGridView3.Rows[0].Cells[2].Value.ToString();
                 датаDateTimePicker.Value = (DateTime)dataGridView3.Rows[0].Cells[3].Value;
+
+                psText.Text = dataGridView3.Rows[0].Cells[1].Value.ToString();
+                clText.Text = dataGridView3.Rows[0].Cells[2].Value.ToString();
+                dateText.Text = dataGridView3.Rows[0].Cells[3].Value.ToString();
+
                 begSessionUpDown.Text = dataGridView3.Rows[0].Cells[4].Value.ToString();
                 EndSessionUpDown.Text = dataGridView3.Rows[0].Cells[5].Value.ToString();
                 ResultUpDown.Text = dataGridView3.Rows[0].Cells[6].Value.ToString();
             }
             else
             {
+                PsychoUpDown.Show();
+                clientUpDown.Show();
+                датаDateTimePicker.Show();
                 id_СесіїTextBox.Hide();
+                label2.Hide();
+                psText.Hide();
+                clText.Hide();
+                dateText.Hide();
             }
 
         }
@@ -156,7 +174,12 @@ namespace LastHope.DealingWithTables
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            string Query = "Select ID_Психолога from психологи where Прізвище = '" + PsychoUpDown.Text + "' LIMIT 1";
+            if (PsychoUpDown.Text != "Оберіть психолога" && clientUpDown.Text != "Оберіть клієнта"
+                    && begSessionUpDown.Text != "Оберіть час" && flagForDate != false
+                    && EndSessionUpDown.Text != "Оберіть час" && ResultUpDown.Text != "Вкажіть результат "
+                 )
+            {
+                string Query = "Select ID_Психолога from психологи where Прізвище = '" + PsychoUpDown.Text + "' LIMIT 1";
             DataTable table11 = new DataTable();
             MySqlDataAdapter adapter11 = new MySqlDataAdapter(Query, connection);
             adapter11.Fill(table11);
@@ -164,11 +187,8 @@ namespace LastHope.DealingWithTables
             idOfPs = int.Parse(dataGridView4.Rows[0].Cells[0].Value.ToString());
             dataGridView4.Rows.RemoveAt(0);
 
-
-          
            
-
-            if (id != -999)
+                if (id != -999)
             {
                 time1 = begSessionUpDown.Text;
                 time2 = EndSessionUpDown.Text;
@@ -183,7 +203,7 @@ namespace LastHope.DealingWithTables
                 UpdateSchedule();
                 this.Close();
             }
-            else
+                else
             {
                 time1 = begSessionUpDown.Text;
                 time2 = EndSessionUpDown.Text;
@@ -197,6 +217,11 @@ namespace LastHope.DealingWithTables
                 executeMyQuery(addQuery);
                 UpdateSchedule();
                 this.Close();
+            }
+            }
+            else
+            {
+                MessageBox.Show("Заповніть дані про сесію коректно");
             }
         }
         private void UpdateSchedule()
@@ -215,7 +240,7 @@ namespace LastHope.DealingWithTables
                   adapter.Fill(table);
                   dataGridView4.DataSource = table;
             //and Дата = '" + date + "
-            MessageBox.Show(dataGridView4.Rows.Count.ToString());
+            
 
             if (dataGridView4.Rows.Count > 0)
             {
@@ -234,13 +259,26 @@ namespace LastHope.DealingWithTables
             }
             else
             {
-                MessageBox.Show(idOfPs.ToString());
+               
                 string addQuery = "INSERT INTO Розклади_психолога(ID_Психолога2, Дата,`Початок_ роботи`, Кінець_роботи) VALUES('" + idOfPs + "', '" + date + "', '" + timeBeg + "', '" + timeEnd + "')";
                 executeMyQuery(addQuery);
                 this.Close();
 
             }
 
+        }
+
+        private void датаDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (датаDateTimePicker.Value < DateTime.Now.AddYears(-25))
+            {
+                датаDateTimePicker.Value = DateTime.Now;
+
+            }
+            else
+            {
+                flagForDate = true;
+            }
         }
     }
 }

@@ -34,7 +34,6 @@
             System.Windows.Forms.Label початок_сесіїLabel;
             System.Windows.Forms.Label кінець_сесіїLabel;
             System.Windows.Forms.Label результатLabel;
-            System.Windows.Forms.Label id_СесіїLabel;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -57,13 +56,16 @@
             this.id_СесіїTextBox = new System.Windows.Forms.TextBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.psText = new System.Windows.Forms.TextBox();
+            this.clText = new System.Windows.Forms.TextBox();
+            this.dateText = new System.Windows.Forms.TextBox();
             iD_Психолога2Label = new System.Windows.Forms.Label();
             iD_Клієнта2Label = new System.Windows.Forms.Label();
             датаLabel = new System.Windows.Forms.Label();
             початок_сесіїLabel = new System.Windows.Forms.Label();
             кінець_сесіїLabel = new System.Windows.Forms.Label();
             результатLabel = new System.Windows.Forms.Label();
-            id_СесіїLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -74,73 +76,78 @@
             // iD_Психолога2Label
             // 
             iD_Психолога2Label.AutoSize = true;
-            iD_Психолога2Label.Location = new System.Drawing.Point(112, 215);
+            iD_Психолога2Label.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            iD_Психолога2Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            iD_Психолога2Label.Location = new System.Drawing.Point(101, 164);
             iD_Психолога2Label.Name = "iD_Психолога2Label";
-            iD_Психолога2Label.Size = new System.Drawing.Size(72, 17);
+            iD_Психолога2Label.Size = new System.Drawing.Size(99, 24);
             iD_Психолога2Label.TabIndex = 3;
             iD_Психолога2Label.Text = "Психолог:";
             // 
             // iD_Клієнта2Label
             // 
             iD_Клієнта2Label.AutoSize = true;
-            iD_Клієнта2Label.Location = new System.Drawing.Point(112, 243);
+            iD_Клієнта2Label.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            iD_Клієнта2Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            iD_Клієнта2Label.Location = new System.Drawing.Point(101, 192);
             iD_Клієнта2Label.Name = "iD_Клієнта2Label";
-            iD_Клієнта2Label.Size = new System.Drawing.Size(54, 17);
+            iD_Клієнта2Label.Size = new System.Drawing.Size(80, 24);
             iD_Клієнта2Label.TabIndex = 5;
             iD_Клієнта2Label.Text = "Клієнт:";
             // 
             // датаLabel
             // 
             датаLabel.AutoSize = true;
-            датаLabel.Location = new System.Drawing.Point(112, 272);
+            датаLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            датаLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            датаLabel.Location = new System.Drawing.Point(101, 221);
             датаLabel.Name = "датаLabel";
-            датаLabel.Size = new System.Drawing.Size(46, 17);
+            датаLabel.Size = new System.Drawing.Size(69, 24);
             датаLabel.TabIndex = 7;
             датаLabel.Text = "Дата:";
             // 
             // початок_сесіїLabel
             // 
             початок_сесіїLabel.AutoSize = true;
-            початок_сесіїLabel.Location = new System.Drawing.Point(112, 299);
+            початок_сесіїLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            початок_сесіїLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            початок_сесіїLabel.Location = new System.Drawing.Point(101, 248);
             початок_сесіїLabel.Name = "початок_сесіїLabel";
-            початок_сесіїLabel.Size = new System.Drawing.Size(100, 17);
+            початок_сесіїLabel.Size = new System.Drawing.Size(138, 24);
             початок_сесіїLabel.TabIndex = 9;
             початок_сесіїLabel.Text = "Початок сесії:";
             // 
             // кінець_сесіїLabel
             // 
             кінець_сесіїLabel.AutoSize = true;
-            кінець_сесіїLabel.Location = new System.Drawing.Point(112, 327);
+            кінець_сесіїLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            кінець_сесіїLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            кінець_сесіїLabel.Location = new System.Drawing.Point(101, 276);
             кінець_сесіїLabel.Name = "кінець_сесіїLabel";
-            кінець_сесіїLabel.Size = new System.Drawing.Size(87, 17);
+            кінець_сесіїLabel.Size = new System.Drawing.Size(118, 24);
             кінець_сесіїLabel.TabIndex = 11;
             кінець_сесіїLabel.Text = "Кінець сесії:";
             // 
             // результатLabel
             // 
             результатLabel.AutoSize = true;
-            результатLabel.Location = new System.Drawing.Point(112, 355);
+            результатLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            результатLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            результатLabel.Location = new System.Drawing.Point(101, 304);
             результатLabel.Name = "результатLabel";
-            результатLabel.Size = new System.Drawing.Size(80, 17);
+            результатLabel.Size = new System.Drawing.Size(120, 24);
             результатLabel.TabIndex = 13;
             результатLabel.Text = "Результат:";
-            // 
-            // id_СесіїLabel
-            // 
-            id_СесіїLabel.AutoSize = true;
-            id_СесіїLabel.Location = new System.Drawing.Point(112, 187);
-            id_СесіїLabel.Name = "id_СесіїLabel";
-            id_СесіїLabel.Size = new System.Drawing.Size(57, 17);
-            id_СесіїLabel.TabIndex = 1;
-            id_СесіїLabel.Text = "Id Сесії:";
             // 
             // датаDateTimePicker
             // 
             this.датаDateTimePicker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.датаDateTimePicker.Location = new System.Drawing.Point(244, 268);
+            this.датаDateTimePicker.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.датаDateTimePicker.Location = new System.Drawing.Point(293, 212);
             this.датаDateTimePicker.Name = "датаDateTimePicker";
-            this.датаDateTimePicker.Size = new System.Drawing.Size(179, 22);
+            this.датаDateTimePicker.Size = new System.Drawing.Size(241, 32);
             this.датаDateTimePicker.TabIndex = 8;
+            this.датаDateTimePicker.ValueChanged += new System.EventHandler(this.датаDateTimePicker_ValueChanged);
             // 
             // mydbDataSet
             // 
@@ -149,19 +156,21 @@
             // 
             // PsychoUpDown
             // 
-            this.PsychoUpDown.Location = new System.Drawing.Point(244, 212);
+            this.PsychoUpDown.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.PsychoUpDown.Location = new System.Drawing.Point(293, 156);
             this.PsychoUpDown.Name = "PsychoUpDown";
             this.PsychoUpDown.ReadOnly = true;
-            this.PsychoUpDown.Size = new System.Drawing.Size(179, 22);
+            this.PsychoUpDown.Size = new System.Drawing.Size(241, 32);
             this.PsychoUpDown.TabIndex = 15;
             this.PsychoUpDown.Text = "Оберіть психолога";
             // 
             // clientUpDown
             // 
-            this.clientUpDown.Location = new System.Drawing.Point(244, 243);
+            this.clientUpDown.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.clientUpDown.Location = new System.Drawing.Point(293, 187);
             this.clientUpDown.Name = "clientUpDown";
             this.clientUpDown.ReadOnly = true;
-            this.clientUpDown.Size = new System.Drawing.Size(179, 22);
+            this.clientUpDown.Size = new System.Drawing.Size(241, 32);
             this.clientUpDown.TabIndex = 16;
             this.clientUpDown.Text = "Оберіть клієнта";
             // 
@@ -225,7 +234,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 482);
+            this.dataGridView1.Location = new System.Drawing.Point(30, 381);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -264,7 +273,7 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView2.Location = new System.Drawing.Point(21, 425);
+            this.dataGridView2.Location = new System.Drawing.Point(30, 430);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -277,6 +286,7 @@
             // 
             // begSessionUpDown
             // 
+            this.begSessionUpDown.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.begSessionUpDown.Items.Add("09:00:00");
             this.begSessionUpDown.Items.Add("10:00:00");
             this.begSessionUpDown.Items.Add("11:00:00");
@@ -287,15 +297,16 @@
             this.begSessionUpDown.Items.Add("16:00:00");
             this.begSessionUpDown.Items.Add("17:00:00");
             this.begSessionUpDown.Items.Add("18:00:00");
-            this.begSessionUpDown.Location = new System.Drawing.Point(244, 294);
+            this.begSessionUpDown.Location = new System.Drawing.Point(293, 238);
             this.begSessionUpDown.Name = "begSessionUpDown";
             this.begSessionUpDown.ReadOnly = true;
-            this.begSessionUpDown.Size = new System.Drawing.Size(179, 22);
+            this.begSessionUpDown.Size = new System.Drawing.Size(241, 32);
             this.begSessionUpDown.TabIndex = 30;
             this.begSessionUpDown.Text = "Оберіть час";
             // 
             // EndSessionUpDown
             // 
+            this.EndSessionUpDown.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.EndSessionUpDown.Items.Add("10:00:00");
             this.EndSessionUpDown.Items.Add("11:00:00");
             this.EndSessionUpDown.Items.Add("12:00:00");
@@ -306,30 +317,32 @@
             this.EndSessionUpDown.Items.Add("17:00:00");
             this.EndSessionUpDown.Items.Add("18:00:00");
             this.EndSessionUpDown.Items.Add("19:00:00");
-            this.EndSessionUpDown.Location = new System.Drawing.Point(244, 322);
+            this.EndSessionUpDown.Location = new System.Drawing.Point(293, 266);
             this.EndSessionUpDown.Name = "EndSessionUpDown";
             this.EndSessionUpDown.ReadOnly = true;
-            this.EndSessionUpDown.Size = new System.Drawing.Size(179, 22);
+            this.EndSessionUpDown.Size = new System.Drawing.Size(241, 32);
             this.EndSessionUpDown.TabIndex = 31;
             this.EndSessionUpDown.Text = "Оберіть час";
             // 
             // ResultUpDown
             // 
-            this.ResultUpDown.Location = new System.Drawing.Point(244, 350);
+            this.ResultUpDown.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.ResultUpDown.Location = new System.Drawing.Point(293, 294);
             this.ResultUpDown.Name = "ResultUpDown";
             this.ResultUpDown.ReadOnly = true;
-            this.ResultUpDown.Size = new System.Drawing.Size(179, 22);
+            this.ResultUpDown.Size = new System.Drawing.Size(241, 32);
             this.ResultUpDown.TabIndex = 32;
             this.ResultUpDown.Text = "Вкажіть результат ";
             // 
             // id_СесіїTextBox
             // 
             this.id_СесіїTextBox.BackColor = System.Drawing.Color.Silver;
-            this.id_СесіїTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.id_СесіїTextBox.Location = new System.Drawing.Point(244, 184);
+            this.id_СесіїTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.id_СесіїTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.id_СесіїTextBox.Location = new System.Drawing.Point(293, 128);
             this.id_СесіїTextBox.Name = "id_СесіїTextBox";
             this.id_СесіїTextBox.ReadOnly = true;
-            this.id_СесіїTextBox.Size = new System.Drawing.Size(179, 22);
+            this.id_СесіїTextBox.Size = new System.Drawing.Size(241, 32);
             this.id_СесіїTextBox.TabIndex = 2;
             this.id_СесіїTextBox.WordWrap = false;
             // 
@@ -361,7 +374,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView3.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView3.Location = new System.Drawing.Point(21, 531);
+            this.dataGridView3.Location = new System.Drawing.Point(30, 477);
             this.dataGridView3.MultiSelect = false;
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
@@ -400,7 +413,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView4.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView4.Location = new System.Drawing.Point(21, 377);
+            this.dataGridView4.Location = new System.Drawing.Point(30, 525);
             this.dataGridView4.MultiSelect = false;
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
@@ -411,12 +424,60 @@
             this.dataGridView4.TabIndex = 34;
             this.dataGridView4.Visible = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            this.label2.Location = new System.Drawing.Point(101, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 24);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Id Сесії::";
+            // 
+            // psText
+            // 
+            this.psText.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.psText.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.psText.Location = new System.Drawing.Point(293, 158);
+            this.psText.MaxLength = 30;
+            this.psText.Name = "psText";
+            this.psText.ReadOnly = true;
+            this.psText.Size = new System.Drawing.Size(241, 32);
+            this.psText.TabIndex = 50;
+            // 
+            // clText
+            // 
+            this.clText.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clText.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clText.Location = new System.Drawing.Point(293, 187);
+            this.clText.MaxLength = 30;
+            this.clText.Name = "clText";
+            this.clText.ReadOnly = true;
+            this.clText.Size = new System.Drawing.Size(241, 32);
+            this.clText.TabIndex = 51;
+            // 
+            // dateText
+            // 
+            this.dateText.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateText.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateText.Location = new System.Drawing.Point(293, 214);
+            this.dateText.MaxLength = 30;
+            this.dateText.Name = "dateText";
+            this.dateText.ReadOnly = true;
+            this.dateText.Size = new System.Drawing.Size(241, 32);
+            this.dateText.TabIndex = 52;
+            // 
             // EditSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(684, 703);
+            this.Controls.Add(this.psText);
+            this.Controls.Add(this.clText);
+            this.Controls.Add(this.dateText);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView4);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.ResultUpDown);
@@ -428,7 +489,6 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.clientUpDown);
             this.Controls.Add(this.PsychoUpDown);
-            this.Controls.Add(id_СесіїLabel);
             this.Controls.Add(this.id_СесіїTextBox);
             this.Controls.Add(iD_Психолога2Label);
             this.Controls.Add(iD_Клієнта2Label);
@@ -437,6 +497,7 @@
             this.Controls.Add(початок_сесіїLabel);
             this.Controls.Add(кінець_сесіїLabel);
             this.Controls.Add(результатLabel);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditSession";
             this.Text = "EditSchedule";
@@ -466,5 +527,9 @@
         private System.Windows.Forms.TextBox id_СесіїTextBox;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox psText;
+        private System.Windows.Forms.TextBox clText;
+        private System.Windows.Forms.TextBox dateText;
     }
 }

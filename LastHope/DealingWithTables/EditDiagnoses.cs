@@ -117,7 +117,7 @@ namespace LastHope.DealingWithTables
 
         private void EditDiagnoses_Load(object sender, EventArgs e)
         {
-            flagForDate = true;
+           
             string selectQuery1 = "SELECT Прізвище FROM клієнти";
             DataTable table1 = new DataTable();
             MySqlDataAdapter adapter1 = new MySqlDataAdapter(selectQuery1, connection);
@@ -150,7 +150,7 @@ namespace LastHope.DealingWithTables
 
             if (id != -999)
             {
-
+                flagForDate = true;
                 діагнозиTableAdapter.GetData();
                 string q = "select Id_Поставленого_діагнозу, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Дата_озвучування, Затвердження_нарадою from поставлені_діагнози left join клієнти  on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби where Id_Поставленого_діагнозу = '"+id+"'; ";
                 DataTable table2 = new DataTable();

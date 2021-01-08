@@ -87,6 +87,7 @@ namespace LastHope.DealingWithTables
             if (id != -999)
             {
                 dataGridView1.Hide();
+                flagForDate = true;
                 психологиTableAdapter.GetData();
                 string q = "SELECT * FROM Психологи WHERE ID_Психолога = '" + id + "'  ";
                 DataTable table = new DataTable();
