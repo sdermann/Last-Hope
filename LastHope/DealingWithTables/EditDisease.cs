@@ -91,36 +91,54 @@ namespace LastHope.DealingWithTables
                 id_ХворобиTextBox.Text = dataGridView1.Rows[0].Cells[0].Value.ToString();
                 назва_хворобиTextBox.Text = dataGridView1.Rows[0].Cells[1].Value.ToString();
                 короткий_описTextBox.Text = dataGridView1.Rows[0].Cells[2].Value.ToString();
-                тяжкість_лікуванняTextBox.Text = dataGridView1.Rows[0].Cells[3].Value.ToString();
+                тяжкість_лікуванняUpDown.Text = dataGridView1.Rows[0].Cells[3].Value.ToString();
               
             }
             else
             {
                 dataGridView1.Hide();
                 id_ХворобиTextBox.Hide();
+                label2.Hide();
             }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (id != -999)
+
+            if (назва_хворобиTextBox.Text != "" && короткий_описTextBox.Text != ""
+                 && тяжкість_лікуванняUpDown.Text != "" )
             {
-                string updateQuery = "UPDATE Хвороби SET Назва_хвороби = '" + назва_хворобиTextBox.Text + "', Короткий_опис = '" + короткий_описTextBox.Text + "',Тяжкість_лікування = '" + тяжкість_лікуванняTextBox.Text + "' WHERE Id_Хвороби = " + id + "";
+                if (id != -999)
+            {
+                string updateQuery = "UPDATE Хвороби SET Назва_хвороби = '" + назва_хворобиTextBox.Text + "', Короткий_опис = '" + короткий_описTextBox.Text + "',Тяжкість_лікування = '" + тяжкість_лікуванняUpDown.Text + "' WHERE Id_Хвороби = " + id + "";
                 executeMyQuery(updateQuery);
                 this.Close();
             }
             else
             {
                 
-                string addQuery = "INSERT INTO  Хвороби (Назва_хвороби, Короткий_опис, Тяжкість_лікування) VALUES( '"+назва_хворобиTextBox.Text+"','"+короткий_описTextBox.Text+"','"+ тяжкість_лікуванняTextBox.Text+"')";
+                string addQuery = "INSERT INTO  Хвороби (Назва_хвороби, Короткий_опис, Тяжкість_лікування) VALUES( '"+назва_хворобиTextBox.Text+"','"+короткий_описTextBox.Text+"','"+ тяжкість_лікуванняUpDown.Text+"')";
                 executeMyQuery(addQuery);
                 this.Close();
+            }
+            }
+            else
+            {
+                MessageBox.Show("Заповніть дані про хворобу коректно");
             }
         }
 
         private void SkipButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void назва_хворобиTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

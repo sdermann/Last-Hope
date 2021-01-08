@@ -88,10 +88,12 @@
             this.TextSearchBox.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TextSearchBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
             this.TextSearchBox.Location = new System.Drawing.Point(0, 54);
+            this.TextSearchBox.MaxLength = 30;
             this.TextSearchBox.Name = "TextSearchBox";
             this.TextSearchBox.Size = new System.Drawing.Size(218, 28);
             this.TextSearchBox.TabIndex = 14;
             this.TextSearchBox.TextChanged += new System.EventHandler(this.TextSearchBox_TextChanged);
+            this.TextSearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextSearchBox_KeyPress);
             // 
             // SearchLabel
             // 

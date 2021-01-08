@@ -265,7 +265,7 @@ namespace LastHope
                     FiltLabel.Text = "Cтаттю";
                     FiltData.Items.Clear();
                     FiltData.Items.AddRange(filtData2);
-                    FiltData.Text = "жіноча";
+                    FiltData.Text = "жінка";
                     FiltPanel.Show();
                     //Search.
                     SearchLabel.Text = "За прізвищем:";

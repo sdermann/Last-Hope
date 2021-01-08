@@ -41,19 +41,19 @@
             this.SearchLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.UpLabel = new System.Windows.Forms.Label();
             this.DownLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.UpLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PSpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SearchPanel.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TableLabel
@@ -160,10 +160,12 @@
             this.TextSearchBox.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TextSearchBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
             this.TextSearchBox.Location = new System.Drawing.Point(0, 54);
+            this.TextSearchBox.MaxLength = 30;
             this.TextSearchBox.Name = "TextSearchBox";
             this.TextSearchBox.Size = new System.Drawing.Size(218, 28);
             this.TextSearchBox.TabIndex = 14;
             this.TextSearchBox.TextChanged += new System.EventHandler(this.TextSearchBox_TextChanged);
+            this.TextSearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextSearchBox_KeyPress);
             // 
             // SearchLabel
             // 
@@ -201,17 +203,6 @@
             this.panel3.Size = new System.Drawing.Size(684, 139);
             this.panel3.TabIndex = 29;
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            this.panel1.Controls.Add(this.UpLabel);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(20, 11);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 28;
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -222,6 +213,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 29;
+            // 
+            // DownLabel
+            // 
+            this.DownLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DownLabel.AutoSize = true;
+            this.DownLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DownLabel.ForeColor = System.Drawing.Color.SeaShell;
+            this.DownLabel.Location = new System.Drawing.Point(3, 24);
+            this.DownLabel.Name = "DownLabel";
+            this.DownLabel.Size = new System.Drawing.Size(137, 24);
+            this.DownLabel.TabIndex = 15;
+            this.DownLabel.Text = "Нижній рівень";
+            this.DownLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label2
             // 
@@ -236,18 +240,16 @@
             this.label2.Text = "Нижній рівень";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label4
+            // panel1
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.Color.SeaShell;
-            this.label4.Location = new System.Drawing.Point(4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 24);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Верхній рівень";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            this.panel1.Controls.Add(this.UpLabel);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Location = new System.Drawing.Point(20, 11);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 28;
             // 
             // UpLabel
             // 
@@ -262,18 +264,18 @@
             this.UpLabel.Text = "Верхній рівень";
             this.UpLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // DownLabel
+            // label4
             // 
-            this.DownLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DownLabel.AutoSize = true;
-            this.DownLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DownLabel.ForeColor = System.Drawing.Color.SeaShell;
-            this.DownLabel.Location = new System.Drawing.Point(3, 24);
-            this.DownLabel.Name = "DownLabel";
-            this.DownLabel.Size = new System.Drawing.Size(137, 24);
-            this.DownLabel.TabIndex = 15;
-            this.DownLabel.Text = "Нижній рівень";
-            this.DownLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.SeaShell;
+            this.label4.Location = new System.Drawing.Point(4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(139, 24);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Верхній рівень";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // RiskForm
             // 
@@ -297,10 +299,10 @@
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,6 +16,7 @@ namespace LastHope.DealingWithTables
     {
         поставлені_діагнозиTableAdapter діагнозиTableAdapter;
         int id = -999;
+        bool flagForDate = false;
 
         //SQL
         const string ConnectionString = @"server=127.0.0.1; userid=Sdermann;password = 896520;database=mydb";
@@ -48,7 +49,7 @@ namespace LastHope.DealingWithTables
                 }
                 else
                 {
-                    // MessageBox.Show("Query Not Executed");
+                     MessageBox.Show("Query Not Executed");
                 }
             }
             catch (Exception ex)
@@ -83,31 +84,40 @@ namespace LastHope.DealingWithTables
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-
-            if (id != -999)
+            if (clientUpDown.Text != "Оберіть клієнта" && diseaseUpDown.Text != "Оберіть хворобу"
+                      && stateUpDown.Text != "Оберіть стан" && flagForDate != false)
             {
+                if (id != -999)
+                {
 
-                string date = дата_озвучуванняDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
-                // '2014-03-16 00:00:00.000'  
+                    string date = дата_озвучуванняDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                    // '2014-03-16 00:00:00.000'  
 
-                string updateQuery = "UPDATE Поставлені_діагнози SET  Дата_озвучування = '" + date + "',Id_Клієнта2 = (SELECT Id_Клієнта From Клієнти WHERE Прізвище = '" + clientUpDown.Text + "'), Id_Хвороби2 = (SELECT Id_Хвороби From Хвороби WHERE Назва_Хвороби = '" + diseaseUpDown.Text + "'), Затвердження_нарадою =  '" + stateUpDown.Text + "' where Id_Поставленого_діагнозу = '"+id+"'; ";
-               executeMyQuery(updateQuery);
-               this.Close();
+                    string updateQuery = "UPDATE Поставлені_діагнози SET  Дата_озвучування = '" + date + "',Id_Клієнта2 = (SELECT Id_Клієнта From Клієнти WHERE Прізвище = '" + clientUpDown.Text + "'), Id_Хвороби2 = (SELECT Id_Хвороби From Хвороби WHERE Назва_Хвороби = '" + diseaseUpDown.Text + "'), Затвердження_нарадою =  '" + stateUpDown.Text + "' where Id_Поставленого_діагнозу = '" + id + "'; ";
+                    executeMyQuery(updateQuery);
+                    this.Close();
+                }
+                else
+                {
+                    string date = дата_озвучуванняDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                    //    // '2014-03-16 00:00:00.000'
+
+                    string addQuery = @"INSERT INTO Поставлені_діагнози(Id_Клієнта2, Id_Хвороби2, Дата_озвучування, Затвердження_нарадою)
+                VALUES((SELECT Id_Клієнта From Клієнти WHERE Прізвище = '" + clientUpDown.Text + "'),(SELECT Id_Хвороби From Хвороби WHERE Назва_Хвороби = '" + diseaseUpDown.Text + "') , '" + date + "','" + stateUpDown.Text + "');";
+                    executeMyQuery(addQuery);
+                    this.Close();
+                }
+              
             }
             else
             {
-                string date = дата_озвучуванняDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
-                //    // '2014-03-16 00:00:00.000'
-
-                string addQuery = @"INSERT INTO Поставлені_діагнози(Id_Клієнта2, Id_Хвороби2, Дата_озвучування, Затвердження_нарадою)
-                VALUES((SELECT Id_Клієнта From Клієнти WHERE Прізвище = '" + clientUpDown.Text + "'),(SELECT Id_Хвороби From Хвороби WHERE Назва_Хвороби = '" + diseaseUpDown.Text + "') , '" + date + "','" + stateUpDown.Text + "');";
-                executeMyQuery(addQuery);
-                this.Close();
+                MessageBox.Show("Заповніть дані про діагноз коректно");
             }
         }
 
         private void EditDiagnoses_Load(object sender, EventArgs e)
         {
+            flagForDate = true;
             string selectQuery1 = "SELECT Прізвище FROM клієнти";
             DataTable table1 = new DataTable();
             MySqlDataAdapter adapter1 = new MySqlDataAdapter(selectQuery1, connection);
@@ -137,6 +147,7 @@ namespace LastHope.DealingWithTables
             }
             clientUpDown.Items.Clear();
             clientUpDown.Items.AddRange(DataCL);
+
             if (id != -999)
             {
 
@@ -149,13 +160,26 @@ namespace LastHope.DealingWithTables
                 id_Поставленого_діагнозуTextBox.Text = dataGridView1.Rows[0].Cells[0].Value.ToString();
                 clientUpDown.Text = dataGridView1.Rows[0].Cells[1].Value.ToString();
                 diseaseUpDown.Text = dataGridView1.Rows[0].Cells[2].Value.ToString();
-                MessageBox.Show(dataGridView1.Rows[0].Cells[2].Value.ToString());
+                
                 дата_озвучуванняDateTimePicker.Value = (DateTime)dataGridView1.Rows[0].Cells[3].Value;
                 stateUpDown.Text = dataGridView1.Rows[0].Cells[4].Value.ToString();            
             }
             else
             {
                 id_Поставленого_діагнозуTextBox.Hide();
+                label2.Hide();
+            }
+        }
+
+        private void дата_озвучуванняDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (дата_озвучуванняDateTimePicker.Value > DateTime.Now || дата_озвучуванняDateTimePicker.Value < DateTime.Now.AddYears(-25))
+            {
+                дата_озвучуванняDateTimePicker.Value = DateTime.Now;
+            }
+            else
+            {
+                flagForDate = true;
             }
         }
     }

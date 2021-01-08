@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label id_КлієнтаLabel;
             System.Windows.Forms.Label прізвищеLabel;
             System.Windows.Forms.Label ім_яLabel;
             System.Windows.Forms.Label по_батьковіLabel;
@@ -36,8 +35,8 @@
             System.Windows.Forms.Label статьLabel;
             System.Windows.Forms.Label телефонLabel;
             System.Windows.Forms.Label поштаLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.SaveButton = new System.Windows.Forms.Button();
             this.SkipButton = new System.Windows.Forms.Button();
@@ -47,10 +46,10 @@
             this.ім_яTextBox = new System.Windows.Forms.TextBox();
             this.по_батьковіTextBox = new System.Windows.Forms.TextBox();
             this.дата_народженняDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.статьTextBox = new System.Windows.Forms.TextBox();
             this.телефонTextBox = new System.Windows.Forms.TextBox();
             this.поштаTextBox = new System.Windows.Forms.TextBox();
-            id_КлієнтаLabel = new System.Windows.Forms.Label();
+            this.статьUpDown = new System.Windows.Forms.DomainUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             прізвищеLabel = new System.Windows.Forms.Label();
             ім_яLabel = new System.Windows.Forms.Label();
             по_батьковіLabel = new System.Windows.Forms.Label();
@@ -61,17 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // id_КлієнтаLabel
-            // 
-            id_КлієнтаLabel.AutoSize = true;
-            id_КлієнтаLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            id_КлієнтаLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            id_КлієнтаLabel.Location = new System.Drawing.Point(77, 162);
-            id_КлієнтаLabel.Name = "id_КлієнтаLabel";
-            id_КлієнтаLabel.Size = new System.Drawing.Size(111, 24);
-            id_КлієнтаLabel.TabIndex = 27;
-            id_КлієнтаLabel.Text = "Id Клієнта:";
             // 
             // прізвищеLabel
             // 
@@ -159,24 +147,24 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SeaShell;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.Location = new System.Drawing.Point(12, 477);
             this.dataGridView1.MultiSelect = false;
@@ -239,25 +227,31 @@
             // 
             this.прізвищеTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.прізвищеTextBox.Location = new System.Drawing.Point(282, 190);
+            this.прізвищеTextBox.MaxLength = 30;
             this.прізвищеTextBox.Name = "прізвищеTextBox";
             this.прізвищеTextBox.Size = new System.Drawing.Size(200, 32);
             this.прізвищеTextBox.TabIndex = 30;
+            this.прізвищеTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.прізвищеTextBox_KeyPress);
             // 
             // ім_яTextBox
             // 
             this.ім_яTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.ім_яTextBox.Location = new System.Drawing.Point(282, 218);
+            this.ім_яTextBox.MaxLength = 30;
             this.ім_яTextBox.Name = "ім_яTextBox";
             this.ім_яTextBox.Size = new System.Drawing.Size(200, 32);
             this.ім_яTextBox.TabIndex = 32;
+            this.ім_яTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.прізвищеTextBox_KeyPress);
             // 
             // по_батьковіTextBox
             // 
             this.по_батьковіTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.по_батьковіTextBox.Location = new System.Drawing.Point(282, 246);
+            this.по_батьковіTextBox.MaxLength = 30;
             this.по_батьковіTextBox.Name = "по_батьковіTextBox";
             this.по_батьковіTextBox.Size = new System.Drawing.Size(200, 32);
             this.по_батьковіTextBox.TabIndex = 34;
+            this.по_батьковіTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.прізвищеTextBox_KeyPress);
             // 
             // дата_народженняDateTimePicker
             // 
@@ -266,30 +260,50 @@
             this.дата_народженняDateTimePicker.Name = "дата_народженняDateTimePicker";
             this.дата_народженняDateTimePicker.Size = new System.Drawing.Size(200, 32);
             this.дата_народженняDateTimePicker.TabIndex = 36;
-            // 
-            // статьTextBox
-            // 
-            this.статьTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.статьTextBox.Location = new System.Drawing.Point(282, 302);
-            this.статьTextBox.Name = "статьTextBox";
-            this.статьTextBox.Size = new System.Drawing.Size(200, 32);
-            this.статьTextBox.TabIndex = 38;
+            this.дата_народженняDateTimePicker.ValueChanged += new System.EventHandler(this.дата_народженняDateTimePicker_ValueChanged);
             // 
             // телефонTextBox
             // 
             this.телефонTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.телефонTextBox.Location = new System.Drawing.Point(282, 330);
+            this.телефонTextBox.MaxLength = 30;
             this.телефонTextBox.Name = "телефонTextBox";
             this.телефонTextBox.Size = new System.Drawing.Size(200, 32);
             this.телефонTextBox.TabIndex = 40;
+            this.телефонTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.телефонTextBox_KeyPress);
             // 
             // поштаTextBox
             // 
             this.поштаTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.поштаTextBox.Location = new System.Drawing.Point(282, 358);
+            this.поштаTextBox.MaxLength = 30;
             this.поштаTextBox.Name = "поштаTextBox";
             this.поштаTextBox.Size = new System.Drawing.Size(200, 32);
             this.поштаTextBox.TabIndex = 42;
+            this.поштаTextBox.TextChanged += new System.EventHandler(this.поштаTextBox_TextChanged);
+            // 
+            // статьUpDown
+            // 
+            this.статьUpDown.Font = new System.Drawing.Font("Corbel", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.статьUpDown.Items.Add("чоловік");
+            this.статьUpDown.Items.Add("жінка");
+            this.статьUpDown.Items.Add("трансгендер");
+            this.статьUpDown.Location = new System.Drawing.Point(282, 302);
+            this.статьUpDown.Name = "статьUpDown";
+            this.статьUpDown.Size = new System.Drawing.Size(200, 29);
+            this.статьUpDown.TabIndex = 43;
+            this.статьUpDown.Text = "чоловік";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            this.label2.Location = new System.Drawing.Point(77, 166);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 24);
+            this.label2.TabIndex = 47;
+            this.label2.Text = "Id Клієнта:";
             // 
             // EditClient
             // 
@@ -297,7 +311,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(684, 703);
-            this.Controls.Add(id_КлієнтаLabel);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.статьUpDown);
             this.Controls.Add(this.id_КлієнтаTextBox);
             this.Controls.Add(прізвищеLabel);
             this.Controls.Add(this.прізвищеTextBox);
@@ -308,7 +323,6 @@
             this.Controls.Add(дата_народженняLabel);
             this.Controls.Add(this.дата_народженняDateTimePicker);
             this.Controls.Add(статьLabel);
-            this.Controls.Add(this.статьTextBox);
             this.Controls.Add(телефонLabel);
             this.Controls.Add(this.телефонTextBox);
             this.Controls.Add(поштаLabel);
@@ -338,8 +352,9 @@
         private System.Windows.Forms.TextBox ім_яTextBox;
         private System.Windows.Forms.TextBox по_батьковіTextBox;
         private System.Windows.Forms.DateTimePicker дата_народженняDateTimePicker;
-        private System.Windows.Forms.TextBox статьTextBox;
         private System.Windows.Forms.TextBox телефонTextBox;
         private System.Windows.Forms.TextBox поштаTextBox;
+        private System.Windows.Forms.DomainUpDown статьUpDown;
+        private System.Windows.Forms.Label label2;
     }
 }

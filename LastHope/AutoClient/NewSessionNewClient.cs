@@ -27,6 +27,7 @@ namespace LastHope.AutoClient
         string timeBeg;
         string timeEnd;
         int idOfPs;
+        bool email = false;
         психологиTableAdapter психологиTableAdapter;
 
         //SQL
@@ -60,7 +61,7 @@ namespace LastHope.AutoClient
                 }
                 else
                 {
-                    MessageBox.Show("Query Not Executed");
+                   MessageBox.Show("Query Not Executed");
                 }
             }
             catch (Exception ex)
@@ -97,20 +98,21 @@ namespace LastHope.AutoClient
             radioButton6.Text = DateTime.Today.AddDays(6).ToShortDateString();
             radioButton7.Text = DateTime.Today.AddDays(7).ToShortDateString();
             EndPanel.Hide();
+
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (radioButton1.Checked == true || radioButton2.Checked == true || radioButton3.Checked == true || radioButton4.Checked == true ||
-                radioButton5.Checked == true || radioButton6.Checked == true || radioButton7.Checked == true)
+                radioButton5.Checked == true || radioButton6.Checked == true || radioButton7.Checked == true )
             {
                 if (timeUpDown.Text != "Обрати час:")
                 {
                     if (прізвищеTextBox.Text != "" && ім_яTextBox.Text != ""
                         && по_батьковіTextBox.Text != "" && flagForDate != false
                         && статьUpDown.Text != "" && телефонTextBox.Text != ""
-                        && поштаTextBox.Text != "")
+                        && поштаTextBox.Text != "" && email ==  true)
                     {
                         string dateCl = дата_народженняDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
                         string addQuery = "INSERT INTO  Клієнти (Прізвище,Ім_я,По_батькові,Дата_народження, Стать, Телефон, Пошта) VALUES('" + прізвищеTextBox.Text + "', '" + ім_яTextBox.Text + "', '" + по_батьковіTextBox.Text + "', '" + dateCl + "', '" + статьUpDown.Text + "', '" + телефонTextBox.Text + "', '" + поштаTextBox.Text + "')";
@@ -205,7 +207,16 @@ namespace LastHope.AutoClient
 
         private void дата_народженняDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            flagForDate = true;
+            if (дата_народженняDateTimePicker.Value > DateTime.Now.AddYears(-14) || дата_народженняDateTimePicker.Value < DateTime.Now.AddYears(-100))
+            {
+                дата_народженняDateTimePicker.Value = DateTime.Now;
+
+            }
+            else
+            {
+                flagForDate = true;
+            }
+
         }
         private void UpdateSchedule()
         {
@@ -243,6 +254,39 @@ namespace LastHope.AutoClient
                 executeMyQuery(addQuery);
                 this.Close();
 
+            }
+        }
+
+        private void прізвищеTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void телефонTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void поштаTextBox_TextChanged(object sender, EventArgs e)
+        {
+            email = IsValidEmail(поштаTextBox.Text);
+        }
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
             }
         }
     }
