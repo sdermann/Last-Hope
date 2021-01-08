@@ -36,7 +36,45 @@ namespace LastHope
             MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, connection);
             adapter.Fill(table);
             dataGridView1.DataSource = table;
+            SelectFirstRow();
         }
+        public void populateShedule()
+        {
+            string selectQuery3 = "select Id_Розкладу_психолога,психологи.Прізвище,  Дата, `Початок_ роботи`, Кінець_роботи From розклади_психолога  left join психологи on ID_Психолога2 = психологи.ID_Психолога; ";
+            DataTable table3 = new DataTable();
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+            adapter3.Fill(table3);
+            dataGridView1.DataSource = table3;
+            SelectFirstRow();
+        }
+        public void populateSession()
+        {
+            string selectQuery3 = "select Id_Сесії, психологи.Прізвище AS 'Психолог', клієнти.Прізвище AS 'Клієнт' , Дата, Початок_сесії, Кінець_сесії, Результат From сесії left join психологи on ID_Психолога2 = психологи.ID_Психолога left join клієнти on ID_Клієнта2 = клієнти.ID_Клієнта; ";
+            DataTable table3 = new DataTable();
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+            adapter3.Fill(table3);
+            dataGridView1.DataSource = table3;
+            SelectFirstRow();
+        }
+        public void populateDiagnoses()
+        {
+            string selectQuery3 = "select Id_Поставленого_діагнозу, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Дата_озвучування, Затвердження_нарадою from поставлені_діагнози left join клієнти  on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби; ";
+            DataTable table3 = new DataTable();
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+            adapter3.Fill(table3);
+            dataGridView1.DataSource = table3;
+            SelectFirstRow();
+        }
+        public void populateDynamics()
+        {
+            string selectQuery3 = "   select Id_Динаміки_лікування, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Динаміка, Реакція_клієнта, Дата_Фіксації from  динаміки_лікування left join поставлені_діагнози on Id_Поставленого_діагнозу2 = поставлені_діагнози.Id_Поставленого_діагнозу left join клієнти on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби; ";
+            DataTable table3 = new DataTable();
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+            adapter3.Fill(table3);
+            dataGridView1.DataSource = table3;
+            SelectFirstRow();
+        }
+
 
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -121,8 +159,6 @@ namespace LastHope
             //психологиTableAdapter.Update(mydbDataSet);
         }
 
-        //
-
         private void психологиToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
@@ -132,22 +168,15 @@ namespace LastHope
             populateDGV();
             SelectFirstRow();
         }
-        //
+ 
         private void розкладиПсихологівToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
            
-            TableLabel.Text = "Розклади психологів:";    string selectQuery3 = "select Id_Розкладу_психолога,психологи.Прізвище,  Дата, `Початок_ роботи`, Кінець_роботи From розклади_психолога  left join психологи on ID_Психолога2 = психологи.ID_Психолога; ";
-            DataTable table3 = new DataTable();
-            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
-            adapter3.Fill(table3);
-            dataGridView1.DataSource = table3;
-      
+            TableLabel.Text = "Розклади психологів:";      
+            populateShedule();
            
-            //populateDGV();
-            SelectFirstRow();
         }
-        //
 
         private void клієнтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -157,43 +186,26 @@ namespace LastHope
             populateDGV();
             SelectFirstRow();
         }
-        //
+
         private void сесіїToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TableLabel.Text = "Сесії:";
-            string selectQuery3 = "select Id_Сесії, психологи.Прізвище AS 'Психолог', клієнти.Прізвище AS 'Клієнт' , Дата, Початок_сесії, Кінець_сесії, Результат From сесії left join психологи on ID_Психолога2 = психологи.ID_Психолога left join клієнти on ID_Клієнта2 = клієнти.ID_Клієнта; ";
-            DataTable table3 = new DataTable();
-            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
-            adapter3.Fill(table3);
-            dataGridView1.DataSource = table3;
-            //populateDGV();
-            SelectFirstRow();
+            populateSession();
         }
 
         private void поставленіДіагнозиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
             TableLabel.Text = "Поставлені діагнози:";
-            // populateDGV();
-            string selectQuery3 = "select Id_Поставленого_діагнозу, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Дата_озвучування, Затвердження_нарадою from поставлені_діагнози left join клієнти  on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби; ";
-            DataTable table3 = new DataTable();
-            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
-            adapter3.Fill(table3);
-            dataGridView1.DataSource = table3;
-            SelectFirstRow();
+            populateDiagnoses();
+          
         }
 
         private void динамікиЛікуванняToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TableLabel.Text = "Динаміки лікування:";
-            string selectQuery3 = "   select Id_Динаміки_лікування, клієнти.Прізвище AS 'Клієнт' , хвороби.Назва_хвороби AS 'Назва хвороби', Динаміка, Реакція_клієнта, Дата_Фіксації from  динаміки_лікування left join поставлені_діагнози on Id_Поставленого_діагнозу2 = поставлені_діагнози.Id_Поставленого_діагнозу left join клієнти on Id_Клієнта2 = клієнти.Id_Клієнта left join хвороби on Id_Хвороби2 = хвороби.Id_Хвороби; ";
-            DataTable table3 = new DataTable();
-            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
-            adapter3.Fill(table3);
-            dataGridView1.DataSource = table3;
-         
-            //populateDGV();
-            SelectFirstRow();
+            populateDynamics();
+
         }
 
         private void хворобиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -205,7 +217,6 @@ namespace LastHope
             SelectFirstRow();
         }
 
-        //TODO : Clients Labels
         private void TableLabel_TextChanged(object sender, EventArgs e)
         {
             //Filling panels.
@@ -214,6 +225,9 @@ namespace LastHope
             switch (LabelText)
             {
                 case "Психологи:":
+                    Agepanel.Hide();
+                    FindDateTimePicker.Hide();
+                    TextSearchBox.Show();
                     //Sort.
                     List<string> sortData1 = new List<string> { "ID", "Прізвищем","Ім'ям", "По-батькові", "Віком", "Статтю", "Телефоном", "Поштою", "Роками кваліфікації", "Лікарським ступенем"};
                     SortData.Items.Clear();
@@ -233,6 +247,9 @@ namespace LastHope
                     ResetButt.Show();
                     break;
                 case "Клієнти:":
+                    Agepanel.Show();
+                    FindDateTimePicker.Hide();
+                    TextSearchBox.Show();
                     //Sort.
                     List<string> sortData2 = new List<string> { "ID", "Прізвищем", "Ім'ям", "По-батькові", "Віком", "Статтю", "Телефоном", "Поштою" };
                     SortData.Items.Clear();
@@ -252,6 +269,9 @@ namespace LastHope
                     ResetButt.Show();
                     break;
                 case "Хвороби:":
+                    Agepanel.Hide();
+                    FindDateTimePicker.Hide();
+                    TextSearchBox.Show();
                     //Sort.
                     List<string> sortData3 = new List<string> { "ID", "Назвою","Описом","Тяжкістю"};
                     SortData.Items.Clear();
@@ -273,6 +293,9 @@ namespace LastHope
 
 
                 case "Розклади психологів:":
+                    Agepanel.Hide();
+                    FindDateTimePicker.Show();
+                    TextSearchBox.Hide();
                     //Sort.
                     List<string> sortData4 = new List<string> { "ID", "Психологом", "Датою","Початком роботи","Кінцем роботи" };
                     SortData.Items.Clear();
@@ -302,6 +325,9 @@ namespace LastHope
                     ResetButt.Show();
                     break;
                 case "Сесії:":
+                    Agepanel.Hide();
+                    FindDateTimePicker.Show();
+                    TextSearchBox.Hide();
                     //Sort.
                     List<string> sortData5 = new List<string> { "ID", "Психологом","Клієнтом", "Датою", "Початком роботи", "Кінцем роботи", "Результатом" };
                     SortData.Items.Clear();
@@ -332,6 +358,9 @@ namespace LastHope
                     break;
                 case "Поставлені діагнози:":
                     //Sort.
+                    Agepanel.Hide();
+                    FindDateTimePicker.Hide();
+                    TextSearchBox.Show();
                     List<string> sortData6 = new List<string> { "ID", "Хворобою", "Клієнтом", "Датою","Затвердженням"};
                     SortData.Items.Clear();
                     SortData.Items.AddRange(sortData6);
@@ -360,8 +389,11 @@ namespace LastHope
                     ResetButt.Show();
                     break;
                 case "Динаміки лікування:":
+                    Agepanel.Hide();
+                    FindDateTimePicker.Hide();
+                    TextSearchBox.Show();
                     //Sort.
-                    List<string> sortData7 = new List<string> { "ID", "Діагнозом","Динамікою","Реакцією"};
+                    List<string> sortData7 = new List<string> { "ID", "Клієнтом","Діагнозом","Динамікою","Реакцією" , "Датою фіксації"};
                     SortData.Items.Clear();
                     SortData.Items.AddRange(sortData7);
                     SortData.Text = "ID";
@@ -399,7 +431,6 @@ namespace LastHope
             switch (LabelText)
             {
                 case "Психологи:":
-
                     if (SortData.Text == "ID")
                     {
                         if (counter % 2 == 1)
@@ -410,6 +441,110 @@ namespace LastHope
                         else
                         {
                             dataGridView1.Sort(dataGridView1.Columns["ID_Психолога"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Прізвищем")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Прізвище"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Прізвище"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Ім'ям")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Ім_я"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Ім_я"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "По-батькові")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["По_батькові"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["По_батькові"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Статтю")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Стать"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Стать"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Телефоном")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Телефон"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Телефон"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Поштою")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Пошта"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Пошта"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Роками кваліфікації")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Роки_кваліфікації"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Роки_кваліфікації"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Лікарським ступенем")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Лікарська_ступінь"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Лікарська_ступінь"], ListSortDirection.Descending);
                             counter++;
                         }
                     }
@@ -426,7 +561,6 @@ namespace LastHope
                             counter++;
                         }
                     }
-
                     break;
                 case "Клієнти:":
 
@@ -443,6 +577,84 @@ namespace LastHope
                             counter++;
                         }
                     }
+                    else if (SortData.Text == "Прізвищем")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Прізвище"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Прізвище"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Ім'ям")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Ім_я"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Ім_я"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "По-батькові")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["По_батькові"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["По_батькові"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Статтю")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Стать"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Стать"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Телефоном")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Телефон"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Телефон"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Поштою")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Пошта"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Пошта"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
                     else
                     {
                         if (counter % 2 == 1)
@@ -456,7 +668,6 @@ namespace LastHope
                             counter++;
                         }
                     }
-
                     break;
                 case "Хвороби:":
 
@@ -470,6 +681,32 @@ namespace LastHope
                         else
                         {
                             dataGridView1.Sort(dataGridView1.Columns["Id_Хвороби"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Описом")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Короткий_опис"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Короткий_опис"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Тяжкістю")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Тяжкість_лікування"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Тяжкість_лікування"], ListSortDirection.Descending);
                             counter++;
                         }
                     }
@@ -487,8 +724,324 @@ namespace LastHope
                         }
                     }
                     break;
+                case "Сесії:":
+                 
+                    if (SortData.Text == "ID")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Сесії"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Сесії"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Психологом")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Психолог"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Психолог"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Клієнтом")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Клієнт"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Клієнт"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Датою")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Початком роботи")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Початок_сесії"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Початок_сесії"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Кінцем роботи")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Кінець_сесії"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Кінець_сесії"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Результат"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Результат"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    break;
+                 
+                case "Поставлені діагнози:":
+                    
+
+                    if (SortData.Text == "ID")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Поставленого_діагнозу"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Поставленого_діагнозу"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Хворобою")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Назва хвороби"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Назва хвороби"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Клієнтом")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Клієнт"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Клієнт"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Датою")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата_озвучування"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата_озвучування"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Затвердження_нарадою"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Затвердження_нарадою"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    break;
+                case "Динаміки лікування:":
+         
+                    if (SortData.Text == "ID")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Динаміки_лікування"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Динаміки_лікування"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Діагнозом")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Назва хвороби"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Назва хвороби"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Клієнтом")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Клієнт"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Клієнт"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Динамікою")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Динаміка"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Динаміка"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Реакцією")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Реакція_клієнта"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Реакція_клієнта"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата_Фіксації"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата_Фіксації"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    break;
+                case "Розклади психологів:":
+                   
+                    if (SortData.Text == "ID")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Розкладу_психолога"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Id_Розкладу_психолога"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Психологом")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Прізвище"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Прізвище"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Датою")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Дата"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else if (SortData.Text == "Початком роботи")
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Початок_ роботи"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Початок_ роботи"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    else
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Кінець_роботи"], ListSortDirection.Ascending);
+                            counter++;
+                        }
+                        else
+                        {
+                            dataGridView1.Sort(dataGridView1.Columns["Кінець_роботи"], ListSortDirection.Descending);
+                            counter++;
+                        }
+                    }
+                    break;
             }
         }
+
+
+        
 
         //Filter for tables
         private void FiltButton_Click(object sender, EventArgs e)
@@ -557,11 +1110,6 @@ namespace LastHope
             }
         }
 
-
-
-
-        //TODO:Edit
-
         private void EditStrip_Click(object sender, EventArgs e)
         {
             var activeRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
@@ -595,19 +1143,19 @@ namespace LastHope
                     case "Сесії:":
                         EditSession editSessionForm = new EditSession(сесіїTableAdapter, id);
                         editSessionForm.ShowDialog();
-                        //populateDGV();
+                        populateSession();
                         IsDirty = true;
                         break;
                     case "Поставлені діагнози:":
                         EditDiagnoses editDiagnoseForm = new EditDiagnoses(поставлені_діагнозиTableAdapter, id);
                         editDiagnoseForm.ShowDialog();
-                        //populateDGV();
+                        populateDiagnoses();
                         IsDirty = true;
                         break;
                     case "Динаміки лікування:":
                         EditTreatment editTreatmentForm = new EditTreatment(динаміки_лікуванняTableAdapter, id);
                         editTreatmentForm.ShowDialog();
-                        //populateDGV();
+                        populateDynamics();
                         IsDirty = true;
                         break;
 
@@ -616,10 +1164,10 @@ namespace LastHope
 
         }
 
-
         private void ResetButt_Click_1(object sender, EventArgs e)
         {
-            populateDGV();
+            ResetCommand();
+           
         }
 
         private void DeleteButt_Click(object sender, EventArgs e)
@@ -725,7 +1273,7 @@ WHEN Кінець_роботи = '" + timeEnd + "'  THEN '" + timeBeg + "' ELSE 
                         if (dataGridView2.Rows[0].Cells[3].Value.ToString() == dataGridView2.Rows[0].Cells[4].Value.ToString())
                         {
 
-                            string deleteQuery3 = "DELETE FROM розклади_психолога   WHERE ID_Психолога2 = '" + ps + "'";
+                            string deleteQuery3 = "DELETE FROM розклади_психолога   WHERE ID_Психолога2 = '" + ps + "' and Дата = '" + date + "' LIMIT 1";
                             executeMyQuery(deleteQuery3);
                             populateDGV();
                             IsDirty = true;
@@ -741,7 +1289,7 @@ WHEN Кінець_роботи = '" + timeEnd + "'  THEN '" + timeBeg + "' ELSE 
                             if (dataGridView2.Rows[0].Cells[3].Value.ToString() == dataGridView2.Rows[0].Cells[4].Value.ToString())
                             {
 
-                                string deleteQuery3 = "DELETE FROM розклади_психолога   WHERE ID_Психолога2 = '" + ps + "'";
+                                string deleteQuery3 = "DELETE FROM розклади_психолога   WHERE ID_Психолога2 = '" + ps + "' and Дата = '" + date + "'";
                                 executeMyQuery(deleteQuery3);
                                 populateDGV();
                                 IsDirty = true;
@@ -758,7 +1306,7 @@ WHEN Кінець_роботи = '" + timeEnd + "'  THEN '" + timeBeg + "' ELSE 
 
                         string deleteQuery4 = "DELETE FROM сесії   WHERE Id_Сесії = '" + sessionId + "'";
                         executeMyQuery(deleteQuery4);
-                        populateDGV();
+                        populateSession();
                         IsDirty = true;
 
                     }
@@ -770,7 +1318,7 @@ WHEN Кінець_роботи = '" + timeEnd + "'  THEN '" + timeBeg + "' ELSE 
                         string deleteQuery = "DELETE FROM " + tableName + " WHERE " + IdNum + " ='" + int.Parse(activeRow.Cells[0].Value.ToString()) + "' ;" +
                             "Delete from сесії where ID_Психолога2 = (Select ID_Психолога from психологи where Прізвище = '" + (activeRow.Cells[1].Value.ToString()) + "') AND Дата = '"+date +"' ";
                         executeMyQuery(deleteQuery);
-                        //populateDGV();
+                        populateShedule();
                         IsDirty = true;
                     }
                     else
@@ -779,22 +1327,16 @@ WHEN Кінець_роботи = '" + timeEnd + "'  THEN '" + timeBeg + "' ELSE 
                         
                         string deleteQuery = "DELETE FROM " + tableName + " WHERE " + IdNum + " ='" + int.Parse(activeRow.Cells[0].Value.ToString()) + "'    ";
                         executeMyQuery(deleteQuery);
-                        //populateDGV();
+                        ResetCommand();
                         IsDirty = true;
                     }
                   
                   
 
                 }
-                else
-                {
-                    //
-                }
-
             }
-
         }
-        //TODO: new Item
+
         private void AddButt_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count > 0)
@@ -824,22 +1366,47 @@ WHEN Кінець_роботи = '" + timeEnd + "'  THEN '" + timeBeg + "' ELSE 
                     case "Сесії:":
                         EditSession editSessionForm = new EditSession();
                         editSessionForm.ShowDialog();
-                        // populateDGV();
+                        populateSession();
                         IsDirty = true;
                         break;
                     case "Поставлені діагнози:":
                         EditDiagnoses editDiagnoseForm = new EditDiagnoses();
                         editDiagnoseForm.ShowDialog();
-                        //populateDGV();
+                        populateDiagnoses();
                         IsDirty = true;
                         break;
                     case "Динаміки лікування:":
                         EditTreatment editTreatmentForm = new EditTreatment();
                         editTreatmentForm.ShowDialog();
-                        //populateDGV();
+                        populateDynamics();
                         IsDirty = true;
                         break;
                 }
+            }
+        }
+
+        private void ResetCommand()
+        {
+            if (TableLabel.Text == "Розклади психологів:")
+            {
+                populateShedule();
+            }
+            else if (TableLabel.Text == "Сесії:")
+            {
+
+                populateSession();
+            }
+            else if (TableLabel.Text == "Поставлені діагнози:")
+            {
+                populateDiagnoses();
+            }
+            else if (TableLabel.Text == "Динаміки лікування:")
+            {
+                populateDynamics();
+            }
+            else
+            {
+                populateDGV();
             }
         }
     }

@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.mydbDataSet = new LastHope.mydbDataSet();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -91,6 +91,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.динаміки_лікуванняTableAdapter1 = new LastHope.mydbDataSetTableAdapters.динаміки_лікуванняTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Agepanel = new System.Windows.Forms.Panel();
+            this.AgeUpDown = new System.Windows.Forms.DomainUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.FindDateTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -109,6 +113,7 @@
             this.SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.Agepanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // bindingSource1
@@ -261,7 +266,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(684, 31);
+            this.bindingNavigator1.Size = new System.Drawing.Size(684, 27);
             this.bindingNavigator1.TabIndex = 5;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -269,7 +274,7 @@
             // 
             this.bindingNavigatorCountItem.ForeColor = System.Drawing.Color.SeaShell;
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Всього елементів";
             // 
@@ -279,7 +284,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "До першого";
             // 
             // bindingNavigatorMovePreviousItem
@@ -288,18 +293,19 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "До попереднього";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -308,7 +314,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -316,7 +322,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "До наступного";
             // 
             // bindingNavigatorMoveLastItem
@@ -325,7 +331,7 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "До останнього";
             // 
             // AddButt
@@ -334,7 +340,7 @@
             this.AddButt.Image = ((System.Drawing.Image)(resources.GetObject("AddButt.Image")));
             this.AddButt.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AddButt.Name = "AddButt";
-            this.AddButt.Size = new System.Drawing.Size(29, 28);
+            this.AddButt.Size = new System.Drawing.Size(29, 24);
             this.AddButt.Text = "Додати елемент";
             this.AddButt.Click += new System.EventHandler(this.AddButt_Click);
             // 
@@ -344,14 +350,14 @@
             this.DeleteButt.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButt.Image")));
             this.DeleteButt.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteButt.Name = "DeleteButt";
-            this.DeleteButt.Size = new System.Drawing.Size(29, 28);
+            this.DeleteButt.Size = new System.Drawing.Size(29, 24);
             this.DeleteButt.Text = "Видалити елемент";
             this.DeleteButt.Click += new System.EventHandler(this.DeleteButt_Click);
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // EditStrip
             // 
@@ -359,7 +365,7 @@
             this.EditStrip.Image = ((System.Drawing.Image)(resources.GetObject("EditStrip.Image")));
             this.EditStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.EditStrip.Name = "EditStrip";
-            this.EditStrip.Size = new System.Drawing.Size(29, 28);
+            this.EditStrip.Size = new System.Drawing.Size(29, 24);
             this.EditStrip.Text = "Редагувати елемент";
             this.EditStrip.Click += new System.EventHandler(this.EditStrip_Click);
             // 
@@ -585,6 +591,7 @@
             // 
             this.SearchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
             this.SearchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SearchPanel.Controls.Add(this.FindDateTimePicker);
             this.SearchPanel.Controls.Add(this.TextSearchBox);
             this.SearchPanel.Controls.Add(this.SearchLabel);
             this.SearchPanel.Controls.Add(this.label3);
@@ -645,25 +652,25 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SeaShell;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.DataSource = this.bindingSource1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.Location = new System.Drawing.Point(22, 290);
             this.dataGridView1.MultiSelect = false;
@@ -690,12 +697,66 @@
             this.dataGridView2.TabIndex = 19;
             this.dataGridView2.Visible = false;
             // 
+            // Agepanel
+            // 
+            this.Agepanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
+            this.Agepanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Agepanel.Controls.Add(this.AgeUpDown);
+            this.Agepanel.Controls.Add(this.label5);
+            this.Agepanel.Location = new System.Drawing.Point(19, 256);
+            this.Agepanel.Name = "Agepanel";
+            this.Agepanel.Size = new System.Drawing.Size(228, 96);
+            this.Agepanel.TabIndex = 30;
+            this.Agepanel.Visible = false;
+            // 
+            // AgeUpDown
+            // 
+            this.AgeUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AgeUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            this.AgeUpDown.Font = new System.Drawing.Font("Corbel", 10.2F);
+            this.AgeUpDown.ForeColor = System.Drawing.Color.SeaShell;
+            this.AgeUpDown.Items.Add("До 18");
+            this.AgeUpDown.Items.Add("Від 18 до 35");
+            this.AgeUpDown.Items.Add("Від 35 до 65");
+            this.AgeUpDown.Items.Add("Після 65");
+            this.AgeUpDown.Location = new System.Drawing.Point(0, 49);
+            this.AgeUpDown.Name = "AgeUpDown";
+            this.AgeUpDown.ReadOnly = true;
+            this.AgeUpDown.Size = new System.Drawing.Size(227, 28);
+            this.AgeUpDown.TabIndex = 40;
+            this.AgeUpDown.Text = "До 18";
+            this.AgeUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Corbel", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(171, 35);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Оберіть вік:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // FindDateTimePicker
+            // 
+            this.FindDateTimePicker.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.FindDateTimePicker.Location = new System.Drawing.Point(0, 61);
+            this.FindDateTimePicker.Name = "FindDateTimePicker";
+            this.FindDateTimePicker.Size = new System.Drawing.Size(200, 32);
+            this.FindDateTimePicker.TabIndex = 37;
+            this.FindDateTimePicker.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(684, 703);
+            this.Controls.Add(this.Agepanel);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.ResetButt);
             this.Controls.Add(this.SearchPanel);
@@ -735,6 +796,8 @@
             this.SearchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Agepanel.ResumeLayout(false);
+            this.Agepanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -800,5 +863,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private mydbDataSetTableAdapters.динаміки_лікуванняTableAdapter динаміки_лікуванняTableAdapter1;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Panel Agepanel;
+        private System.Windows.Forms.DomainUpDown AgeUpDown;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker FindDateTimePicker;
     }
 }

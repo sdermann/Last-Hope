@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label id_КлієнтаLabel;
             System.Windows.Forms.Label прізвищеLabel;
             System.Windows.Forms.Label ім_яLabel;
@@ -38,6 +36,8 @@
             System.Windows.Forms.Label статьLabel;
             System.Windows.Forms.Label телефонLabel;
             System.Windows.Forms.Label поштаLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.SaveButton = new System.Windows.Forms.Button();
             this.SkipButton = new System.Windows.Forms.Button();
@@ -62,6 +62,94 @@
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
+            // id_КлієнтаLabel
+            // 
+            id_КлієнтаLabel.AutoSize = true;
+            id_КлієнтаLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            id_КлієнтаLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            id_КлієнтаLabel.Location = new System.Drawing.Point(77, 162);
+            id_КлієнтаLabel.Name = "id_КлієнтаLabel";
+            id_КлієнтаLabel.Size = new System.Drawing.Size(111, 24);
+            id_КлієнтаLabel.TabIndex = 27;
+            id_КлієнтаLabel.Text = "Id Клієнта:";
+            // 
+            // прізвищеLabel
+            // 
+            прізвищеLabel.AutoSize = true;
+            прізвищеLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            прізвищеLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            прізвищеLabel.Location = new System.Drawing.Point(77, 190);
+            прізвищеLabel.Name = "прізвищеLabel";
+            прізвищеLabel.Size = new System.Drawing.Size(100, 24);
+            прізвищеLabel.TabIndex = 29;
+            прізвищеLabel.Text = "Прізвище:";
+            // 
+            // ім_яLabel
+            // 
+            ім_яLabel.AutoSize = true;
+            ім_яLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            ім_яLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            ім_яLabel.Location = new System.Drawing.Point(77, 218);
+            ім_яLabel.Name = "ім_яLabel";
+            ім_яLabel.Size = new System.Drawing.Size(49, 24);
+            ім_яLabel.TabIndex = 31;
+            ім_яLabel.Text = "Ім я:";
+            // 
+            // по_батьковіLabel
+            // 
+            по_батьковіLabel.AutoSize = true;
+            по_батьковіLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            по_батьковіLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            по_батьковіLabel.Location = new System.Drawing.Point(77, 246);
+            по_батьковіLabel.Name = "по_батьковіLabel";
+            по_батьковіLabel.Size = new System.Drawing.Size(125, 24);
+            по_батьковіLabel.TabIndex = 33;
+            по_батьковіLabel.Text = "По батькові:";
+            // 
+            // дата_народженняLabel
+            // 
+            дата_народженняLabel.AutoSize = true;
+            дата_народженняLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            дата_народженняLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            дата_народженняLabel.Location = new System.Drawing.Point(77, 275);
+            дата_народженняLabel.Name = "дата_народженняLabel";
+            дата_народженняLabel.Size = new System.Drawing.Size(183, 24);
+            дата_народженняLabel.TabIndex = 35;
+            дата_народженняLabel.Text = "Дата народження:";
+            // 
+            // статьLabel
+            // 
+            статьLabel.AutoSize = true;
+            статьLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            статьLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            статьLabel.Location = new System.Drawing.Point(77, 302);
+            статьLabel.Name = "статьLabel";
+            статьLabel.Size = new System.Drawing.Size(81, 24);
+            статьLabel.TabIndex = 37;
+            статьLabel.Text = "Стать:";
+            // 
+            // телефонLabel
+            // 
+            телефонLabel.AutoSize = true;
+            телефонLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            телефонLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            телефонLabel.Location = new System.Drawing.Point(77, 330);
+            телефонLabel.Name = "телефонLabel";
+            телефонLabel.Size = new System.Drawing.Size(92, 24);
+            телефонLabel.TabIndex = 39;
+            телефонLabel.Text = "Телефон:";
+            // 
+            // поштаLabel
+            // 
+            поштаLabel.AutoSize = true;
+            поштаLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            поштаLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            поштаLabel.Location = new System.Drawing.Point(77, 358);
+            поштаLabel.Name = "поштаLabel";
+            поштаLabel.Size = new System.Drawing.Size(82, 24);
+            поштаLabel.TabIndex = 41;
+            поштаLabel.Text = "Пошта:";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -71,24 +159,24 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SeaShell;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.Location = new System.Drawing.Point(12, 477);
             this.dataGridView1.MultiSelect = false;
@@ -137,17 +225,6 @@
             this.mydbDataSet.DataSetName = "mydbDataSet";
             this.mydbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // id_КлієнтаLabel
-            // 
-            id_КлієнтаLabel.AutoSize = true;
-            id_КлієнтаLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            id_КлієнтаLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            id_КлієнтаLabel.Location = new System.Drawing.Point(77, 162);
-            id_КлієнтаLabel.Name = "id_КлієнтаLabel";
-            id_КлієнтаLabel.Size = new System.Drawing.Size(111, 24);
-            id_КлієнтаLabel.TabIndex = 27;
-            id_КлієнтаLabel.Text = "Id Клієнта:";
-            // 
             // id_КлієнтаTextBox
             // 
             this.id_КлієнтаTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -158,17 +235,6 @@
             this.id_КлієнтаTextBox.Size = new System.Drawing.Size(200, 32);
             this.id_КлієнтаTextBox.TabIndex = 28;
             // 
-            // прізвищеLabel
-            // 
-            прізвищеLabel.AutoSize = true;
-            прізвищеLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            прізвищеLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            прізвищеLabel.Location = new System.Drawing.Point(77, 190);
-            прізвищеLabel.Name = "прізвищеLabel";
-            прізвищеLabel.Size = new System.Drawing.Size(100, 24);
-            прізвищеLabel.TabIndex = 29;
-            прізвищеLabel.Text = "Прізвище:";
-            // 
             // прізвищеTextBox
             // 
             this.прізвищеTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
@@ -176,17 +242,6 @@
             this.прізвищеTextBox.Name = "прізвищеTextBox";
             this.прізвищеTextBox.Size = new System.Drawing.Size(200, 32);
             this.прізвищеTextBox.TabIndex = 30;
-            // 
-            // ім_яLabel
-            // 
-            ім_яLabel.AutoSize = true;
-            ім_яLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            ім_яLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            ім_яLabel.Location = new System.Drawing.Point(77, 218);
-            ім_яLabel.Name = "ім_яLabel";
-            ім_яLabel.Size = new System.Drawing.Size(49, 24);
-            ім_яLabel.TabIndex = 31;
-            ім_яLabel.Text = "Ім я:";
             // 
             // ім_яTextBox
             // 
@@ -196,17 +251,6 @@
             this.ім_яTextBox.Size = new System.Drawing.Size(200, 32);
             this.ім_яTextBox.TabIndex = 32;
             // 
-            // по_батьковіLabel
-            // 
-            по_батьковіLabel.AutoSize = true;
-            по_батьковіLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            по_батьковіLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            по_батьковіLabel.Location = new System.Drawing.Point(77, 246);
-            по_батьковіLabel.Name = "по_батьковіLabel";
-            по_батьковіLabel.Size = new System.Drawing.Size(125, 24);
-            по_батьковіLabel.TabIndex = 33;
-            по_батьковіLabel.Text = "По батькові:";
-            // 
             // по_батьковіTextBox
             // 
             this.по_батьковіTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
@@ -214,17 +258,6 @@
             this.по_батьковіTextBox.Name = "по_батьковіTextBox";
             this.по_батьковіTextBox.Size = new System.Drawing.Size(200, 32);
             this.по_батьковіTextBox.TabIndex = 34;
-            // 
-            // дата_народженняLabel
-            // 
-            дата_народженняLabel.AutoSize = true;
-            дата_народженняLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            дата_народженняLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            дата_народженняLabel.Location = new System.Drawing.Point(77, 275);
-            дата_народженняLabel.Name = "дата_народженняLabel";
-            дата_народженняLabel.Size = new System.Drawing.Size(183, 24);
-            дата_народженняLabel.TabIndex = 35;
-            дата_народженняLabel.Text = "Дата народження:";
             // 
             // дата_народженняDateTimePicker
             // 
@@ -234,17 +267,6 @@
             this.дата_народженняDateTimePicker.Size = new System.Drawing.Size(200, 32);
             this.дата_народженняDateTimePicker.TabIndex = 36;
             // 
-            // статьLabel
-            // 
-            статьLabel.AutoSize = true;
-            статьLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            статьLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            статьLabel.Location = new System.Drawing.Point(77, 302);
-            статьLabel.Name = "статьLabel";
-            статьLabel.Size = new System.Drawing.Size(81, 24);
-            статьLabel.TabIndex = 37;
-            статьLabel.Text = "Стать:";
-            // 
             // статьTextBox
             // 
             this.статьTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
@@ -253,17 +275,6 @@
             this.статьTextBox.Size = new System.Drawing.Size(200, 32);
             this.статьTextBox.TabIndex = 38;
             // 
-            // телефонLabel
-            // 
-            телефонLabel.AutoSize = true;
-            телефонLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            телефонLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            телефонLabel.Location = new System.Drawing.Point(77, 330);
-            телефонLabel.Name = "телефонLabel";
-            телефонLabel.Size = new System.Drawing.Size(92, 24);
-            телефонLabel.TabIndex = 39;
-            телефонLabel.Text = "Телефон:";
-            // 
             // телефонTextBox
             // 
             this.телефонTextBox.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
@@ -271,17 +282,6 @@
             this.телефонTextBox.Name = "телефонTextBox";
             this.телефонTextBox.Size = new System.Drawing.Size(200, 32);
             this.телефонTextBox.TabIndex = 40;
-            // 
-            // поштаLabel
-            // 
-            поштаLabel.AutoSize = true;
-            поштаLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            поштаLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            поштаLabel.Location = new System.Drawing.Point(77, 358);
-            поштаLabel.Name = "поштаLabel";
-            поштаLabel.Size = new System.Drawing.Size(82, 24);
-            поштаLabel.TabIndex = 41;
-            поштаLabel.Text = "Пошта:";
             // 
             // поштаTextBox
             // 

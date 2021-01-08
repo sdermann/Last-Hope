@@ -27,9 +27,8 @@ namespace LastHope
             //conn.Close();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new NewSessionNewClient());
             Application.Run(new AppForm());
-            //Application.Run(new EditTreatment());
+           
         }
     }
 }
