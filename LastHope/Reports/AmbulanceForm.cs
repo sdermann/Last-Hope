@@ -71,6 +71,12 @@ namespace LastHope
             this.new_viewTableAdapter.Fill(this.mydbDataSet.new_view);
 
             this.reportViewer1.RefreshReport();
+
+            string selectQuery3 = "select Прізвище, Ім_я, По_батькові From клієнти where  Id_Клієнта in (Select Id_Клієнта2 From поставлені_діагнози) ";
+            DataTable table3 = new DataTable();
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
+            adapter3.Fill(table3);
+            dataGridView1.DataSource = table3;
         }
 
         private void PrintButt_Click(object sender, EventArgs e)
@@ -109,6 +115,69 @@ namespace LastHope
                 JOIN `mydb`.`хвороби` ON((`mydb`.`хвороби`.`Id_Хвороби` = `mydb`.`поставлені_діагнози`.`Id_Хвороби2`)))
             Order by `mydb`.`клієнти`.`Id_Клієнта`", connection);
                     DataTable dt = new DataTable();
+            temp.Fill(dt);
+            viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", dt));
+            viewer.RefreshReport();
+            var bytes = viewer.LocalReport.Render("PDF", deciveInfo, out mimeType, out encoding, out extension,
+                out streamIds, out warnings);
+            string fileName = @"D:\Настя\report1.pdf";
+            File.WriteAllBytes(fileName, bytes);
+            System.Diagnostics.Process.Start(fileName);
+        }
+
+        private void TextSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            string surnameC = TextSearchBox.Text;
+            string q1 = "SELECT Прізвище, Ім_я, По_батькові From клієнти where  Id_Клієнта in (Select Id_Клієнта2 From поставлені_діагнози) AND Прізвище  LIKE  '%" + surnameC + "%'  ";
+            DataTable table1 = new DataTable();
+            MySqlDataAdapter adapter1 = new MySqlDataAdapter(q1, connection);
+            adapter1.Fill(table1);
+            dataGridView1.DataSource = table1;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+         
+
+            string deciveInfo = "";
+            string[] streamIds;
+            Warning[] warnings;
+
+            string mimeType = string.Empty;
+            string encoding = string.Empty;
+            string extension = string.Empty;
+
+            string surname = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            ReportViewer viewer = new ReportViewer();
+            viewer.ProcessingMode = ProcessingMode.Local;
+
+            string q1 = "SELECT Id_Клієнта FROM Клієнти WHERE Прізвище  =  '" + surname + "'  ";
+            DataTable table1 = new DataTable();
+            MySqlDataAdapter adapter1 = new MySqlDataAdapter(q1, connection);
+            adapter1.Fill(table1);
+            dataGridView2.DataSource = table1;
+            int id = int.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString());
+
+            viewer.LocalReport.ReportPath = @"D:\Настя\Last-Hope\LastHope\Report1.rdlc";
+            MySqlDataAdapter temp = new MySqlDataAdapter(@"SELECT `mydb`.`клієнти`.`Прізвище` AS `Прізвище`,
+                `mydb`.`клієнти`.`Ім_я` AS `Ім_я`,
+                `mydb`.`клієнти`.`По_батькові` AS `По_батькові`,
+                `mydb`.`клієнти`.`Дата_народження` AS `Дата_Народження`,
+                `mydb`.`клієнти`.`Стать` AS `Стать`,
+                `mydb`.`клієнти`.`Телефон` AS `Телефон`,
+                `mydb`.`клієнти`.`Пошта` AS `Пошта`,
+                `mydb`.`поставлені_діагнози`.`Дата_озвучування` AS `Дата_озвучування`,
+                `mydb`.`хвороби`.`Назва_хвороби` AS `Назва_хвороби`,
+                `mydb`.`хвороби`.`Тяжкість_лікування` AS `Тяжкість_лікування`
+
+    FROM
+        ((`mydb`.`клієнти`
+
+        JOIN `mydb`.`поставлені_діагнози` ON((`mydb`.`поставлені_діагнози`.`Id_Клієнта2` = `mydb`.`клієнти`.`Id_Клієнта`)))
+                JOIN `mydb`.`хвороби` ON((`mydb`.`хвороби`.`Id_Хвороби` = `mydb`.`поставлені_діагнози`.`Id_Хвороби2`)))
+Where  `mydb`.`клієнти`.`Id_Клієнта` = '" + id + "' Order by `mydb`.`клієнти`.`Id_Клієнта`", connection);
+            DataTable dt = new DataTable();
             temp.Fill(dt);
             viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", dt));
             viewer.RefreshReport();

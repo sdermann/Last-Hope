@@ -186,15 +186,17 @@ namespace LastHope
             MySqlDataAdapter adapter1 = new MySqlDataAdapter(q2, connection);
             adapter1.Fill(table1);
             dataGridView2.DataSource = table1;
+            if (dataGridView2.Rows.Count > 0)
+            {
+                var activeRow = dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex];
 
-            var activeRow = dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex];
+                string q1 = "Select SEC_TO_TIME(AVG(TIME_TO_SEC(timediff(Кінець_сесії,Початок_сесії )))) From сесії where ID_Клієнта2 = (SELECT Id_Клієнта From  Клієнти WHERE Прізвище = '" + activeRow.Cells[0].Value.ToString() + "') AND Результат != 'Запланована' ";
+                DataTable table2 = new DataTable();
+                MySqlDataAdapter adapter2 = new MySqlDataAdapter(q1, connection);
+                adapter2.Fill(table2);
 
-            string q1 = "Select SEC_TO_TIME(AVG(TIME_TO_SEC(timediff(Кінець_сесії,Початок_сесії )))) From сесії where ID_Клієнта2 = (SELECT Id_Клієнта From  Клієнти WHERE Прізвище = '" + activeRow.Cells[0].Value.ToString() + "') AND Результат != 'Запланована' ";
-            DataTable table2 = new DataTable();
-            MySqlDataAdapter adapter2 = new MySqlDataAdapter(q1, connection);
-            adapter2.Fill(table2);
-
-            dataGridView1.DataSource = table2;
+                dataGridView1.DataSource = table2;
+            }
 
         }
     }
