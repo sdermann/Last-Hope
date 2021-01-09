@@ -40,6 +40,28 @@ namespace LastHope
         }
         public void populateShedule()
         {
+
+            string selectQuery = @"(select Id_Розкладу_психолога from розклади_психолога 
+                                    where ID_Психолога2 not in (
+                                    select  distinct ID_Психолога2 from сесії where ID_Психолога2 in (Select ID_Психолога2 from  розклади_психолога where ID_Психолога2 in (Select ID_Психолога2 from сесії ))
+                                    AND ID_Клієнта2 in (Select ID_Клієнта2 from сесії) ))";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, connection);
+            adapter.Fill(table);
+            dataGridView3.DataSource = table;
+            //MessageBox.Show(dataGridView3.Rows.Count.ToString());
+            if(dataGridView3.Rows.Count > 1)
+            {
+                foreach(DataGridViewRow row in dataGridView3.Rows)
+                {
+                    string deleteQuery3 = @"Delete from розклади_психолога
+where Id_Розкладу_психолога = '" + int.Parse(row.Cells[0].Value.ToString()) + "'";
+                    executeMyQuery(deleteQuery3);
+                }
+            }
+            
+
+            
             string selectQuery3 = "select Id_Розкладу_психолога,психологи.Прізвище,  Дата, `Початок_ роботи`, Кінець_роботи From розклади_психолога  left join психологи on ID_Психолога2 = психологи.ID_Психолога; ";
             DataTable table3 = new DataTable();
             MySqlDataAdapter adapter3 = new MySqlDataAdapter(selectQuery3, connection);
@@ -1589,6 +1611,76 @@ WHEN Кінець_роботи = '" + timeEnd + "'  THEN '" + timeBeg + "' ELSE 
                         break;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            DateTime dateTime;
+            DateTime otherDateTime;
+            string date;
+            DateTime dateTime2;
+            DateTime otherDateTime2;
+            string date2;
+
+
+
+            if (AgeUpDown.Text == "До 18")
+            {
+
+                dateTime2 = DateTime.Now;
+                otherDateTime2 = dateTime2.AddDays(0);
+                date2 = otherDateTime2.ToString("yyyy-MM-dd");
+
+                dateTime = DateTime.Now;
+                otherDateTime = dateTime.AddDays(-18 * 365);
+                date = otherDateTime.ToString("yyyy-MM-dd");
+            }
+            else if (AgeUpDown.Text == "Від 18 до 35")
+            {
+
+                dateTime2 = DateTime.Now;
+                otherDateTime2 = dateTime2.AddDays(-18 * 365);
+                date2 = otherDateTime2.ToString("yyyy-MM-dd");
+
+                dateTime = DateTime.Now;
+                otherDateTime = dateTime.AddDays(-35 * 365);
+                date = otherDateTime.ToString("yyyy-MM-dd");
+            }
+            else if (AgeUpDown.Text == "Від 35 до 65")
+            {
+                dateTime2 = DateTime.Now;
+                otherDateTime2 = dateTime2.AddDays(-35 * 365);
+                date2 = otherDateTime2.ToString("yyyy-MM-dd");
+
+                dateTime = DateTime.Now;
+                otherDateTime = dateTime.AddDays(-65 * 365);
+                date = otherDateTime.ToString("yyyy-MM-dd");
+            }
+            else
+            {
+
+
+                dateTime2 = DateTime.Now;
+                otherDateTime2 = dateTime2.AddDays(-65 * 365);
+                date2 = otherDateTime2.ToString("yyyy-MM-dd");
+                //Після 65
+                dateTime = DateTime.Now;
+                otherDateTime = dateTime.AddDays(-100 * 365);
+                date = otherDateTime.ToString("yyyy-MM-dd");
+            }
+
+
+
+
+            string q2 = "SELECT * FROM Клієнти Where Дата_народження >= '" + date + "' AND Дата_народження < '" + date2 + "'";
+            DataTable table3 = new DataTable();
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(q2, connection);
+            adapter3.Fill(table3);
+            dataGridView1.DataSource = table3;
+            SelectFirstRow();
+
         }
     }
 }

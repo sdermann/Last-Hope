@@ -251,10 +251,10 @@ namespace LastHope.DealingWithTables
                 //Longer
                 string selectQuery1 = @" UPDATE розклади_психолога
                 SET     `Початок_ роботи` = CASE
-                                       WHEN `Початок_ роботи` >= '" + timeEnd + "' OR `Початок_ роботи` > '" + timeBeg + "' AND `Початок_ роботи` < '" + timeEnd + "'THEN '" + timeBeg + "'ELSE `Початок_ роботи`END WHERE   ID_Психолога2 = '" + activeRow.Cells[1].Value + "';";
-                string selectQuery2 = @"UPDATE розклади_психолога SET Кінець_роботи = CASE WHEN Кінець_роботи <= '" + timeBeg + "' OR Кінець_роботи > '" + timeBeg + "'  AND Кінець_роботи< '" + timeEnd + "'THEN '" + timeEnd + "'ELSE Кінець_роботи END WHERE   ID_Психолога2 = '"+ activeRow.Cells[1].Value + "';";
+                                       WHEN `Початок_ роботи` >= '" + timeEnd + "' OR `Початок_ роботи` > '" + timeBeg + "' AND `Початок_ роботи` < '" + timeEnd + "'THEN '" + timeBeg + "'ELSE `Початок_ роботи`END WHERE   ID_Психолога2 = '" + activeRow.Cells[1].Value + "';" +
+                                       "UPDATE розклади_психолога SET Кінець_роботи = CASE WHEN Кінець_роботи <= '" + timeBeg + "' OR Кінець_роботи > '" + timeBeg + "'  AND Кінець_роботи< '" + timeEnd + "'THEN '" + timeEnd + "'ELSE Кінець_роботи END WHERE   ID_Психолога2 = '"+ activeRow.Cells[1].Value + "';";
                 executeMyQuery(selectQuery1);
-                executeMyQuery(selectQuery2);
+              
                 this.Close();
             }
             else

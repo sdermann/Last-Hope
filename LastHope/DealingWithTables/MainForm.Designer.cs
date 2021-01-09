@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.mydbDataSet = new LastHope.mydbDataSet();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -81,9 +81,12 @@
             this.SortButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.FiltPanel = new System.Windows.Forms.Panel();
+            this.Heeeey = new System.Windows.Forms.DomainUpDown();
             this.FiltData = new System.Windows.Forms.DomainUpDown();
             this.FiltButton = new System.Windows.Forms.Button();
+            this.FiltLabel = new System.Windows.Forms.Label();
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.FindDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TextSearchBox = new System.Windows.Forms.TextBox();
             this.SearchLabel = new System.Windows.Forms.Label();
             this.ResetButt = new System.Windows.Forms.Button();
@@ -91,12 +94,10 @@
             this.динаміки_лікуванняTableAdapter1 = new LastHope.mydbDataSetTableAdapters.динаміки_лікуванняTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Agepanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.AgeUpDown = new System.Windows.Forms.DomainUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.FindDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.FiltLabel = new System.Windows.Forms.Label();
-            this.Heeeey = new System.Windows.Forms.DomainUpDown();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -116,6 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.Agepanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingSource1
@@ -307,7 +309,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -547,6 +548,23 @@
             this.FiltPanel.Size = new System.Drawing.Size(228, 96);
             this.FiltPanel.TabIndex = 14;
             // 
+            // Heeeey
+            // 
+            this.Heeeey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Heeeey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            this.Heeeey.Font = new System.Drawing.Font("Corbel", 10.2F);
+            this.Heeeey.ForeColor = System.Drawing.Color.SeaShell;
+            this.Heeeey.Items.Add("Психологом");
+            this.Heeeey.Items.Add("Клієнтом");
+            this.Heeeey.Location = new System.Drawing.Point(111, 0);
+            this.Heeeey.Name = "Heeeey";
+            this.Heeeey.ReadOnly = true;
+            this.Heeeey.Size = new System.Drawing.Size(112, 28);
+            this.Heeeey.TabIndex = 42;
+            this.Heeeey.Text = "Психологом";
+            this.Heeeey.Visible = false;
+            this.Heeeey.SelectedItemChanged += new System.EventHandler(this.Heeeey_SelectedItemChanged);
+            // 
             // FiltData
             // 
             this.FiltData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -577,6 +595,19 @@
             this.FiltButton.UseVisualStyleBackColor = false;
             this.FiltButton.Click += new System.EventHandler(this.FiltButton_Click);
             // 
+            // FiltLabel
+            // 
+            this.FiltLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FiltLabel.AutoSize = true;
+            this.FiltLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FiltLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            this.FiltLabel.Location = new System.Drawing.Point(162, 4);
+            this.FiltLabel.Name = "FiltLabel";
+            this.FiltLabel.Size = new System.Drawing.Size(28, 24);
+            this.FiltLabel.TabIndex = 14;
+            this.FiltLabel.Text = "??";
+            this.FiltLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // SearchPanel
             // 
             this.SearchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
@@ -590,6 +621,16 @@
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(220, 96);
             this.SearchPanel.TabIndex = 15;
+            // 
+            // FindDateTimePicker
+            // 
+            this.FindDateTimePicker.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.FindDateTimePicker.Location = new System.Drawing.Point(0, 61);
+            this.FindDateTimePicker.Name = "FindDateTimePicker";
+            this.FindDateTimePicker.Size = new System.Drawing.Size(200, 32);
+            this.FindDateTimePicker.TabIndex = 37;
+            this.FindDateTimePicker.Visible = false;
+            this.FindDateTimePicker.ValueChanged += new System.EventHandler(this.FindDateTimePicker_ValueChanged);
             // 
             // TextSearchBox
             // 
@@ -644,25 +685,25 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SeaShell;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.DataSource = this.bindingSource1;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Corbel", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.Location = new System.Drawing.Point(22, 290);
             this.dataGridView1.MultiSelect = false;
@@ -691,16 +732,34 @@
             // 
             // Agepanel
             // 
+            this.Agepanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Agepanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(185)))), ((int)(((byte)(146)))));
             this.Agepanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Agepanel.Controls.Add(this.button1);
             this.Agepanel.Controls.Add(this.AgeUpDown);
             this.Agepanel.Controls.Add(this.label5);
-            this.Agepanel.Location = new System.Drawing.Point(19, 256);
+            this.Agepanel.Location = new System.Drawing.Point(460, 108);
             this.Agepanel.Name = "Agepanel";
             this.Agepanel.Size = new System.Drawing.Size(228, 96);
             this.Agepanel.TabIndex = 30;
             this.Agepanel.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.Color.SeaShell;
+            this.button1.Location = new System.Drawing.Point(0, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(226, 31);
+            this.button1.TabIndex = 41;
+            this.button1.Text = "Фільтрувати";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AgeUpDown
             // 
@@ -734,61 +793,16 @@
             this.label5.Text = "Оберіть вік:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // FindDateTimePicker
+            // dataGridView3
             // 
-            this.FindDateTimePicker.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.FindDateTimePicker.Location = new System.Drawing.Point(0, 61);
-            this.FindDateTimePicker.Name = "FindDateTimePicker";
-            this.FindDateTimePicker.Size = new System.Drawing.Size(200, 32);
-            this.FindDateTimePicker.TabIndex = 37;
-            this.FindDateTimePicker.Visible = false;
-            this.FindDateTimePicker.ValueChanged += new System.EventHandler(this.FindDateTimePicker_ValueChanged);
-            // 
-            // FiltLabel
-            // 
-            this.FiltLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FiltLabel.AutoSize = true;
-            this.FiltLabel.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FiltLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(19)))), ((int)(((byte)(35)))));
-            this.FiltLabel.Location = new System.Drawing.Point(162, 4);
-            this.FiltLabel.Name = "FiltLabel";
-            this.FiltLabel.Size = new System.Drawing.Size(28, 24);
-            this.FiltLabel.TabIndex = 14;
-            this.FiltLabel.Text = "??";
-            this.FiltLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // Heeeey
-            // 
-            this.Heeeey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Heeeey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
-            this.Heeeey.Font = new System.Drawing.Font("Corbel", 10.2F);
-            this.Heeeey.ForeColor = System.Drawing.Color.SeaShell;
-            this.Heeeey.Items.Add("Психологом");
-            this.Heeeey.Items.Add("Клієнтом");
-            this.Heeeey.Location = new System.Drawing.Point(111, 0);
-            this.Heeeey.Name = "Heeeey";
-            this.Heeeey.ReadOnly = true;
-            this.Heeeey.Size = new System.Drawing.Size(112, 28);
-            this.Heeeey.TabIndex = 42;
-            this.Heeeey.Text = "Психологом";
-            this.Heeeey.Visible = false;
-            this.Heeeey.SelectedItemChanged += new System.EventHandler(this.Heeeey_SelectedItemChanged);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(147)))), ((int)(((byte)(126)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.SeaShell;
-            this.button1.Location = new System.Drawing.Point(0, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(226, 31);
-            this.button1.TabIndex = 41;
-            this.button1.Text = "Фільтрувати";
-            this.button1.UseVisualStyleBackColor = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(294, 268);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(378, 40);
+            this.dataGridView3.TabIndex = 31;
+            this.dataGridView3.Visible = false;
             // 
             // MainForm
             // 
@@ -796,6 +810,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(684, 703);
+            this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.Agepanel);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.ResetButt);
@@ -838,6 +853,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.Agepanel.ResumeLayout(false);
             this.Agepanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -909,5 +925,6 @@
         private System.Windows.Forms.Label FiltLabel;
         private System.Windows.Forms.DomainUpDown Heeeey;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }

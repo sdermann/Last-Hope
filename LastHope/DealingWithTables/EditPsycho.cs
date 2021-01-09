@@ -172,7 +172,7 @@ namespace LastHope.DealingWithTables
 
         private void дата_народженняDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (дата_народженняDateTimePicker.Value > DateTime.Now.AddYears(-14) || дата_народженняDateTimePicker.Value < DateTime.Now.AddYears(-100))
+            if (дата_народженняDateTimePicker.Value > DateTime.Now.AddYears(-18) || дата_народженняDateTimePicker.Value < DateTime.Now.AddYears(-100))
             {
                 дата_народженняDateTimePicker.Value = DateTime.Now;
 
